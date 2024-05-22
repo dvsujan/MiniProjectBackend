@@ -343,3 +343,143 @@
        "status": "string"
      }
      ```
+
+### Payment Endpoints
+1. **Pay Fine**
+   - **URL**: `/api/payments`
+   - **Method**: `POST`
+   - **DTO**:
+     ```json
+     {
+       "userId": "int",
+       "borrowId": "int",
+       "cardId" :"int"
+     }
+     ```
+    - **Response DTO**:
+      ```json
+        {
+            "id": "int",
+            "AmountPaid": "int",
+            "paymentDate": "date"
+        }
+      ```
+2. **Get all user cards**
+   - **URL**: `/api/payments/cards`
+   - **Method**: `GET`
+   - **response DTO**:
+     ```json
+     [
+        {
+            "id": "int",
+            "cardNumber": "string",
+            "expiryDate": "date",
+            "cvv": "int"
+        }
+     ]
+     ```
+3. **Add Card**
+   - **URL**: `/api/payments/cards`
+   - **Method**: `POST`
+   - **DTO**:
+     ```json
+     {
+       "cardNumber": "string",
+       "expiryDate": "date",
+       "cvv": "int"
+     }
+     ```
+    - **Response DTO**:
+      ```json
+        {
+            "id": "int",
+            "cardNumber": "string",
+            "expiryDate": "date",
+            "cvv": "int"
+        }
+      ```
+
+4. **Delete Card**
+5. **URL**: `/api/payments/cards`
+   - **Method**: `DELETE`
+   - **Query Parameters**: `id`
+   - **response DTO**:
+     ```json
+     {
+       "id": "int",
+       "cardNumber": "string",
+       "expiryDate": "date",
+       "cvv": "int"
+     }
+     ```
+6. **Get Payment History**
+   - **URL**: `/api/payments/history`
+   - **Method**: `GET`
+   - **Query Parameters**: `userId`
+   - **response DTO**:
+     ```json
+     [
+        {
+            "id": "int",
+            "AmountPaid": "int",
+            "paymentDate": "date"
+        }
+     ]
+     ```
+
+### Review Endpoints
+
+1. **Add Review**
+   - **URL**: `/api/reviews`
+   - **Method**: `POST`
+   - **DTO**:
+     ```json
+     {
+       "userId": "int",
+       "bookId": "int",
+       "rating": "int",
+       "comment": "string"
+     }
+     ```
+    - **Response DTO**:
+      ```json
+        {
+            "id": "int",
+            "userId": "int",
+            "bookId": "int",
+            "rating": "int",
+            "comment": "string"
+        }
+      ```
+2. **Get Reviews By User**
+   - **URL**: `/api/reviews/user`
+   - **Method**: `GET`
+   - **Query Parameters**: `userId`
+   - **response DTO**:
+     ```json
+     [
+        {
+            "id": "int",
+            "userId": "int",
+            "bookId": "int",
+            "rating": "int",
+            "comment": "string"
+        }
+     ]
+     ```
+3. **Get Reviews By Book** 
+   - **URL**: `/api/reviews/book`
+   - **Method**: `GET`
+   - **Query Parameters**: `bookId`
+   - **response DTO**:
+     ```json
+     [
+        {
+            "id": "int",
+            "userId": "int",
+            "bookId": "int",
+            "rating": "int",
+            "comment": "string"
+        }
+     ]
+     ```
