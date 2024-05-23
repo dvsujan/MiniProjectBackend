@@ -7,7 +7,8 @@ namespace LibraryManagemetApi.Models
         [Key]
         public int Id { get; set; }
         public string Username { get; set; }
-        public string HashedPassword { get; set; }
+        public byte[] Password { get; set; }
+        public byte[] HashKey { get; set; }
         public string Email { get; set; }
         public bool Active { get; set; }
         public int RoleId { get; set; }
