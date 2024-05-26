@@ -14,7 +14,7 @@ namespace LibraryManagemetApi.Repositories
 
         public async Task<User> GetUserByEmail(string email)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+            var user = await _dbSet.FirstOrDefaultAsync(u => u.Email == email);
             if (user == null)
             {
                 throw new EntityNotFoundException();

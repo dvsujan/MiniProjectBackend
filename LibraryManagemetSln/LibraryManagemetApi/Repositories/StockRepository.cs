@@ -8,7 +8,7 @@ namespace LibraryManagemetApi.Repositories
         private readonly LibraryManagementContext _context;
         public StockRepository(LibraryManagementContext context) : base(context)
         {
-
+        
         }
     }
 }
