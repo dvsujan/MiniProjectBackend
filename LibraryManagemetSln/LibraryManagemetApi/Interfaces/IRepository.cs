@@ -1,6 +1,6 @@
 ﻿namespace LibraryManagemetApi.Interfaces
 {
-    public interface IRepository<K, T> where T:class
+    public interface IRepository<K, T> where T : class
     {
         Task<IEnumerable<T>> Get();
         Task<T> GetOneById(K id);

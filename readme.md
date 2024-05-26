@@ -7,10 +7,10 @@ Develop a REST based Api for library management system to automate the process o
 - [x]  Requirments
 - [x]  Endpoints Required
 - [x]  Entity Relationship Diagram
-- [ ]  Database Design
-- [ ]  Create Api Project
-- [ ]  Create Required Models in c# 
-- [ ]  Create Required Repositories 
+- [x]  Database Design
+- [x]  Create Api Project
+- [x]  Create Required Models in c# 
+- [x]  Create Required Repositories 
 - [ ]  Create Required Services
 - [ ]  Create Required Controllers
 - [ ]  Create Required DTOs

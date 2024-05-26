@@ -41,6 +41,20 @@ namespace LibraryManagemetApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Authors");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Language = "English",
+                            Name = "J.K. Rowling"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Language = "English",
+                            Name = "George Orwell"
+                        });
                 });
 
             modelBuilder.Entity("LibraryManagemetApi.Models.Book", b =>
@@ -175,6 +189,18 @@ namespace LibraryManagemetApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Science Fiction"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Fantasy"
+                        });
                 });
 
             modelBuilder.Entity("LibraryManagemetApi.Models.Location", b =>
@@ -194,6 +220,20 @@ namespace LibraryManagemetApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Locations");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Floor = 1,
+                            Shelf = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Floor = 1,
+                            Shelf = 2
+                        });
                 });
 
             modelBuilder.Entity("LibraryManagemetApi.Models.Payment", b =>
@@ -248,6 +288,18 @@ namespace LibraryManagemetApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Publishers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Penguin"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "HarperCollins"
+                        });
                 });
 
             modelBuilder.Entity("LibraryManagemetApi.Models.Reservation", b =>
@@ -321,6 +373,18 @@ namespace LibraryManagemetApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Roles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "User"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Admin"
+                        });
                 });
 
             modelBuilder.Entity("LibraryManagemetApi.Models.Stock", b =>

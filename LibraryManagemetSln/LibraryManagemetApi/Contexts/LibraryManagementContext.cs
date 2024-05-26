@@ -25,6 +25,11 @@ namespace LibraryManagemetApi.Contexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Role>().HasData(new Role { Id = 1, Name = "User" },new Role { Id = 2, Name = "Admin" });
+            modelBuilder.Entity<Location>().HasData(new Location { Id = 1, Floor=1, Shelf=1 },new Location { Id = 2, Floor=1 , Shelf=2 });
+            modelBuilder.Entity<Category>().HasData(new Category { Id = 1, Name="Science Fiction" },new Category { Id = 2, Name="Fantasy" });
+            modelBuilder.Entity<Publisher>().HasData(new Publisher { Id = 1, Name="Penguin" },new Publisher { Id = 2, Name="HarperCollins" });
+            modelBuilder.Entity<Author>().HasData(new Author { Id = 1, Name="J.K. Rowling", Language="English" },new Author { Id = 2, Name="George Orwell", Language="English" });
             modelBuilder.Entity<User>()
                 .HasOne(u => u.Role)
                 .WithMany()

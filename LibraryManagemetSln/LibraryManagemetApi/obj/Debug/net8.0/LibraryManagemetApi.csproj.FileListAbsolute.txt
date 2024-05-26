@@ -135,3 +135,6 @@ C:\Users\VC\Desktop\MiniProjectLibraryManagement\LibraryManagemetSln\LibraryMana
 C:\Users\VC\Desktop\MiniProjectLibraryManagement\LibraryManagemetSln\LibraryManagemetApi\obj\Debug\net8.0\LibraryManagemetApi.pdb
 C:\Users\VC\Desktop\MiniProjectLibraryManagement\LibraryManagemetSln\LibraryManagemetApi\obj\Debug\net8.0\LibraryManagemetApi.genruntimeconfig.cache
 C:\Users\VC\Desktop\MiniProjectLibraryManagement\LibraryManagemetSln\LibraryManagemetApi\obj\Debug\net8.0\ref\LibraryManagemetApi.dll
+C:\Users\VC\Desktop\MiniProjectLibraryManagement\LibraryManagemetSln\LibraryManagemetApi\bin\Debug\net8.0\JWT.dll
+C:\Users\VC\Desktop\MiniProjectLibraryManagement\LibraryManagemetSln\LibraryManagemetApi\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\VC\Desktop\MiniProjectLibraryManagement\LibraryManagemetSln\LibraryManagemetApi\bin\Debug\net8.0\Newtonsoft.Json.dll
