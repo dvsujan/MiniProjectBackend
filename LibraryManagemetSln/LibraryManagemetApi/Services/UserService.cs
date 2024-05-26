@@ -72,12 +72,27 @@ namespace LibraryManagemetApi.Services
             }
             return true;
         }
-
+        private async Task<bool> isUserExists(string email)
+        {
+            try
+            {
+                var user = await ((UserRepository)_userRepository).GetUserByEmail(email);
+                return true;
+            }
+            catch (EntityNotFoundException)
+            {
+                return false;
+            }
+        }
         public async Task<RegisterReturnDTO> Register(userRegisterDTO user)
         {
             User userReg = null;
             try
             {
+                if (await isUserExists(user.Email))
+                {
+                    throw new UserAlreadyExistsException();
+                }
                 userReg = new User
                 {
                     Email = user.Email,
@@ -100,6 +115,11 @@ namespace LibraryManagemetApi.Services
             {
                 throw new EntityNotFoundException();
             }
+            catch (UserAlreadyExistsException)
+            {
+                throw new UserAlreadyExistsException();
+            }
+
             catch (Exception e)
             {
                 if (userReg != null)

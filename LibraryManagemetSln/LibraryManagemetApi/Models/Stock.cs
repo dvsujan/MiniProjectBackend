@@ -9,7 +9,6 @@ namespace LibraryManagemetApi.Models
         public int BookId { get; set; }
         public int Quantity { get; set; }
 
-        // Navigation properties
         public Book Book { get; set; }
     }
 }

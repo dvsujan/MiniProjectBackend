@@ -21,7 +21,7 @@ namespace LibraryManagemetApi.Services
             string token = string.Empty;
             var claims = new List<Claim>(){
                 new Claim("UserId",user.Id.ToString()),
-                new Claim("Email",user.Email),
+                new Claim(ClaimTypes.Role,user.RoleId.ToString())
             };
             var credentials = new SigningCredentials(_key, SecurityAlgorithms.HmacSha256);
             var myToken = new JwtSecurityToken(null, null, claims, expires: DateTime.Now.AddDays(2), signingCredentials: credentials);

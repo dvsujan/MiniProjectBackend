@@ -7,6 +7,7 @@ using LibraryManagemetApi.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using System.Text;
 
 namespace LibraryManagemetApi
@@ -29,6 +30,32 @@ namespace LibraryManagemetApi
                       IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["TokenKey:JWT"]))
                   };
               });
+            builder.Services.AddSwaggerGen(option =>
+            {
+                option.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Description = "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 1safsfsdfdfd\"",
+                });
+                option.AddSecurityRequirement(new OpenApiSecurityRequirement
+            {
+                {
+                    new OpenApiSecurityScheme
+                    {
+                        Reference = new OpenApiReference
+                        {
+                            Type = ReferenceType.SecurityScheme,
+                            Id = "Bearer"
+                        }
+                    },
+                    new string[] { }
+                }
+            });
+            });
 
             #region database_connection
             builder.Services.AddDbContext<LibraryManagementContext>(options =>
@@ -44,17 +71,19 @@ namespace LibraryManagemetApi
             builder.Services.AddScoped<IRepository<int, Author>, AuthorRepository>();
             builder.Services.AddScoped<IRepository<int, Category>, CategoryRepository>();
             builder.Services.AddScoped<IRepository<int, Publisher>, PublisherRepository>();
-            builder.Services.AddScoped<IRepository<int , Publisher>, PublisherRepository>();
+            builder.Services.AddScoped<IRepository<int, Publisher>, PublisherRepository>();
             builder.Services.AddScoped<IRepository<int, Review>, ReviewRepository>();
             builder.Services.AddScoped<IRepository<int, Stock>, StockRepository>();
-            builder.Services.AddScoped<IRepository<int , Location>, LocationRepository>();
+            builder.Services.AddScoped<IRepository<int, Location>, LocationRepository>();
             builder.Services.AddScoped<IRepository<int, Borrowed>, BorrowedRepository>();
             builder.Services.AddScoped<IRepository<int, Reservation>, ReservationRepository>();
             builder.Services.AddScoped<IRepository<int, Payment>, PaymentRepository>();
             #endregion
 
             #region services
+            builder.Services.AddScoped<ITokenService, TokenService>();
             builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<IBookService, BookService>();
             #endregion
 
             builder.Services.AddControllers();

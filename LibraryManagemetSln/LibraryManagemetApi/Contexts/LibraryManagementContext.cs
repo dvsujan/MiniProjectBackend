@@ -1,5 +1,6 @@
 ﻿using LibraryManagemetApi.Models;
 using Microsoft.EntityFrameworkCore;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace LibraryManagemetApi.Contexts
 {
@@ -54,7 +55,7 @@ namespace LibraryManagemetApi.Contexts
                 .HasOne(b => b.Location)
                 .WithMany()
                 .HasForeignKey(b => b.LocationId);
-
+           
             modelBuilder.Entity<Review>()
                 .HasOne(r => r.User)
                 .WithMany()
@@ -64,12 +65,7 @@ namespace LibraryManagemetApi.Contexts
                 .HasOne(r => r.Book)
                 .WithMany()
                 .HasForeignKey(r => r.BookId);
-            
-            modelBuilder.Entity<Stock>()
-                .HasOne(s => s.Book)
-                .WithMany()
-                .HasForeignKey(s => s.BookId);
-            
+     
             modelBuilder.Entity<Borrowed>()
                 .HasOne(b => b.User)
                 .WithMany()
