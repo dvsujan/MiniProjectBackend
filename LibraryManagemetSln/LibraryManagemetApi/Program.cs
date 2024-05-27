@@ -30,6 +30,7 @@ namespace LibraryManagemetApi
                       IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["TokenKey:JWT"]))
                   };
               });
+
             builder.Services.AddSwaggerGen(option =>
             {
                 option.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
@@ -78,12 +79,17 @@ namespace LibraryManagemetApi
             builder.Services.AddScoped<IRepository<int, Borrowed>, BorrowedRepository>();
             builder.Services.AddScoped<IRepository<int, Reservation>, ReservationRepository>();
             builder.Services.AddScoped<IRepository<int, Payment>, PaymentRepository>();
+            builder.Services.AddScoped<IRepository<int, Card>, CardRepository>();
             #endregion
 
             #region services
             builder.Services.AddScoped<ITokenService, TokenService>();
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<IBookService, BookService>();
+            builder.Services.AddScoped<IborrowService, BorrowService>();
+            builder.Services.AddScoped<IReviewService, ReviewService>();
+            builder.Services.AddScoped<IReservationService, ReservationService>();
+            builder.Services.AddScoped<IPaymentService, PaymentService>();
             #endregion
 
             builder.Services.AddControllers();

@@ -6,8 +6,9 @@ namespace LibraryManagemetApi.Interfaces
     {
         Task<BorrowReturnDTO> BorrowBook(BorrowDTO borrow);
         Task<ReturnReturnDTO> ReturnBook(ReturnDTO returnDTO);
-        Task<GetBorrowedBooksDTO> GetBorrowedBooks(string email);
+        Task<IEnumerable<BorrowReturnDTO>> GetBorrowedBooks(int UserId);
         Task<BorrowReturnDTO> renewBook(int userId, int BorrowId);
         Task<IEnumerable<BorrowReturnDTO>> GetDueBookeByUser(int userId);
+        Task<BorrowReturnDTO> BorrowReservedBook(int userId, int bookId);
     }
 }

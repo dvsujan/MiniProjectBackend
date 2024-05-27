@@ -15,8 +15,9 @@ namespace LibraryManagemetApi.Services
         IRepository<int, Category> _categoryRepository;
         IRepository<int, Location> _locationRepository; 
         IRepository<int , Stock> _stockRepository;
-
-        public BookService(IRepository<int, Book> bookRepository, IRepository<int, Author> authorRepository, IRepository<int, Publisher> publisherRepository, IRepository<int, Category> categoryRepository, IRepository<int, Location> locationRepository, IRepository<int, Stock> stockRepository)
+        IRepository<int, Review> _reviewRepository; 
+        
+        public BookService(IRepository<int, Book> bookRepository, IRepository<int, Author> authorRepository, IRepository<int, Publisher> publisherRepository, IRepository<int, Category> categoryRepository, IRepository<int, Location> locationRepository, IRepository<int, Stock> stockRepository, IRepository<int , Review> reviewRepository)
         {
             _bookRepository = bookRepository;
             _authorRepository = authorRepository;
@@ -24,7 +25,9 @@ namespace LibraryManagemetApi.Services
             _categoryRepository = categoryRepository;
             _locationRepository = locationRepository;
             _stockRepository = stockRepository;
+            _reviewRepository = reviewRepository;
         }
+        
         private async Task<int> CreateAuthorfNotExists(string authorName)
         {
             try
@@ -41,8 +44,8 @@ namespace LibraryManagemetApi.Services
                 await _authorRepository.Insert(author);
                 return author.Id;
             }
-
         }
+
         private async Task<int> CreateCategoryIfNotExists(string categoryName)
         {
             try
@@ -60,6 +63,7 @@ namespace LibraryManagemetApi.Services
                 return category.Id;
             }
         }
+
         private async Task<int> createPublisherIfNotExists(string publisherName)
         {
             try
@@ -77,6 +81,7 @@ namespace LibraryManagemetApi.Services
                 return publisher.Id;
             }
         }
+
         public async Task<ReturnBookDTO> AddBook(AddBookDTO dto)
         {
             Book book; 
@@ -118,7 +123,7 @@ namespace LibraryManagemetApi.Services
                 throw e;
             }
         }
-
+        
         public async Task<ReturnBookDTO> DeleteBook(int id)
         {
             try
@@ -158,12 +163,16 @@ namespace LibraryManagemetApi.Services
                 {
                     var stock = await ((StockRepository)_stockRepository).GetStockByBookId(book.Id);
                     var category = await _categoryRepository.GetOneById(book.CategoryId);
+                    var avgRating = await ((ReviewRepository)_reviewRepository).GetAvgRatingOfBookId(book.Id);
+                    var noOfReviews = await ((ReviewRepository)_reviewRepository).GetNoOfRatingsOfBookId(book.Id);
                     returnBooks.Add(new ReturnBookDTO
                     {
                         BookId = book.Id,
                         Title = book.Title,
                         Category = category.Name,
-                        Quantity = stock.Quantity
+                        Quantity = stock.Quantity,
+                        rating = avgRating,
+                        noOfRatings = noOfReviews
                     });
                 }
                 return returnBooks;
@@ -173,7 +182,7 @@ namespace LibraryManagemetApi.Services
                 throw new Exception(e.Message);
             }
         }
-
+        
         public async Task<ReturnBookDTO> GetBook(int id)
         {
             try
@@ -181,12 +190,16 @@ namespace LibraryManagemetApi.Services
                 var book = await _bookRepository.GetOneById(id);
                 var stock = await ((StockRepository)_stockRepository).GetStockByBookId(id);
                 var category = await _categoryRepository.GetOneById(book.CategoryId);
+                var avgRating = await ((ReviewRepository)_reviewRepository).GetAvgRatingOfBookId(id);
+                var noOfReviews = await ((ReviewRepository)_reviewRepository).GetNoOfRatingsOfBookId(id);
                 return new ReturnBookDTO
                 {
                     BookId = book.Id,
                     Title = book.Title,
                     Category = category.Name,
-                    Quantity = stock.Quantity
+                    Quantity = stock.Quantity,
+                    rating = avgRating,
+                    noOfRatings = noOfReviews
                 };
             }
             catch (EntityNotFoundException)
@@ -198,7 +211,7 @@ namespace LibraryManagemetApi.Services
                 throw new Exception(e.Message);
             }
         }
-
+        
         public async Task<IEnumerable<ReturnBookDTO>> SearchBookByTitle(string title)
         {
             try
@@ -209,12 +222,16 @@ namespace LibraryManagemetApi.Services
                 {
                     var stock = await ((StockRepository)_stockRepository).GetStockByBookId(book.Id);
                     var category = await _categoryRepository.GetOneById(book.CategoryId);
+                    var avgRating = await ((ReviewRepository)_reviewRepository).GetAvgRatingOfBookId(book.Id);
+                    var noOfReviews = await ((ReviewRepository)_reviewRepository).GetNoOfRatingsOfBookId(book.Id);
                     returnBooks.Add(new ReturnBookDTO
                     {
                         BookId = book.Id,
                         Title = book.Title,
                         Category = category.Name,
-                        Quantity = stock.Quantity
+                        Quantity = stock.Quantity,
+                        rating = avgRating,
+                        noOfRatings = noOfReviews
                     });
                 }
                 return returnBooks;
@@ -228,7 +245,6 @@ namespace LibraryManagemetApi.Services
                 throw new Exception(e.Message);
             }
         }
-
         public async Task<ReturnBookDTO> UpdateBook(UpdateBookDTO dto)
         {
             try

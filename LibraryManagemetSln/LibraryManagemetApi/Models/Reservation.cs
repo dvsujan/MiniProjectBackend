@@ -9,7 +9,6 @@ namespace LibraryManagemetApi.Models
         public int UserId { get; set; }
         public int BookId { get; set; }
         public DateTime ReservationDate { get; set; } = System.DateTime.Now;
-        public string Status { get; set; }
 
         public User User { get; set; }
         public Book Book { get; set; }

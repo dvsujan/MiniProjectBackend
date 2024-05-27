@@ -10,6 +10,8 @@ namespace LibraryManagemetApi.Models
         public int BookId { get; set; }
         public float Rating { get; set; }
 
+        public string Comment { get; set; } = string.Empty; 
+
         public User User { get; set; }
         public Book Book { get; set; }
     }

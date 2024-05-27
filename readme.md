@@ -11,10 +11,13 @@ Develop a REST based Api for library management system to automate the process o
 - [x]  Create Api Project
 - [x]  Create Required Models in c# 
 - [x]  Create Required Repositories 
-- [ ]  Create Required Services
-- [ ]  Create Required Controllers
-- [ ]  Create Required DTOs
-- [ ]  Validations
-- [ ]  Add Authentication
+- [x]  Create Required Services
+- [x]  Create Required Controllers
+- [x]  Create Required DTOs
+- [x]  Add Authentication
+- [x]  Validations
 - [ ]  Add Authorization
+- [ ]  Logging
+- [ ]  Test the Repositories 
+- [ ]  Test the Business Logic 
 - [ ]  Test the Api 

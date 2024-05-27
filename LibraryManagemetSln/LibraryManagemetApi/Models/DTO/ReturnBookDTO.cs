@@ -10,5 +10,7 @@ namespace LibraryManagemetApi.Models.DTO
         public DateTime publishedDate { get; set; }
         public string Category { get; set;  }
         public int Quantity { get; set;  }
+        public float rating { get; set; } = 0;
+        public int noOfRatings { get; set; } = 0; 
     }
 }

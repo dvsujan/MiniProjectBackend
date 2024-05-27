@@ -127,7 +127,7 @@ namespace LibraryManagemetApi.Migrations
                     b.Property<decimal>("Fine")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("PaymentId")
+                    b.Property<int?>("PaymentId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("ReturnDate")
@@ -316,10 +316,6 @@ namespace LibraryManagemetApi.Migrations
                     b.Property<DateTime>("ReservationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
@@ -342,6 +338,10 @@ namespace LibraryManagemetApi.Migrations
 
                     b.Property<int>("BookId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<float>("Rating")
                         .HasColumnType("real");
@@ -504,9 +504,7 @@ namespace LibraryManagemetApi.Migrations
 
                     b.HasOne("LibraryManagemetApi.Models.Payment", "Payment")
                         .WithMany()
-                        .HasForeignKey("PaymentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PaymentId");
 
                     b.HasOne("LibraryManagemetApi.Models.User", "User")
                         .WithMany()
