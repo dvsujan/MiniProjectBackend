@@ -2,5 +2,7 @@
 {
     public class ReturnAnalyticsDTO
     {
+        public int BooksBorrowed { get; set; }
+        public int BooksReturned { get; set; }
     }
 }

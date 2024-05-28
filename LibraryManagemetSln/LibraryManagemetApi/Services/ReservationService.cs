@@ -23,11 +23,15 @@ namespace LibraryManagemetApi.Services
             _borrowrepository = borrowedRepository;
         }
 
-        public async Task<ReservationReturnDTO> CancelReservation(int  reservationId)
+        public async Task<ReservationReturnDTO> CancelReservation(int  reservationId, int userId)
         {
             try
             {
                 var reservationSave = await _reservationRepository.GetOneById(reservationId);
+                if (reservationSave.UserId != userId)
+                {
+                    throw new ForbiddenUserException();
+                }
                 await _reservationRepository.Delete(reservationSave.Id);
                 var stock = await ((StockRepository)_stockRepository).GetStockByBookId(reservationSave.BookId);
                 stock.Quantity++;
@@ -94,7 +98,7 @@ namespace LibraryManagemetApi.Services
             var borrowedBook = borrowed.FirstOrDefault(b => b.BookId == BookId && b.UserId == userId);
             if (borrowedBook != null)
             {
-                await CancelReservation(reservationId);
+                await CancelReservation(reservationId, userId);
             }
         }
     }

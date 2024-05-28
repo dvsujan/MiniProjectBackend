@@ -1,6 +1,7 @@
 ﻿using LibraryManagemetApi.Exceptions;
 using LibraryManagemetApi.Interfaces;
 using LibraryManagemetApi.Models.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,8 +19,14 @@ namespace LibraryManagemetApi.Controllers
 
         [HttpPost]
         [Route("borrow")]
+        [Authorize]
         public async Task<ActionResult<BorrowReturnDTO>> BorrowBook(BorrowDTO borrow)
         {
+            var userIdLogged = int.Parse(User.FindFirst("UserId").Value);
+            if (borrow.UserId != userIdLogged)
+            {
+                return StatusCode(StatusCodes.Status403Forbidden);
+            }
             if (!ModelState.IsValid)
             {
                 return BadRequest();
@@ -33,16 +40,36 @@ namespace LibraryManagemetApi.Controllers
             {
                 return NotFound(borrow);
             }
+            catch (BookOutOfStockException)
+            {
+                return StatusCode(StatusCodes.Status410Gone);
+            }
+            catch (BookAlreadyReservedException)
+            {
+                return StatusCode(StatusCodes.Status409Conflict);
+            }
+            catch (BookAlreadyBorrowedException)
+            {
+                return StatusCode(StatusCodes.Status409Conflict);
+            }
             catch (Exception e)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
+            
         }
 
         [HttpGet]
         [Route("borrowed")]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<BorrowReturnDTO>>> GetBorrowedBooks(int userId)
         {
+            var userIdLogged = int.Parse(User.FindFirst("UserId").Value);
+            if (userId != userIdLogged)
+            {
+                return StatusCode(StatusCodes.Status403Forbidden);
+            }
+
             try
             {
                 var borrowedBooks = await _borrowService.GetBorrowedBooks(userId);
@@ -60,8 +87,15 @@ namespace LibraryManagemetApi.Controllers
 
         [HttpPost]
         [Route("return")]
+        [Authorize]
         public async Task<ActionResult<ReturnReturnDTO>> ReturnBook(ReturnDTO returnDTO)
         {
+            var userIdLogged = int.Parse(User.FindFirst("UserId").Value);
+            if (returnDTO.UserId != userIdLogged)
+            {
+                return StatusCode(StatusCodes.Status403Forbidden);
+            }
+
             if (!ModelState.IsValid)
             {
                 return BadRequest();
@@ -75,6 +109,14 @@ namespace LibraryManagemetApi.Controllers
             {
                 return NotFound(returnDTO);
             }
+            catch (BookNotBorrowedException)
+            {
+                return StatusCode(StatusCodes.Status409Conflict);
+            }
+            catch (BookOverDueException)
+            {
+                return StatusCode(StatusCodes.Status402PaymentRequired);
+            }
             catch (Exception e)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError);
@@ -83,8 +125,14 @@ namespace LibraryManagemetApi.Controllers
 
         [HttpPost]
         [Route("renew")]
+        [Authorize]
         public async Task<ActionResult<BorrowReturnDTO>> RenewBook(int userId, int BookId)
         {
+            var userIdLogged = int.Parse(User.FindFirst("UserId").Value);
+            if (userId != userIdLogged)
+            {
+                return StatusCode(StatusCodes.Status403Forbidden);
+            }
             try
             {
                 var renewedBook = await _borrowService.renewBook(userId, BookId);
@@ -94,15 +142,26 @@ namespace LibraryManagemetApi.Controllers
             {
                 return NotFound(userId);
             }
+            catch (BookNotBorrowedException)
+            {
+                return StatusCode(StatusCodes.Status409Conflict);
+            }
             catch (Exception e)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
+
         [HttpPost]
         [Route("due")]
         public async Task<ActionResult<IEnumerable<BorrowReturnDTO>>> GetDueBooksByUser(int userId)
         {
+            var userIdLogged = int.Parse(User.FindFirst("UserId").Value);
+            if (userId != userIdLogged)
+            {
+                return StatusCode(StatusCodes.Status403Forbidden);
+            }
+
             try
             {
                 var dueBooks = await _borrowService.GetDueBookeByUser(userId);
@@ -117,10 +176,16 @@ namespace LibraryManagemetApi.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
+
         [HttpPost]
         [Route("reserved")]
         public async Task<ActionResult<BorrowReturnDTO>> BorrowReservedBook(int userId, int bookId)
         {
+            var userIdLogged = int.Parse(User.FindFirst("UserId").Value);
+            if (userId != userIdLogged)
+            {
+                return StatusCode(StatusCodes.Status403Forbidden);
+            }
             try
             {
                 var reservedBook = await _borrowService.BorrowReservedBook(userId, bookId);
@@ -129,6 +194,10 @@ namespace LibraryManagemetApi.Controllers
             catch (EntityNotFoundException)
             {
                 return NotFound(userId);
+            }
+            catch (BookNotReservedException)
+            {
+                return StatusCode(StatusCodes.Status409Conflict);
             }
             catch (Exception e)
             {

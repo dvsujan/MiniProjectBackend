@@ -8,12 +8,9 @@ namespace LibraryManagemetApi.Models.DTO
         
         [MinLength(14)]
         [MaxLength(16)]
-        public int CardNumber { get; set; }
+        public string CardNumber { get; set; }
 
         public DateTime ExpiryDate { get; set; } = DateTime.Now;
-        
-        [MinLength(3)]
-        [MaxLength(3)]
         public int CVV { get; set; }
     }
 }

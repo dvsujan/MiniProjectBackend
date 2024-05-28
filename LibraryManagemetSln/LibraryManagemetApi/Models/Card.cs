@@ -7,7 +7,7 @@ namespace LibraryManagemetApi.Models
         [Key]
         public int Id { get; set; }
         public int UserId { get; set; }
-        public int CardNumber { get; set; }
+        public string CardNumber { get; set; }
         public DateTime ExpDate { get; set; }
         public int CVV { get; set; }
 

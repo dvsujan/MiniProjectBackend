@@ -1,6 +1,8 @@
 ﻿using LibraryManagemetApi.Exceptions;
 using LibraryManagemetApi.Interfaces;
+using LibraryManagemetApi.Models;
 using LibraryManagemetApi.Models.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,13 +17,15 @@ namespace LibraryManagemetApi.Controllers
         {
             _bookService = bookService;
         }
+
         [HttpGet]
         [Route("all")]
-        public async Task<ActionResult<IEnumerable<ReturnBookDTO>>> GetAllBooks()
+        [Authorize]
+        public async Task<ActionResult<IEnumerable<ReturnBookDTO>>> GetAllBooks(int page=1 , int limit = 10)
         {
             try
             {
-                var books = await _bookService.GetAllBooks();
+                var books = await _bookService.GetAllBooks(page , limit);
                 return Ok(books);
             }
             catch (Exception e)
@@ -31,6 +35,7 @@ namespace LibraryManagemetApi.Controllers
         }
         [HttpPost]
         [Route("add")]
+        [Authorize(Roles="2")]
         public async Task<ActionResult<ReturnBookDTO>> AddBook(AddBookDTO book)
         {
             if (!ModelState.IsValid)
@@ -46,6 +51,10 @@ namespace LibraryManagemetApi.Controllers
             {
                 return NotFound(book);
             }
+            catch (BookAlreadyBorrowedException)
+            {
+                return StatusCode(StatusCodes.Status409Conflict); 
+            }
             catch (Exception e)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError);
@@ -53,6 +62,7 @@ namespace LibraryManagemetApi.Controllers
         }
         [HttpPut]
         [Route("update")]
+        [Authorize(Roles="2")]
         public async Task<ActionResult<ReturnBookDTO>> UpdateBook(UpdateBookDTO book)
         {
             if (!ModelState.IsValid)
@@ -75,6 +85,7 @@ namespace LibraryManagemetApi.Controllers
         }
         [HttpDelete]
         [Route("delete")]
+        [Authorize(Roles="2")]
         public async Task<ActionResult<ReturnBookDTO>> DeleteBook(int id)
         {
             try
@@ -91,8 +102,57 @@ namespace LibraryManagemetApi.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
+        [HttpPost]
+        [Route("editAuthor")]
+        [Authorize(Roles="2")]
+        public async Task<ActionResult<ReturnEditAuthorDTO>> EditAuthor(EditAuthorDTO editAuthor)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+            try
+            {
+                var editedBook = await _bookService.EditAuthor(editAuthor);
+                return Ok(editedBook);
+            }
+            catch (EntityNotFoundException)
+            {
+                return NotFound(editAuthor);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
+        [HttpPost]
+        [Route("editPublisher")]
+        [Authorize(Roles="2")]
+        public async Task<ActionResult<ReturnEditpublicationDTO>> EditPublisher(EditpublicationDTO editPublisher)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+            try
+            {
+                var editedBook = await _bookService.EditPublication(editPublisher);
+                return Ok(editedBook);
+            }
+            catch (EntityNotFoundException)
+            {
+                return NotFound(editPublisher);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }   
+
         [HttpGet]
         [Route("search")]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<ReturnBookDTO>>> SearchBookByTitle(string title)
         {
             try
@@ -111,6 +171,7 @@ namespace LibraryManagemetApi.Controllers
         }
         [HttpGet]
         [Route("get")]
+        [Authorize]
         public async Task<ActionResult<ReturnBookDTO>> GetBook(int id)
         {
             try

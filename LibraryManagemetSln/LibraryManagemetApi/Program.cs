@@ -90,6 +90,7 @@ namespace LibraryManagemetApi
             builder.Services.AddScoped<IReviewService, ReviewService>();
             builder.Services.AddScoped<IReservationService, ReservationService>();
             builder.Services.AddScoped<IPaymentService, PaymentService>();
+            builder.Services.AddScoped<IAnalyticsService, AnaylticsService>();
             #endregion
 
             builder.Services.AddControllers();

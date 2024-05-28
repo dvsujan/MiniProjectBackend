@@ -2,5 +2,6 @@
 {
     public class ReturnODAnalyticsDTO
     {
+        public int BooksOverdue { get; set; }
     }
 }

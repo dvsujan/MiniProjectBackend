@@ -1,5 +1,7 @@
-﻿using LibraryManagemetApi.Interfaces;
+﻿using LibraryManagemetApi.Exceptions;
+using LibraryManagemetApi.Interfaces;
 using LibraryManagemetApi.Models.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,10 +16,17 @@ namespace LibraryManagemetApi.Controllers
         {
             _paymentService = paymentService;
         }
+        
         [HttpPost]
         [Route("addcard")]
+        [Authorize]
         public async Task<ActionResult<ResponseCardDTO>> AddCard(AddCardDTO card)
         {
+            var userId = int.Parse(User.FindFirst("UserId").Value);
+            if(userId != card.UserId)
+            {
+                return StatusCode(StatusCodes.Status403Forbidden);
+            }
             if (!ModelState.IsValid)
             {
                 return BadRequest();
@@ -32,14 +41,20 @@ namespace LibraryManagemetApi.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
+        
         [HttpDelete]
         [Route("deletecard")]
-        public async Task<ActionResult<ResponseCardDTO>> DeleteCard(int cardId)
+        [Authorize]
+        public async Task<ActionResult<ResponseCardDTO>> DeleteCard(int cardId, int userId)
         {
             try
             {
-                var deletedCard = await _paymentService.DeleteCard(cardId);
+                var deletedCard = await _paymentService.DeleteCard(cardId, userId);
                 return Ok(deletedCard);
+            }
+            catch (ForbiddenUserException)
+            {
+                return StatusCode(StatusCodes.Status403Forbidden);
             }
             catch (Exception e)
             {
@@ -49,10 +64,17 @@ namespace LibraryManagemetApi.Controllers
 
         [HttpGet]
         [Route("cards")]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<ResponseCardDTO>>> GetCards(int userId)
         {
+            var userIdLogged = int.Parse(User.FindFirst("UserId").Value);
+            if (userId != userIdLogged)
+            {
+                return StatusCode(StatusCodes.Status403Forbidden);
+            }
             try
             {
+
                 var cards = await _paymentService.GetAllUserCards(userId);
                 return Ok(cards);
             }
@@ -63,9 +85,15 @@ namespace LibraryManagemetApi.Controllers
         }
 
         [HttpPost]
-        [Route("pay")]
+        [Route("payFine")]
+        [Authorize]
         public async Task<ActionResult<PaymentReturnDTO>> Pay(PaymentDTO payment)
         {
+            var userId = int.Parse(User.FindFirst("UserId").Value);
+            if (userId != payment.UserId)
+            {
+                return StatusCode(StatusCodes.Status403Forbidden);
+            }
             if (!ModelState.IsValid)
             {
                 return BadRequest();
@@ -74,6 +102,18 @@ namespace LibraryManagemetApi.Controllers
             {
                 var paymentResponse = await _paymentService.PayFine(payment);
                 return Ok(paymentResponse);
+            }
+            catch(ForbiddenBorrowException)
+            {
+                return StatusCode(StatusCodes.Status403Forbidden);
+            }
+            catch (ForbiddenCardException)
+            {
+                return StatusCode(StatusCodes.Status403Forbidden); 
+            }
+            catch (EntityNotFoundException)
+            {
+                return NotFound(payment);
             }
             catch (Exception e)
             {

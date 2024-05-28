@@ -1,5 +1,6 @@
 ﻿using LibraryManagemetApi.Contexts;
 using LibraryManagemetApi.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibraryManagemetApi.Repositories
 {
@@ -9,6 +10,10 @@ namespace LibraryManagemetApi.Repositories
         public BorrowedRepository(LibraryManagementContext context) : base(context)
         {
 
+        }
+        public async Task<IEnumerable<Borrowed>> GetAllFilgerByDate(DateTime startDate , DateTime enddate) {
+            var borrowed = await _dbSet.Where(x => x.BorrowedDate >= startDate && x.BorrowedDate <= enddate).ToListAsync();
+            return borrowed;
         }
     }
 }

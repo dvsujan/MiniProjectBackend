@@ -13,8 +13,7 @@ namespace LibraryManagemetApi.Services
         private readonly IRepository<int, Book> _bookRepository;
         private readonly IRepository<int , Reservation> _reservationRepository;
         private readonly IRepository<int, Payment> _paymentRepository; 
-
-
+        
         public BorrowService(IRepository<int, Borrowed> borrowedRepository, IRepository<int, Stock> stockRepository, IRepository<int, User> userRepository, IRepository<int, Book> bookRepository, IRepository<int, Reservation> reservationRepository, IRepository<int, Payment> paymentRepository)
         {
             _borrowedRepository = borrowedRepository;
@@ -36,6 +35,12 @@ namespace LibraryManagemetApi.Services
                 }
                 var user = await _userRepository.GetOneById(borrow.UserId);
                 var book = await _bookRepository.GetOneById(borrow.BookId);
+                var BorrowedList = await _borrowedRepository.Get();
+                var isBorrowed = BorrowedList.Where(x => x.UserId == borrow.UserId && x.BookId == borrow.BookId && x.ReturnDate == null).FirstOrDefault();
+                if (isBorrowed != null)
+                {
+                    throw new BookAlreadyBorrowedException();
+                }
                 var reservation = await _reservationRepository.Get();
                 foreach (var res in reservation)
                 {
@@ -77,6 +82,12 @@ namespace LibraryManagemetApi.Services
                 var user = await _userRepository.GetOneById(userId);
                 var book = await _bookRepository.GetOneById(bookId);
                 var reservation = await _reservationRepository.Get();
+                var allborrows = await _borrowedRepository.Get();
+                var borrow = allborrows.Where(x => x.UserId == userId && x.BookId == bookId && x.ReturnDate == null).FirstOrDefault();
+                if (borrow != null)
+                {
+                    throw new BookAlreadyBorrowedException();
+                }
                 Reservation res = null;
                 foreach (var r in reservation)
                 {
@@ -112,7 +123,6 @@ namespace LibraryManagemetApi.Services
             {
                 throw;
             }
-
         }
         public async Task<IEnumerable<BorrowReturnDTO>> GetBorrowedBooks(int UserId)
         {
@@ -129,15 +139,18 @@ namespace LibraryManagemetApi.Services
                         {
                             fine = (DateTime.Now - borrow.DueDate).Days * 5;
                         }
-                        borrowReturnDTOs.Add(new BorrowReturnDTO
+                        if (borrow.ReturnDate == null)
                         {
-                            BorrowId = borrow.Id,
-                            UserId = borrow.UserId,
-                            BookId = borrow.BookId,
-                            BorrowDate = borrow.BorrowedDate,
-                            DueDate = borrow.DueDate,
-                            Fine = fine
-                        });
+                            borrowReturnDTOs.Add(new BorrowReturnDTO
+                            {
+                                BorrowId = borrow.Id,
+                                UserId = borrow.UserId,
+                                BookId = borrow.BookId,
+                                BorrowDate = borrow.BorrowedDate,
+                                DueDate = borrow.DueDate,
+                                Fine = fine
+                            });
+                        }
                     }
                 }
                 return borrowReturnDTOs;
@@ -159,15 +172,18 @@ namespace LibraryManagemetApi.Services
                 {
                     if (borrow.UserId == userId && borrow.DueDate < DateTime.Now)
                     {
-                        borrowReturnDTOs.Add(new BorrowReturnDTO
+                        if (borrow.ReturnDate == null)
                         {
-                            BorrowId = borrow.Id,
-                            UserId = borrow.UserId,
-                            BookId = borrow.BookId,
-                            BorrowDate = borrow.BorrowedDate,
-                            DueDate = borrow.DueDate,
-                            Fine = (DateTime.Now - borrow.DueDate).Days * 5
-                        });
+                            borrowReturnDTOs.Add(new BorrowReturnDTO
+                            {
+                                BorrowId = borrow.Id,
+                                UserId = borrow.UserId,
+                                BookId = borrow.BookId,
+                                BorrowDate = borrow.BorrowedDate,
+                                DueDate = borrow.DueDate,
+                                Fine = (DateTime.Now - borrow.DueDate).Days * 5
+                            });
+                        }
                     }
                 }
                 return borrowReturnDTOs;
@@ -197,18 +213,21 @@ namespace LibraryManagemetApi.Services
             {
                 var borrowed = await _borrowedRepository.Get();
                 Borrowed borrow = null;
-                foreach (var bor in borrowed)
+                var orderedborrowed = borrowed.Where(x => x.UserId == userId && x.BookId == BookId && x.ReturnDate==null).OrderByDescending(x => x.BorrowedDate).ToList();
+                if (orderedborrowed.Count > 0)
                 {
-                    if (bor.UserId == userId && bor.BookId == BookId)
-                    {
-                        borrow = bor;
-                        break;
-                    }
+                    borrow = orderedborrowed[0];
                 }
-                if (borrow == null)
+                else
                 {
                     throw new BookNotBorrowedException();
                 }
+
+                if (borrow.ReturnDate != null)
+                {
+                    throw new BookAlreadyReturnedException();
+                }
+                
                 if (borrow.UserId != userId)
                 {
                     throw new UserNotMatchException();
@@ -270,7 +289,6 @@ namespace LibraryManagemetApi.Services
                 var stock = await _stockRepository.GetOneById(returnDTO.BookId);
                 stock.Quantity++;
                 await _stockRepository.Update(stock);
-                await _borrowedRepository.Delete(borrow.Id);
                 return new ReturnReturnDTO
                 {
                     BorrowId = borrow.Id,

@@ -1,6 +1,8 @@
 ﻿using LibraryManagemetApi.Exceptions;
 using LibraryManagemetApi.Interfaces;
+using LibraryManagemetApi.Models;
 using LibraryManagemetApi.Models.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,8 +19,14 @@ namespace LibraryManagemetApi.Controllers
         }
         [HttpPost]
         [Route("reserve")]
+        [Authorize]
         public async Task<ActionResult<ReservationReturnDTO>> ReserveBook(ReservationDTO reservation)
         {
+            var userIdLogged = int.Parse(User.FindFirst("UserId").Value);
+            if (reservation.UserId != userIdLogged)
+            {
+                return StatusCode(StatusCodes.Status403Forbidden);
+            }
             if (!ModelState.IsValid)
             {
                 return BadRequest();
@@ -32,6 +40,14 @@ namespace LibraryManagemetApi.Controllers
             {
                 return NotFound(reservation);
             }
+            catch (BookOutOfStockException)
+            {
+                return StatusCode(StatusCodes.Status410Gone);
+            }
+            catch(BookAlreadyReservedException)
+            {
+                return StatusCode(StatusCodes.Status409Conflict);
+            }
             catch (Exception e)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError);
@@ -39,12 +55,22 @@ namespace LibraryManagemetApi.Controllers
         }
         [HttpDelete]
         [Route("cancel")]
-        public async Task<ActionResult<ReservationReturnDTO>> CancelReservation(int reservationId)
+        [Authorize]
+        public async Task<ActionResult<ReservationReturnDTO>> CancelReservation(int reservationId, int userId)
         {
+            var userIdLogged = int.Parse(User.FindFirst("UserId").Value);
+            if (userId != userIdLogged)
+            {
+                return StatusCode(StatusCodes.Status403Forbidden);
+            }
             try
             {
-                var reservation = await _reservationService.CancelReservation(reservationId);
+                var reservation = await _reservationService.CancelReservation(reservationId, userId);
                 return Ok(reservation);
+            }
+            catch (ForbiddenUserException)
+            {
+                return StatusCode(StatusCodes.Status403Forbidden);
             }
             catch (EntityNotFoundException)
             {

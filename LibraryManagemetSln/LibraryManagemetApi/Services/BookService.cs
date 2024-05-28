@@ -81,7 +81,7 @@ namespace LibraryManagemetApi.Services
                 return publisher.Id;
             }
         }
-
+        
         public async Task<ReturnBookDTO> AddBook(AddBookDTO dto)
         {
             Book book; 
@@ -90,7 +90,12 @@ namespace LibraryManagemetApi.Services
                 int authorId = await CreateAuthorfNotExists(dto.AuthorName);
                 int categoryId = await CreateCategoryIfNotExists(dto.CategoryName);
                 int publisherId = await createPublisherIfNotExists(dto.publisherName);
-                
+                var books = await _bookRepository.Get(); 
+                var bookExists = books.Where(b =>  b.ISBN == dto.ISBN);
+                if (bookExists.Count() > 0)
+                {
+                    throw new BookAlreadyExistsException();
+                }
                 book = new Book
                 {
                     Title = dto.Title,
@@ -112,7 +117,6 @@ namespace LibraryManagemetApi.Services
                 {
                     BookId = book.Id,
                     Title = book.Title,
-                    AuthorName = dto.AuthorName,
                     publishedDate = book.PublishedDate,
                     Category = dto.CategoryName,
                     Quantity = stock.Quantity
@@ -136,7 +140,6 @@ namespace LibraryManagemetApi.Services
                 {
                     BookId = book.Id,
                     Title = book.Title,
-                    AuthorName = book.Author.Name,
                     publishedDate = book.PublishedDate,
                     Category = book.Category.Name,
                     Quantity = stock.Quantity
@@ -150,30 +153,34 @@ namespace LibraryManagemetApi.Services
             {
                 throw new Exception(e.Message);
             }
-
         }
 
-        public async Task<IEnumerable<ReturnBookDTO>> GetAllBooks()
+        public async Task<IEnumerable<ReturnBookDTO>> GetAllBooks(int page , int limit)
         {
             try
             {
-                var books = await _bookRepository.Get();
+                var books = await ((BookRepository)_bookRepository).GetPaginated(page , limit);
                 List<ReturnBookDTO> returnBooks = new List<ReturnBookDTO>();
                 foreach (var book in books)
                 {
                     var stock = await ((StockRepository)_stockRepository).GetStockByBookId(book.Id);
-                    var category = await _categoryRepository.GetOneById(book.CategoryId);
                     var avgRating = await ((ReviewRepository)_reviewRepository).GetAvgRatingOfBookId(book.Id);
                     var noOfReviews = await ((ReviewRepository)_reviewRepository).GetNoOfRatingsOfBookId(book.Id);
-                    returnBooks.Add(new ReturnBookDTO
+                    if (stock.Quantity > 0)
                     {
-                        BookId = book.Id,
-                        Title = book.Title,
-                        Category = category.Name,
-                        Quantity = stock.Quantity,
-                        rating = avgRating,
-                        noOfRatings = noOfReviews
-                    });
+                        returnBooks.Add(new ReturnBookDTO
+                        {
+                            BookId = book.Id,
+                            Title = book.Title,
+                            Category = book.Category.Name,
+                            Quantity = stock.Quantity,
+                            publishedDate = book.PublishedDate,
+                            rating = avgRating,
+                            noOfRatings = noOfReviews,
+                            floorNo = book.Location.Floor,
+                            shelfNo = book.Location.Shelf
+                        });
+                    }
                 }
                 return returnBooks;
             }
@@ -189,17 +196,19 @@ namespace LibraryManagemetApi.Services
             {
                 var book = await _bookRepository.GetOneById(id);
                 var stock = await ((StockRepository)_stockRepository).GetStockByBookId(id);
-                var category = await _categoryRepository.GetOneById(book.CategoryId);
                 var avgRating = await ((ReviewRepository)_reviewRepository).GetAvgRatingOfBookId(id);
                 var noOfReviews = await ((ReviewRepository)_reviewRepository).GetNoOfRatingsOfBookId(id);
                 return new ReturnBookDTO
                 {
                     BookId = book.Id,
                     Title = book.Title,
-                    Category = category.Name,
+                    Category = book.Category.Name,
                     Quantity = stock.Quantity,
+                    publishedDate = book.PublishedDate,
                     rating = avgRating,
-                    noOfRatings = noOfReviews
+                    noOfRatings = noOfReviews,
+                    floorNo = book.Location.Floor,
+                    shelfNo = book.Location.Shelf
                 };
             }
             catch (EntityNotFoundException)
@@ -221,17 +230,19 @@ namespace LibraryManagemetApi.Services
                 foreach (Book book in books)
                 {
                     var stock = await ((StockRepository)_stockRepository).GetStockByBookId(book.Id);
-                    var category = await _categoryRepository.GetOneById(book.CategoryId);
                     var avgRating = await ((ReviewRepository)_reviewRepository).GetAvgRatingOfBookId(book.Id);
                     var noOfReviews = await ((ReviewRepository)_reviewRepository).GetNoOfRatingsOfBookId(book.Id);
                     returnBooks.Add(new ReturnBookDTO
                     {
                         BookId = book.Id,
                         Title = book.Title,
-                        Category = category.Name,
+                        publishedDate = book.PublishedDate,
+                        Category = book.Category.Name,
                         Quantity = stock.Quantity,
                         rating = avgRating,
-                        noOfRatings = noOfReviews
+                        noOfRatings = noOfReviews,
+                        floorNo = book.Location.Floor,
+                        shelfNo = book.Location.Shelf
                     });
                 }
                 return returnBooks;
@@ -245,6 +256,7 @@ namespace LibraryManagemetApi.Services
                 throw new Exception(e.Message);
             }
         }
+        
         public async Task<ReturnBookDTO> UpdateBook(UpdateBookDTO dto)
         {
             try
@@ -262,7 +274,6 @@ namespace LibraryManagemetApi.Services
                 {
                     BookId = book.Id,
                     Title = book.Title,
-                    AuthorName = book.Author.Name,
                     publishedDate = book.PublishedDate,
                     Category = book.Category.Name,
                     Quantity = stock.Quantity
@@ -276,7 +287,56 @@ namespace LibraryManagemetApi.Services
             {
                 throw new Exception(e.Message);
             }
-            
+        }
+
+        public async Task<ReturnEditAuthorDTO> EditAuthor(EditAuthorDTO dto)
+        {
+            try
+            {
+                var author = await ((AuthorRepository)_authorRepository).GetAuthorByName(dto.Name);
+                author.Name = dto.Name;
+                author.Language = dto.AuthorLanguage;
+                await _authorRepository.Update(author);
+                return new ReturnEditAuthorDTO 
+                {
+                    AuthorId = author.Id,
+                    AuthorName = author.Name,
+                    AuthorLanguage = author.Language
+                };
+            }
+            catch (EntityNotFoundException)
+            {
+                throw new EntityNotFoundException();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public async Task<ReturnEditpublicationDTO> EditPublication(EditpublicationDTO dto)
+        {
+            try
+            {
+                var publisher = await ((PublisherRepository)_publisherRepository).GetPublisherByName(dto.Name);
+                publisher.Name = dto.Name;
+                publisher.Address = dto.Address;
+                var updatedPublisher = await _publisherRepository.Update(publisher);
+                return new ReturnEditpublicationDTO
+                {
+                    Id = updatedPublisher.Id,
+                    Name = updatedPublisher.Name,
+                    Address = updatedPublisher.Address
+                };
+            }
+            catch (EntityNotFoundException)
+            {
+                throw new EntityNotFoundException();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
     }
 }

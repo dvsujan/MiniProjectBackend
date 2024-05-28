@@ -1,4 +1,5 @@
-﻿using LibraryManagemetApi.Interfaces;
+﻿using LibraryManagemetApi.Exceptions;
+using LibraryManagemetApi.Interfaces;
 using LibraryManagemetApi.Models;
 using LibraryManagemetApi.Models.DTO;
 using LibraryManagemetApi.Repositories;
@@ -45,11 +46,15 @@ namespace LibraryManagemetApi.Services
                 throw;
             }
         }
-        public async Task<ResponseCardDTO> DeleteCard(int cardId)
+        public async Task<ResponseCardDTO> DeleteCard(int cardId, int userId)
         {
             try
             {
                 var card = await _cardRepository.GetOneById(cardId);
+                if(card.UserId != userId)
+                {
+                    throw new ForbiddenUserException();
+                }
                 await _cardRepository.Delete(card.Id);
                 return new ResponseCardDTO
                 {
@@ -124,16 +129,26 @@ namespace LibraryManagemetApi.Services
             {
                 var user = await _userRepository.GetOneById(payment.UserId);
                 var card = await _cardRepository.GetOneById(payment.CardId);
-                var borrowed = await _borrowedRepository.GetOneById(payment.BorrowId);
-                if (borrowed.ReturnDate < DateTime.Now)
+                if(card.UserId != user.Id)
                 {
-                    var days = (DateTime.Now - borrowed.ReturnDate).Value.Days;
+                    throw new ForbiddenCardException();
+                }
+                var borrowed = await _borrowedRepository.GetOneById(payment.BorrowId);
+                if (borrowed.UserId != payment.UserId)
+                {
+                    throw new ForbiddenBorrowException();
+                }
+                if (borrowed.DueDate < DateTime.Now)
+                {
+                    var days = (DateTime.Now - borrowed.DueDate).Days;
                     decimal fine = days * 5;
                     Payment paymentSave = new Payment
                     {
                         UserId = payment.UserId,
                         Amount = fine,
-                        PaymentDate = DateTime.Now
+                        PaymentDate = DateTime.Now,
+                        CardId = payment.CardId,
+                        BorrowedId = payment.BorrowId
                     };
                     await _paymentRepository.Insert(paymentSave);
                     return new PaymentReturnDTO

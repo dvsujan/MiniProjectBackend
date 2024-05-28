@@ -1,4 +1,5 @@
-﻿using LibraryManagemetApi.Interfaces;
+﻿using LibraryManagemetApi.Exceptions;
+using LibraryManagemetApi.Interfaces;
 using LibraryManagemetApi.Models;
 using LibraryManagemetApi.Models.DTO;
 
@@ -15,12 +16,19 @@ namespace LibraryManagemetApi.Services
         {
             try
             {
+
                 Review reviewSave = new Review{
                     UserId = review.UserId,
                     BookId = review.BookId,
                     Rating = review.Rating,
                     Comment = review.Comment
                 };
+                var reviews = await _reviewRepository.Get();
+                var userReviews = reviews.Where(r => r.UserId == review.UserId && r.BookId == review.BookId);
+                if (userReviews.Count() > 0)
+                {
+                    throw new ReviewAlreadyExistException();
+                }
                 
                 var res = await _reviewRepository.Insert(reviewSave);
 
@@ -39,12 +47,16 @@ namespace LibraryManagemetApi.Services
                 throw;
             }
         }
-
-        public async Task<ReturnReviewDTO> DeleteReview(int reviewId)
+        
+        public async Task<ReturnReviewDTO> DeleteReview(int reviewId, int userId)
         {
             try
             {
                 var review = await _reviewRepository.GetOneById(reviewId);
+                if(review.UserId != userId)
+                {
+                    throw new ForbiddenUserException();
+                }
                 await _reviewRepository.Delete(review.Id);
                 return new ReturnReviewDTO
                 {

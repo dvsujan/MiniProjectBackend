@@ -1,0 +1,2697 @@
+{
+	"info": {
+		"_postman_id": "0582d6a0-f858-4b7b-b98d-22f9dd9ec30b",
+		"name": "LibraryManagemetApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10647297"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "Analytics",
+					"item": [
+						{
+							"name": "overdue",
+							"item": [
+								{
+									"name": "/api/Analytics/overdue",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Analytics/overdue",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Analytics",
+												"overdue"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Analytics/overdue",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Analytics",
+														"overdue"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"booksOverdue\": \"<integer>\"\n  },\n  {\n    \"booksOverdue\": \"<integer>\"\n  }\n]"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "/api/Analytics",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Analytics",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Analytics"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											},
+											{
+												"key": "Authorization",
+												"value": "<API Key>",
+												"description": "Added as a part of security scheme: apikey"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"startDate\": \"<dateTime>\",\n  \"endDate\": \"<dateTime>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Analytics",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Analytics"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"booksBorrowed\": \"<integer>\",\n    \"booksReturned\": \"<integer>\"\n  },\n  {\n    \"booksBorrowed\": \"<integer>\",\n    \"booksReturned\": \"<integer>\"\n  }\n]"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Book",
+					"item": [
+						{
+							"name": "all",
+							"item": [
+								{
+									"name": "/api/Book/all",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Book/all?page=1&limit=10",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Book",
+												"all"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "limit",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Book/all?page=1&limit=10",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Book",
+														"all"
+													],
+													"query": [
+														{
+															"key": "page",
+															"value": "1"
+														},
+														{
+															"key": "limit",
+															"value": "10"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"bookId\": \"<integer>\",\n    \"title\": \"<string>\",\n    \"publishedDate\": \"<dateTime>\",\n    \"category\": \"<string>\",\n    \"quantity\": \"<integer>\",\n    \"rating\": \"<float>\",\n    \"noOfRatings\": \"<integer>\",\n    \"floorNo\": \"<integer>\",\n    \"shelfNo\": \"<integer>\"\n  },\n  {\n    \"bookId\": \"<integer>\",\n    \"title\": \"<string>\",\n    \"publishedDate\": \"<dateTime>\",\n    \"category\": \"<string>\",\n    \"quantity\": \"<integer>\",\n    \"rating\": \"<float>\",\n    \"noOfRatings\": \"<integer>\",\n    \"floorNo\": \"<integer>\",\n    \"shelfNo\": \"<integer>\"\n  }\n]"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "add",
+							"item": [
+								{
+									"name": "/api/Book/add",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"authorName\": \"<string>\",\n  \"categoryName\": \"<string>\",\n  \"isbn\": \"<string>\",\n  \"publisherName\": \"<string>\",\n  \"title\": \"<string>\",\n  \"locationId\": \"<integer>\",\n  \"stock\": \"<integer>\",\n  \"publishedDate\": \"<dateTime>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Book/add",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Book",
+												"add"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"authorName\": \"<string>\",\n  \"categoryName\": \"<string>\",\n  \"isbn\": \"<string>\",\n  \"publisherName\": \"<string>\",\n  \"title\": \"<string>\",\n  \"locationId\": \"<integer>\",\n  \"stock\": \"<integer>\",\n  \"publishedDate\": \"<dateTime>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Book/add",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Book",
+														"add"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"bookId\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"publishedDate\": \"<dateTime>\",\n  \"category\": \"<string>\",\n  \"quantity\": \"<integer>\",\n  \"rating\": \"<float>\",\n  \"noOfRatings\": \"<integer>\",\n  \"floorNo\": \"<integer>\",\n  \"shelfNo\": \"<integer>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "update",
+							"item": [
+								{
+									"name": "/api/Book/update",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"authorName\": \"<string>\",\n  \"categoryName\": \"<string>\",\n  \"isbn\": \"<string>\",\n  \"publisherName\": \"<string>\",\n  \"title\": \"<string>\",\n  \"bookId\": \"<integer>\",\n  \"locationId\": \"<integer>\",\n  \"stock\": \"<integer>\",\n  \"publishedDate\": \"<dateTime>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Book/update",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Book",
+												"update"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"authorName\": \"<string>\",\n  \"categoryName\": \"<string>\",\n  \"isbn\": \"<string>\",\n  \"publisherName\": \"<string>\",\n  \"title\": \"<string>\",\n  \"bookId\": \"<integer>\",\n  \"locationId\": \"<integer>\",\n  \"stock\": \"<integer>\",\n  \"publishedDate\": \"<dateTime>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Book/update",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Book",
+														"update"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"bookId\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"publishedDate\": \"<dateTime>\",\n  \"category\": \"<string>\",\n  \"quantity\": \"<integer>\",\n  \"rating\": \"<float>\",\n  \"noOfRatings\": \"<integer>\",\n  \"floorNo\": \"<integer>\",\n  \"shelfNo\": \"<integer>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "delete",
+							"item": [
+								{
+									"name": "/api/Book/delete",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Book/delete?id=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Book",
+												"delete"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Book/delete?id=<integer>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Book",
+														"delete"
+													],
+													"query": [
+														{
+															"key": "id",
+															"value": "<integer>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"bookId\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"publishedDate\": \"<dateTime>\",\n  \"category\": \"<string>\",\n  \"quantity\": \"<integer>\",\n  \"rating\": \"<float>\",\n  \"noOfRatings\": \"<integer>\",\n  \"floorNo\": \"<integer>\",\n  \"shelfNo\": \"<integer>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "editAuthor",
+							"item": [
+								{
+									"name": "/api/Book/editAuthor",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"authorLanguage\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Book/editAuthor",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Book",
+												"editAuthor"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"name\": \"<string>\",\n  \"authorLanguage\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Book/editAuthor",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Book",
+														"editAuthor"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"authorId\": \"<integer>\",\n  \"authorName\": \"<string>\",\n  \"authorLanguage\": \"<string>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "editPublisher",
+							"item": [
+								{
+									"name": "/api/Book/editPublisher",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"address\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Book/editPublisher",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Book",
+												"editPublisher"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"address\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Book/editPublisher",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Book",
+														"editPublisher"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"address\": \"<string>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "search",
+							"item": [
+								{
+									"name": "/api/Book/search",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Book/search?title=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Book",
+												"search"
+											],
+											"query": [
+												{
+													"key": "title",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Book/search?title=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Book",
+														"search"
+													],
+													"query": [
+														{
+															"key": "title",
+															"value": "<string>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"bookId\": \"<integer>\",\n    \"title\": \"<string>\",\n    \"publishedDate\": \"<dateTime>\",\n    \"category\": \"<string>\",\n    \"quantity\": \"<integer>\",\n    \"rating\": \"<float>\",\n    \"noOfRatings\": \"<integer>\",\n    \"floorNo\": \"<integer>\",\n    \"shelfNo\": \"<integer>\"\n  },\n  {\n    \"bookId\": \"<integer>\",\n    \"title\": \"<string>\",\n    \"publishedDate\": \"<dateTime>\",\n    \"category\": \"<string>\",\n    \"quantity\": \"<integer>\",\n    \"rating\": \"<float>\",\n    \"noOfRatings\": \"<integer>\",\n    \"floorNo\": \"<integer>\",\n    \"shelfNo\": \"<integer>\"\n  }\n]"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "get",
+							"item": [
+								{
+									"name": "/api/Book/get",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Book/get?id=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Book",
+												"get"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Book/get?id=<integer>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Book",
+														"get"
+													],
+													"query": [
+														{
+															"key": "id",
+															"value": "<integer>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"bookId\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"publishedDate\": \"<dateTime>\",\n  \"category\": \"<string>\",\n  \"quantity\": \"<integer>\",\n  \"rating\": \"<float>\",\n  \"noOfRatings\": \"<integer>\",\n  \"floorNo\": \"<integer>\",\n  \"shelfNo\": \"<integer>\"\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Borrow",
+					"item": [
+						{
+							"name": "borrow",
+							"item": [
+								{
+									"name": "/api/Borrow/borrow",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"userId\": \"<integer>\",\n  \"bookId\": \"<integer>\",\n  \"borrowDate\": \"<dateTime>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Borrow/borrow",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Borrow",
+												"borrow"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"userId\": \"<integer>\",\n  \"bookId\": \"<integer>\",\n  \"borrowDate\": \"<dateTime>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Borrow/borrow",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Borrow",
+														"borrow"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"borrowId\": \"<integer>\",\n  \"userId\": \"<integer>\",\n  \"bookId\": \"<integer>\",\n  \"borrowDate\": \"<dateTime>\",\n  \"dueDate\": \"<dateTime>\",\n  \"fine\": \"<double>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "borrowed",
+							"item": [
+								{
+									"name": "/api/Borrow/borrowed",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Borrow/borrowed?userId=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Borrow",
+												"borrowed"
+											],
+											"query": [
+												{
+													"key": "userId",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Borrow/borrowed?userId=<integer>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Borrow",
+														"borrowed"
+													],
+													"query": [
+														{
+															"key": "userId",
+															"value": "<integer>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"borrowId\": \"<integer>\",\n    \"userId\": \"<integer>\",\n    \"bookId\": \"<integer>\",\n    \"borrowDate\": \"<dateTime>\",\n    \"dueDate\": \"<dateTime>\",\n    \"fine\": \"<double>\"\n  },\n  {\n    \"borrowId\": \"<integer>\",\n    \"userId\": \"<integer>\",\n    \"bookId\": \"<integer>\",\n    \"borrowDate\": \"<dateTime>\",\n    \"dueDate\": \"<dateTime>\",\n    \"fine\": \"<double>\"\n  }\n]"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "return",
+							"item": [
+								{
+									"name": "/api/Borrow/return",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"userId\": \"<integer>\",\n  \"bookId\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Borrow/return",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Borrow",
+												"return"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"userId\": \"<integer>\",\n  \"bookId\": \"<integer>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Borrow/return",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Borrow",
+														"return"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"borrowId\": \"<integer>\",\n  \"userId\": \"<integer>\",\n  \"bookId\": \"<integer>\",\n  \"borrowDate\": \"<dateTime>\",\n  \"dueDate\": \"<dateTime>\",\n  \"returnDate\": \"<dateTime>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "renew",
+							"item": [
+								{
+									"name": "/api/Borrow/renew",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Borrow/renew?userId=<integer>&BookId=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Borrow",
+												"renew"
+											],
+											"query": [
+												{
+													"key": "userId",
+													"value": "<integer>"
+												},
+												{
+													"key": "BookId",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Borrow/renew?userId=<integer>&BookId=<integer>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Borrow",
+														"renew"
+													],
+													"query": [
+														{
+															"key": "userId",
+															"value": "<integer>"
+														},
+														{
+															"key": "BookId",
+															"value": "<integer>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"borrowId\": \"<integer>\",\n  \"userId\": \"<integer>\",\n  \"bookId\": \"<integer>\",\n  \"borrowDate\": \"<dateTime>\",\n  \"dueDate\": \"<dateTime>\",\n  \"fine\": \"<double>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "due",
+							"item": [
+								{
+									"name": "/api/Borrow/due",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Borrow/due?userId=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Borrow",
+												"due"
+											],
+											"query": [
+												{
+													"key": "userId",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Borrow/due?userId=<integer>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Borrow",
+														"due"
+													],
+													"query": [
+														{
+															"key": "userId",
+															"value": "<integer>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"borrowId\": \"<integer>\",\n    \"userId\": \"<integer>\",\n    \"bookId\": \"<integer>\",\n    \"borrowDate\": \"<dateTime>\",\n    \"dueDate\": \"<dateTime>\",\n    \"fine\": \"<double>\"\n  },\n  {\n    \"borrowId\": \"<integer>\",\n    \"userId\": \"<integer>\",\n    \"bookId\": \"<integer>\",\n    \"borrowDate\": \"<dateTime>\",\n    \"dueDate\": \"<dateTime>\",\n    \"fine\": \"<double>\"\n  }\n]"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "reserved",
+							"item": [
+								{
+									"name": "/api/Borrow/reserved",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Borrow/reserved?userId=<integer>&bookId=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Borrow",
+												"reserved"
+											],
+											"query": [
+												{
+													"key": "userId",
+													"value": "<integer>"
+												},
+												{
+													"key": "bookId",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Borrow/reserved?userId=<integer>&bookId=<integer>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Borrow",
+														"reserved"
+													],
+													"query": [
+														{
+															"key": "userId",
+															"value": "<integer>"
+														},
+														{
+															"key": "bookId",
+															"value": "<integer>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"borrowId\": \"<integer>\",\n  \"userId\": \"<integer>\",\n  \"bookId\": \"<integer>\",\n  \"borrowDate\": \"<dateTime>\",\n  \"dueDate\": \"<dateTime>\",\n  \"fine\": \"<double>\"\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "PaymentContorller",
+					"item": [
+						{
+							"name": "addcard",
+							"item": [
+								{
+									"name": "/api/PaymentContorller/addcard",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"userId\": \"<integer>\",\n  \"cardNumber\": \"<string>\",\n  \"expiryDate\": \"<dateTime>\",\n  \"cvv\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/PaymentContorller/addcard",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"PaymentContorller",
+												"addcard"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"userId\": \"<integer>\",\n  \"cardNumber\": \"<string>\",\n  \"expiryDate\": \"<dateTime>\",\n  \"cvv\": \"<integer>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/PaymentContorller/addcard",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"PaymentContorller",
+														"addcard"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"cardId\": \"<integer>\",\n  \"userId\": \"<integer>\",\n  \"cardNumber\": \"<string>\",\n  \"cvv\": \"<integer>\",\n  \"expiryDate\": \"<dateTime>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "deletecard",
+							"item": [
+								{
+									"name": "/api/PaymentContorller/deletecard",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/PaymentContorller/deletecard?cardId=<integer>&userId=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"PaymentContorller",
+												"deletecard"
+											],
+											"query": [
+												{
+													"key": "cardId",
+													"value": "<integer>"
+												},
+												{
+													"key": "userId",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/PaymentContorller/deletecard?cardId=<integer>&userId=<integer>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"PaymentContorller",
+														"deletecard"
+													],
+													"query": [
+														{
+															"key": "cardId",
+															"value": "<integer>"
+														},
+														{
+															"key": "userId",
+															"value": "<integer>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"cardId\": \"<integer>\",\n  \"userId\": \"<integer>\",\n  \"cardNumber\": \"<string>\",\n  \"cvv\": \"<integer>\",\n  \"expiryDate\": \"<dateTime>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "cards",
+							"item": [
+								{
+									"name": "/api/PaymentContorller/cards",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/PaymentContorller/cards?userId=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"PaymentContorller",
+												"cards"
+											],
+											"query": [
+												{
+													"key": "userId",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/PaymentContorller/cards?userId=<integer>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"PaymentContorller",
+														"cards"
+													],
+													"query": [
+														{
+															"key": "userId",
+															"value": "<integer>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"cardId\": \"<integer>\",\n    \"userId\": \"<integer>\",\n    \"cardNumber\": \"<string>\",\n    \"cvv\": \"<integer>\",\n    \"expiryDate\": \"<dateTime>\"\n  },\n  {\n    \"cardId\": \"<integer>\",\n    \"userId\": \"<integer>\",\n    \"cardNumber\": \"<string>\",\n    \"cvv\": \"<integer>\",\n    \"expiryDate\": \"<dateTime>\"\n  }\n]"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "payFine",
+							"item": [
+								{
+									"name": "/api/PaymentContorller/payFine",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"userId\": \"<integer>\",\n  \"borrowId\": \"<integer>\",\n  \"cardId\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/PaymentContorller/payFine",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"PaymentContorller",
+												"payFine"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"userId\": \"<integer>\",\n  \"borrowId\": \"<integer>\",\n  \"cardId\": \"<integer>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/PaymentContorller/payFine",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"PaymentContorller",
+														"payFine"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"paymentId\": \"<integer>\",\n  \"amount\": \"<double>\",\n  \"paymentDate\": \"<dateTime>\"\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Reservation",
+					"item": [
+						{
+							"name": "reserve",
+							"item": [
+								{
+									"name": "/api/Reservation/reserve",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"userId\": \"<integer>\",\n  \"bookId\": \"<integer>\",\n  \"reservationDate\": \"<dateTime>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Reservation/reserve",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Reservation",
+												"reserve"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"userId\": \"<integer>\",\n  \"bookId\": \"<integer>\",\n  \"reservationDate\": \"<dateTime>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Reservation/reserve",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Reservation",
+														"reserve"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"reservationId\": \"<integer>\",\n  \"userId\": \"<integer>\",\n  \"bookId\": \"<integer>\",\n  \"reservationDate\": \"<dateTime>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "cancel",
+							"item": [
+								{
+									"name": "/api/Reservation/cancel",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Reservation/cancel?reservationId=<integer>&userId=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Reservation",
+												"cancel"
+											],
+											"query": [
+												{
+													"key": "reservationId",
+													"value": "<integer>"
+												},
+												{
+													"key": "userId",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Reservation/cancel?reservationId=<integer>&userId=<integer>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Reservation",
+														"cancel"
+													],
+													"query": [
+														{
+															"key": "reservationId",
+															"value": "<integer>"
+														},
+														{
+															"key": "userId",
+															"value": "<integer>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"reservationId\": \"<integer>\",\n  \"userId\": \"<integer>\",\n  \"bookId\": \"<integer>\",\n  \"reservationDate\": \"<dateTime>\"\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Review",
+					"item": [
+						{
+							"name": "user",
+							"item": [
+								{
+									"name": "/api/Review/user",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Review/user?userId=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Review",
+												"user"
+											],
+											"query": [
+												{
+													"key": "userId",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Review/user?userId=<integer>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Review",
+														"user"
+													],
+													"query": [
+														{
+															"key": "userId",
+															"value": "<integer>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"reviewId\": \"<integer>\",\n    \"userId\": \"<integer>\",\n    \"bookId\": \"<integer>\",\n    \"rating\": \"<float>\",\n    \"comment\": \"<string>\"\n  },\n  {\n    \"reviewId\": \"<integer>\",\n    \"userId\": \"<integer>\",\n    \"bookId\": \"<integer>\",\n    \"rating\": \"<float>\",\n    \"comment\": \"<string>\"\n  }\n]"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "/api/Review",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Review?bookId=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Review"
+									],
+									"query": [
+										{
+											"key": "bookId",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											},
+											{
+												"key": "Authorization",
+												"value": "<API Key>",
+												"description": "Added as a part of security scheme: apikey"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Review?bookId=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Review"
+											],
+											"query": [
+												{
+													"key": "bookId",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"reviewId\": \"<integer>\",\n    \"userId\": \"<integer>\",\n    \"bookId\": \"<integer>\",\n    \"rating\": \"<float>\",\n    \"comment\": \"<string>\"\n  },\n  {\n    \"reviewId\": \"<integer>\",\n    \"userId\": \"<integer>\",\n    \"bookId\": \"<integer>\",\n    \"rating\": \"<float>\",\n    \"comment\": \"<string>\"\n  }\n]"
+								}
+							]
+						},
+						{
+							"name": "/api/Review",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"userId\": \"<integer>\",\n  \"bookId\": \"<integer>\",\n  \"rating\": \"<float>\",\n  \"comment\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Review",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Review"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											},
+											{
+												"key": "Authorization",
+												"value": "<API Key>",
+												"description": "Added as a part of security scheme: apikey"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"userId\": \"<integer>\",\n  \"bookId\": \"<integer>\",\n  \"rating\": \"<float>\",\n  \"comment\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Review",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Review"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"reviewId\": \"<integer>\",\n  \"userId\": \"<integer>\",\n  \"bookId\": \"<integer>\",\n  \"rating\": \"<float>\",\n  \"comment\": \"<string>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "/api/Review",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Review?reviewId=<integer>&userId=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Review"
+									],
+									"query": [
+										{
+											"key": "reviewId",
+											"value": "<integer>"
+										},
+										{
+											"key": "userId",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											},
+											{
+												"key": "Authorization",
+												"value": "<API Key>",
+												"description": "Added as a part of security scheme: apikey"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Review?reviewId=<integer>&userId=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Review"
+											],
+											"query": [
+												{
+													"key": "reviewId",
+													"value": "<integer>"
+												},
+												{
+													"key": "userId",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"reviewId\": \"<integer>\",\n  \"userId\": \"<integer>\",\n  \"bookId\": \"<integer>\",\n  \"rating\": \"<float>\",\n  \"comment\": \"<string>\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "login",
+							"item": [
+								{
+									"name": "/api/User/login",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"email\": \"<email>\",\n  \"password\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/User/login",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"User",
+												"login"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"email\": \"<email>\",\n  \"password\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/User/login",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"User",
+														"login"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<integer>\",\n  \"email\": \"<string>\",\n  \"token\": \"<string>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "register",
+							"item": [
+								{
+									"name": "/api/User/register",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"email\": \"<email>\",\n  \"userName\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/User/register",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"User",
+												"register"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"email\": \"<email>\",\n  \"userName\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/User/register",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"User",
+														"register"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<integer>\",\n  \"email\": \"<string>\",\n  \"userName\": \"<string>\",\n  \"role\": \"<string>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "activate",
+							"item": [
+								{
+									"name": "/api/User/activate",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"email\": \"<string>\",\n  \"isActive\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/User/activate",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"User",
+												"activate"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													},
+													{
+														"key": "Authorization",
+														"value": "<API Key>",
+														"description": "Added as a part of security scheme: apikey"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"email\": \"<string>\",\n  \"isActive\": \"<boolean>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/User/activate",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"User",
+														"activate"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"userId\": \"<integer>\",\n  \"email\": \"<string>\",\n  \"active\": \"<boolean>\"\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiMiIsImV4cCI6MTcxNzA5MDk3N30.ZQN3qkuYk7Z74uY8Wz3GY8L05CTGZ7VzEXEQLGkxpXo",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:5122"
+		}
+	]
+}

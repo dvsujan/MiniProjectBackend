@@ -158,8 +158,9 @@ namespace LibraryManagemetApi.Migrations
                     b.Property<int>("CVV")
                         .HasColumnType("int");
 
-                    b.Property<int>("CardNumber")
-                        .HasColumnType("int");
+                    b.Property<string>("CardNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("ExpDate")
                         .HasColumnType("datetime2");

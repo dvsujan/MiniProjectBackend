@@ -5,6 +5,6 @@ namespace LibraryManagemetApi.Interfaces
     public interface IReservationService
     {
         Task<ReservationReturnDTO> ReserveBook(ReservationDTO reservation);
-        Task<ReservationReturnDTO> CancelReservation(int reservationId);
+        Task<ReservationReturnDTO> CancelReservation(int reservationId, int userId);
     }
 }
