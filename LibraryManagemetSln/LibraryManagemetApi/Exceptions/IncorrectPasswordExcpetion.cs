@@ -1,9 +1,11 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Runtime.Serialization;
 
 namespace LibraryManagemetApi.Exceptions
 {
     [Serializable]
-    internal class IncorrectPasswordExcpetion : Exception
+    [ExcludeFromCodeCoverage]
+    public class IncorrectPasswordExcpetion : Exception
     {
         public IncorrectPasswordExcpetion()
         {

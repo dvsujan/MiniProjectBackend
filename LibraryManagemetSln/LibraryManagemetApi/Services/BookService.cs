@@ -122,9 +122,9 @@ namespace LibraryManagemetApi.Services
                     Quantity = stock.Quantity
                 };
             }
-            catch (Exception e)
+            catch
             {
-                throw e;
+                throw; 
             }
         }
         
@@ -145,13 +145,9 @@ namespace LibraryManagemetApi.Services
                     Quantity = stock.Quantity
                 };
             }
-            catch (EntityNotFoundException)
+            catch
             {
-                throw new EntityNotFoundException();
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
+                throw; 
             }
         }
 
@@ -184,9 +180,9 @@ namespace LibraryManagemetApi.Services
                 }
                 return returnBooks;
             }
-            catch (Exception e)
+            catch
             {
-                throw new Exception(e.Message);
+                throw; 
             }
         }
         
@@ -211,13 +207,9 @@ namespace LibraryManagemetApi.Services
                     shelfNo = book.Location.Shelf
                 };
             }
-            catch (EntityNotFoundException)
+            catch
             {
-                throw new EntityNotFoundException();
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
+                throw; 
             }
         }
         
@@ -247,13 +239,9 @@ namespace LibraryManagemetApi.Services
                 }
                 return returnBooks;
             }
-            catch (EntityNotFoundException)
+            catch
             {
-                throw new EntityNotFoundException();
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
+                throw; 
             }
         }
         
@@ -279,14 +267,11 @@ namespace LibraryManagemetApi.Services
                     Quantity = stock.Quantity
                 };
             }
-            catch (EntityNotFoundException)
+            catch 
             {
-                throw new EntityNotFoundException();
+                throw; 
             }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
+            
         }
 
         public async Task<ReturnEditAuthorDTO> EditAuthor(EditAuthorDTO dto)
@@ -304,14 +289,11 @@ namespace LibraryManagemetApi.Services
                     AuthorLanguage = author.Language
                 };
             }
-            catch (EntityNotFoundException)
+            catch 
             {
-                throw new EntityNotFoundException();
+                throw ;
             }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
+            
         }
 
         public async Task<ReturnEditpublicationDTO> EditPublication(EditpublicationDTO dto)
@@ -329,14 +311,11 @@ namespace LibraryManagemetApi.Services
                     Address = updatedPublisher.Address
                 };
             }
-            catch (EntityNotFoundException)
+            catch
             {
-                throw new EntityNotFoundException();
+                throw; 
             }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
+
         }
     }
 }

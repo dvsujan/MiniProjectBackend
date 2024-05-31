@@ -1,9 +1,11 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Runtime.Serialization;
 
 namespace LibraryManagemetApi.Exceptions
 {
+    [ExcludeFromCodeCoverage]
     [Serializable]
-    internal class BookAlreadyReservedException : Exception
+    public class BookAlreadyReservedException : Exception
     {
         public BookAlreadyReservedException()
         {

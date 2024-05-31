@@ -3,6 +3,7 @@ using LibraryManagemetApi.Interfaces;
 using LibraryManagemetApi.Models;
 using LibraryManagemetApi.Models.DTO;
 using LibraryManagemetApi.Repositories;
+using System.Diagnostics.CodeAnalysis;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -98,7 +99,7 @@ namespace LibraryManagemetApi.Services
                     Email = user.Email,
                     Username = user.UserName,
                     RoleId = 1,
-                    Active = true
+                    Active = false 
                 };
                 HMACSHA512 hMACSHA = new HMACSHA512();
                 userReg.HashKey = hMACSHA.Key;
@@ -110,10 +111,6 @@ namespace LibraryManagemetApi.Services
                     Email = userReg.Email,
                     UserName = userReg.Username
                 };
-            }
-            catch (EntityNotFoundException)
-            {
-                throw new EntityNotFoundException();
             }
             catch (UserAlreadyExistsException)
             {

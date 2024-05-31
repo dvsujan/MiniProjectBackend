@@ -3,132 +3,112 @@
   "WorkspaceRootPath": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\services\\bookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\services\\bookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\models\\dto\\returneditpublicationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\models\\dto\\returneditpublicationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\interfaces\\ibookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\interfaces\\ibookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\models\\dto\\editpublicationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\models\\dto\\editpublicationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\repositories\\authorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\repositories\\authorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\models\\dto\\editauthordto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\models\\dto\\editauthordto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\models\\dto\\returneditauthordto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\models\\dto\\returneditauthordto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\services\\reviewservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\services\\reviewservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\interfaces\\ireviewservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\interfaces\\ireviewservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\controllers\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\controllers\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7892EF84-6342-4729-93D3-97E89EB88951}|BLTestProj\\BLTestProj.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\bltestproj\\reservationbltest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7892EF84-6342-4729-93D3-97E89EB88951}|BLTestProj\\BLTestProj.csproj|solutionrelative:bltestproj\\reservationbltest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\services\\reservationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\services\\reservationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\contexts\\librarymanagementcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\contexts\\librarymanagementcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\services\\paymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\services\\paymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\controllers\\paymentcontorller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\controllers\\paymentcontorller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\interfaces\\ireservationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\interfaces\\ireservationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\interfaces\\ipaymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\interfaces\\ipaymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\controllers\\borrowcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\controllers\\borrowcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\controllers\\analyticscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\controllers\\analyticscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7892EF84-6342-4729-93D3-97E89EB88951}|BLTestProj\\BLTestProj.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\bltestproj\\borrowbltest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7892EF84-6342-4729-93D3-97E89EB88951}|BLTestProj\\BLTestProj.csproj|solutionrelative:bltestproj\\borrowbltest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\services\\borrowservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\services\\borrowservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{7892EF84-6342-4729-93D3-97E89EB88951}|BLTestProj\\BLTestProj.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\bltestproj\\paymentbltest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7892EF84-6342-4729-93D3-97E89EB88951}|BLTestProj\\BLTestProj.csproj|solutionrelative:bltestproj\\paymentbltest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\exceptions\\bookoverdueexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\exceptions\\bookoverdueexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\exceptions\\usernotmatchexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\exceptions\\usernotmatchexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\exceptions\\reviewalreadyexistexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\exceptions\\reviewalreadyexistexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\exceptions\\incorrectpasswordexcpetion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\exceptions\\incorrectpasswordexcpetion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\exceptions\\forbiddenuserexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\exceptions\\forbiddenuserexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\exceptions\\forbiddencardexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\exceptions\\forbiddencardexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\exceptions\\forbiddenborrowexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\exceptions\\forbiddenborrowexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\exceptions\\entitynotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\exceptions\\entitynotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\exceptions\\bookoutofstockexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\exceptions\\bookoutofstockexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\exceptions\\booknotreservedexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\exceptions\\booknotreservedexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\exceptions\\booknotmatchexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\exceptions\\booknotmatchexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\exceptions\\booknotborrowedexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\exceptions\\booknotborrowedexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\exceptions\\bookalreadyreturnedexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\exceptions\\bookalreadyreturnedexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\exceptions\\bookalreadyreservedexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\exceptions\\bookalreadyreservedexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\exceptions\\bookalreadyexistsexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\exceptions\\bookalreadyexistsexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\exceptions\\bookalreadyborrowedexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\exceptions\\bookalreadyborrowedexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\models\\dto\\addcarddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\models\\dto\\addcarddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7892EF84-6342-4729-93D3-97E89EB88951}|BLTestProj\\BLTestProj.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\bltestproj\\analyticsbltest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7892EF84-6342-4729-93D3-97E89EB88951}|BLTestProj\\BLTestProj.csproj|solutionrelative:bltestproj\\analyticsbltest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\models\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\models\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\services\\bookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\services\\bookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\services\\anaylticsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\services\\anaylticsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\repositories\\borrowedrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\repositories\\borrowedrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\models\\dto\\returnbookdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\models\\dto\\returnbookdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\models\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\models\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\models\\borrowed.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\models\\borrowed.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Migrations\\20240527110226_changed-review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:LibraryManagemetApi\\Migrations\\20240527110226_changed-review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\librarymanagemetapi\\migrations\\20240527110253_changed-review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDACF45D-9C5A-49F1-8A83-0E87961A2001}|LibraryManagemetApi\\LibraryManagemetApi.csproj|solutionrelative:librarymanagemetapi\\migrations\\20240527110253_changed-review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7892EF84-6342-4729-93D3-97E89EB88951}|BLTestProj\\BLTestProj.csproj|c:\\users\\vc\\desktop\\miniprojectlibrarymanagement\\librarymanagemetsln\\bltestproj\\bookbltest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7892EF84-6342-4729-93D3-97E89EB88951}|BLTestProj\\BLTestProj.csproj|solutionrelative:bltestproj\\bookbltest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -137,229 +117,228 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 424,
-          "SelectedChildIndex": 2,
+          "DockedWidth": 467,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Program.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Program.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Program.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFQAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-26T13:38:58.693Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "EditpublicationDTO.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Models\\DTO\\EditpublicationDTO.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Models\\DTO\\EditpublicationDTO.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Models\\DTO\\EditpublicationDTO.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Models\\DTO\\EditpublicationDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAQAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T17:22:42.484Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "BookService.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Services\\BookService.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Services\\BookService.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Services\\BookService.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Services\\BookService.cs",
-              "ViewState": "AQIAADEBAAAAAAAAAAAAwEYBAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-26T16:18:25.651Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ReturnEditpublicationDTO.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Models\\DTO\\ReturnEditpublicationDTO.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Models\\DTO\\ReturnEditpublicationDTO.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Models\\DTO\\ReturnEditpublicationDTO.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Models\\DTO\\ReturnEditpublicationDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAYAAAAUAAAA",
+              "Title": "LibraryManagementContext.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Contexts\\LibraryManagementContext.cs",
+              "RelativeDocumentMoniker": "LibraryManagemetApi\\Contexts\\LibraryManagementContext.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Contexts\\LibraryManagementContext.cs",
+              "RelativeToolTip": "LibraryManagemetApi\\Contexts\\LibraryManagementContext.cs",
+              "ViewState": "AQIAAMIAAAAAAAAAAAArwNcAAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T17:24:52.733Z",
+              "WhenOpened": "2024-05-30T11:36:23.408Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ReservationBLTest.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\BLTestProj\\ReservationBLTest.cs",
+              "RelativeDocumentMoniker": "BLTestProj\\ReservationBLTest.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\BLTestProj\\ReservationBLTest.cs",
+              "RelativeToolTip": "BLTestProj\\ReservationBLTest.cs",
+              "ViewState": "AQIAACgAAAAAAAAAAAAAwDwAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-30T15:44:17.589Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "EditAuthorDTO.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Models\\DTO\\EditAuthorDTO.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Models\\DTO\\EditAuthorDTO.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Models\\DTO\\EditAuthorDTO.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Models\\DTO\\EditAuthorDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAYAAAAIAAAA",
+              "Title": "PaymentBLTest.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\BLTestProj\\PaymentBLTest.cs",
+              "RelativeDocumentMoniker": "BLTestProj\\PaymentBLTest.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\BLTestProj\\PaymentBLTest.cs",
+              "RelativeToolTip": "BLTestProj\\PaymentBLTest.cs",
+              "ViewState": "AQIAAFoAAAAAAAAAAAAuwGQAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T17:23:12.408Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ReturnEditAuthorDTO.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Models\\DTO\\ReturnEditAuthorDTO.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Models\\DTO\\ReturnEditAuthorDTO.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Models\\DTO\\ReturnEditAuthorDTO.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Models\\DTO\\ReturnEditAuthorDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T17:22:56.701Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ReviewController.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Controllers\\ReviewController.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Controllers\\ReviewController.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Controllers\\ReviewController.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Controllers\\ReviewController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFcAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T16:04:13.175Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ReviewService.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Services\\ReviewService.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Services\\ReviewService.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Services\\ReviewService.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Services\\ReviewService.cs",
-              "ViewState": "AQIAACkAAAAAAAAAAAAowDgAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T16:04:29.775Z",
+              "WhenOpened": "2024-05-30T11:05:47.661Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Controllers\\UserController.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Controllers\\UserController.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Controllers\\UserController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
+              "Title": "UserNotMatchException.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\UserNotMatchException.cs",
+              "RelativeDocumentMoniker": "LibraryManagemetApi\\Exceptions\\UserNotMatchException.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\UserNotMatchException.cs",
+              "RelativeToolTip": "LibraryManagemetApi\\Exceptions\\UserNotMatchException.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T16:04:12.626Z",
+              "WhenOpened": "2024-05-30T17:54:48.533Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "IReviewService.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Interfaces\\IReviewService.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Interfaces\\IReviewService.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Interfaces\\IReviewService.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Interfaces\\IReviewService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAABDAAAA",
+              "DocumentIndex": 9,
+              "Title": "ReviewAlreadyExistException.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\ReviewAlreadyExistException.cs",
+              "RelativeDocumentMoniker": "LibraryManagemetApi\\Exceptions\\ReviewAlreadyExistException.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\ReviewAlreadyExistException.cs",
+              "RelativeToolTip": "LibraryManagemetApi\\Exceptions\\ReviewAlreadyExistException.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T17:15:50.896Z",
+              "WhenOpened": "2024-05-30T17:54:21.659Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IncorrectPasswordExcpetion.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\IncorrectPasswordExcpetion.cs",
+              "RelativeDocumentMoniker": "LibraryManagemetApi\\Exceptions\\IncorrectPasswordExcpetion.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\IncorrectPasswordExcpetion.cs",
+              "RelativeToolTip": "LibraryManagemetApi\\Exceptions\\IncorrectPasswordExcpetion.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-30T17:54:03.171Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "ReservationController.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Controllers\\ReservationController.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Controllers\\ReservationController.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Controllers\\ReservationController.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Controllers\\ReservationController.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAYwDcAAAAIAAAA",
+              "Title": "ForbiddenCardException.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\ForbiddenCardException.cs",
+              "RelativeDocumentMoniker": "LibraryManagemetApi\\Exceptions\\ForbiddenCardException.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\ForbiddenCardException.cs",
+              "RelativeToolTip": "LibraryManagemetApi\\Exceptions\\ForbiddenCardException.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T16:16:52.852Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ReservationService.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Services\\ReservationService.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Services\\ReservationService.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Services\\ReservationService.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Services\\ReservationService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADUAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-27T09:20:10.384Z",
+              "WhenOpened": "2024-05-30T17:53:45.876Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
-              "Title": "PaymentService.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Services\\PaymentService.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Services\\PaymentService.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Services\\PaymentService.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Services\\PaymentService.cs",
-              "ViewState": "AQIAACoAAAAAAAAAAAAmwDYAAAAQAAAA",
+              "Title": "EntityNotFoundException.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\EntityNotFoundException.cs",
+              "RelativeDocumentMoniker": "LibraryManagemetApi\\Exceptions\\EntityNotFoundException.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\EntityNotFoundException.cs",
+              "RelativeToolTip": "LibraryManagemetApi\\Exceptions\\EntityNotFoundException.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T09:57:13.325Z",
+              "WhenOpened": "2024-05-30T17:53:35.303Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ForbiddenBorrowException.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\ForbiddenBorrowException.cs",
+              "RelativeDocumentMoniker": "LibraryManagemetApi\\Exceptions\\ForbiddenBorrowException.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\ForbiddenBorrowException.cs",
+              "RelativeToolTip": "LibraryManagemetApi\\Exceptions\\ForbiddenBorrowException.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-30T17:53:25.242Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ForbiddenUserException.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\ForbiddenUserException.cs",
+              "RelativeDocumentMoniker": "LibraryManagemetApi\\Exceptions\\ForbiddenUserException.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\ForbiddenUserException.cs",
+              "RelativeToolTip": "LibraryManagemetApi\\Exceptions\\ForbiddenUserException.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-30T11:19:28.485Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "BookOutOfStockException.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\BookOutOfStockException.cs",
+              "RelativeDocumentMoniker": "LibraryManagemetApi\\Exceptions\\BookOutOfStockException.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\BookOutOfStockException.cs",
+              "RelativeToolTip": "LibraryManagemetApi\\Exceptions\\BookOutOfStockException.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-30T17:53:11.187Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 16,
-              "Title": "IReservationService.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Interfaces\\IReservationService.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Interfaces\\IReservationService.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Interfaces\\IReservationService.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Interfaces\\IReservationService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAEAAAA",
+              "Title": "BookNotReservedException.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\BookNotReservedException.cs",
+              "RelativeDocumentMoniker": "LibraryManagemetApi\\Exceptions\\BookNotReservedException.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\BookNotReservedException.cs",
+              "RelativeToolTip": "LibraryManagemetApi\\Exceptions\\BookNotReservedException.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T17:09:14.87Z",
+              "WhenOpened": "2024-05-30T17:53:00.299Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 17,
-              "Title": "IPaymentService.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Interfaces\\IPaymentService.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Interfaces\\IPaymentService.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Interfaces\\IPaymentService.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Interfaces\\IPaymentService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Title": "BookNotMatchException.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\BookNotMatchException.cs",
+              "RelativeDocumentMoniker": "LibraryManagemetApi\\Exceptions\\BookNotMatchException.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\BookNotMatchException.cs",
+              "RelativeToolTip": "LibraryManagemetApi\\Exceptions\\BookNotMatchException.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-27T14:52:48.239Z",
+              "WhenOpened": "2024-05-30T17:52:48.26Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "BookNotBorrowedException.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\BookNotBorrowedException.cs",
+              "RelativeDocumentMoniker": "LibraryManagemetApi\\Exceptions\\BookNotBorrowedException.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\BookNotBorrowedException.cs",
+              "RelativeToolTip": "LibraryManagemetApi\\Exceptions\\BookNotBorrowedException.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-30T17:52:38.052Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 19,
-              "Title": "AnalyticsController.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Controllers\\AnalyticsController.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Controllers\\AnalyticsController.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Controllers\\AnalyticsController.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Controllers\\AnalyticsController.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAwwCIAAAAMAAAA",
+              "Title": "BookAlreadyReturnedException.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\BookAlreadyReturnedException.cs",
+              "RelativeDocumentMoniker": "LibraryManagemetApi\\Exceptions\\BookAlreadyReturnedException.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\BookAlreadyReturnedException.cs",
+              "RelativeToolTip": "LibraryManagemetApi\\Exceptions\\BookAlreadyReturnedException.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T08:33:51.762Z",
+              "WhenOpened": "2024-05-30T17:52:28.199Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 20,
-              "Title": "TokenService.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Services\\TokenService.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Services\\TokenService.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Services\\TokenService.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Services\\TokenService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAIAAAA",
+              "Title": "BookAlreadyReservedException.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\BookAlreadyReservedException.cs",
+              "RelativeDocumentMoniker": "LibraryManagemetApi\\Exceptions\\BookAlreadyReservedException.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\BookAlreadyReservedException.cs",
+              "RelativeToolTip": "LibraryManagemetApi\\Exceptions\\BookAlreadyReservedException.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T16:14:49.151Z",
+              "WhenOpened": "2024-05-30T17:52:10.751Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "BookAlreadyExistsException.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\BookAlreadyExistsException.cs",
+              "RelativeDocumentMoniker": "LibraryManagemetApi\\Exceptions\\BookAlreadyExistsException.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\BookAlreadyExistsException.cs",
+              "RelativeToolTip": "LibraryManagemetApi\\Exceptions\\BookAlreadyExistsException.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-30T17:52:02.252Z",
               "EditorCaption": ""
             },
             {
@@ -370,192 +349,129 @@
               "RelativeDocumentMoniker": "LibraryManagemetApi\\Exceptions\\BookAlreadyBorrowedException.cs",
               "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\BookAlreadyBorrowedException.cs",
               "RelativeToolTip": "LibraryManagemetApi\\Exceptions\\BookAlreadyBorrowedException.cs",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAhwBIAAAAEAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T11:30:14.945Z",
+              "WhenOpened": "2024-05-30T17:51:50.985Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 23,
-              "Title": "AddCardDTO.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Models\\DTO\\AddCardDTO.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Models\\DTO\\AddCardDTO.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Models\\DTO\\AddCardDTO.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Models\\DTO\\AddCardDTO.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAwAAAA/AAAA",
+              "Title": "AnalyticsBLTest.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\BLTestProj\\AnalyticsBLTest.cs",
+              "RelativeDocumentMoniker": "BLTestProj\\AnalyticsBLTest.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\BLTestProj\\AnalyticsBLTest.cs",
+              "RelativeToolTip": "BLTestProj\\AnalyticsBLTest.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAswBIAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T09:57:21.627Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "BorrowService.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Services\\BorrowService.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Services\\BorrowService.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Services\\BorrowService.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Services\\BorrowService.cs",
-              "ViewState": "AQIAAHUAAAAAAAAAAAAiwIIAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-27T06:40:06.791Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "Payment.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Models\\Payment.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Models\\Payment.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Models\\Payment.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Models\\Payment.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAA0AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T10:51:29.254Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-30T10:51:43.783Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 26,
-              "Title": "BorrowedRepository.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Repositories\\BorrowedRepository.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Repositories\\BorrowedRepository.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Repositories\\BorrowedRepository.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Repositories\\BorrowedRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAMAAAA",
+              "Title": "BookBLTest.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\BLTestProj\\BookBLTest.cs",
+              "RelativeDocumentMoniker": "BLTestProj\\BookBLTest.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\BLTestProj\\BookBLTest.cs",
+              "RelativeToolTip": "BLTestProj\\BookBLTest.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAACQAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-27T14:00:07.469Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "ReturnBookDTO.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Models\\DTO\\ReturnBookDTO.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Models\\DTO\\ReturnBookDTO.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Models\\DTO\\ReturnBookDTO.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Models\\DTO\\ReturnBookDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-26T16:43:59.429Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "20240527110226_changed-review.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Migrations\\20240527110226_changed-review.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Migrations\\20240527110226_changed-review.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Migrations\\20240527110226_changed-review.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Migrations\\20240527110226_changed-review.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAQwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-27T11:02:26.606Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "Review.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Models\\Review.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Models\\Review.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Models\\Review.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Models\\Review.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAwAAAAuAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-27T10:59:35.735Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "Borrowed.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Models\\Borrowed.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Models\\Borrowed.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Models\\Borrowed.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Models\\Borrowed.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-27T06:41:59.652Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "20240527110253_changed-review.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Migrations\\20240527110253_changed-review.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Migrations\\20240527110253_changed-review.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Migrations\\20240527110253_changed-review.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Migrations\\20240527110253_changed-review.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-27T11:02:53.544Z"
+              "WhenOpened": "2024-05-30T09:17:53.477Z"
             }
           ]
         },
         {
-          "DockedWidth": 500,
+          "DockedWidth": 419,
           "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "AuthorRepository.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Repositories\\AuthorRepository.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Repositories\\AuthorRepository.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Repositories\\AuthorRepository.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Repositories\\AuthorRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAIAAAA",
+              "Title": "BorrowService.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Services\\BorrowService.cs",
+              "RelativeDocumentMoniker": "LibraryManagemetApi\\Services\\BorrowService.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Services\\BorrowService.cs",
+              "RelativeToolTip": "LibraryManagemetApi\\Services\\BorrowService.cs",
+              "ViewState": "AQIAACcAAAAAAAAAAAAowGgAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T17:30:36.415Z",
+              "WhenOpened": "2024-05-30T17:25:48.556Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BookController.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Controllers\\BookController.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Controllers\\BookController.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Controllers\\BookController.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Controllers\\BookController.cs",
-              "ViewState": "AQIAAHUAAAAAAAAAAAAkwHsAAAAMAAAA",
+              "DocumentIndex": 1,
+              "Title": "ReservationService.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Services\\ReservationService.cs",
+              "RelativeDocumentMoniker": "LibraryManagemetApi\\Services\\ReservationService.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Services\\ReservationService.cs",
+              "RelativeToolTip": "LibraryManagemetApi\\Services\\ReservationService.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAA1wCUAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T16:28:42.014Z",
+              "WhenOpened": "2024-05-30T15:44:46.602Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BorrowBlTest.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\BLTestProj\\BorrowBlTest.cs",
+              "RelativeDocumentMoniker": "BLTestProj\\BorrowBlTest.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\BLTestProj\\BorrowBlTest.cs",
+              "RelativeToolTip": "BLTestProj\\BorrowBlTest.cs",
+              "ViewState": "AQIAAKIAAAAAAAAAAAArwLkAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-30T09:31:22.667Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "IBookService.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Interfaces\\IBookService.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Interfaces\\IBookService.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Interfaces\\IBookService.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Interfaces\\IBookService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAEAAAA",
+              "Title": "PaymentService.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Services\\PaymentService.cs",
+              "RelativeDocumentMoniker": "LibraryManagemetApi\\Services\\PaymentService.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Services\\PaymentService.cs",
+              "RelativeToolTip": "LibraryManagemetApi\\Services\\PaymentService.cs",
+              "ViewState": "AQIAAFwAAAAAAAAAAAAqwGoAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T05:21:19.175Z",
+              "WhenOpened": "2024-05-30T11:05:30.161Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "PaymentContorller.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Controllers\\PaymentContorller.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Controllers\\PaymentContorller.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Controllers\\PaymentContorller.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Controllers\\PaymentContorller.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAA5wDUAAAAMAAAA",
+              "DocumentIndex": 7,
+              "Title": "BookOverDueException.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\BookOverDueException.cs",
+              "RelativeDocumentMoniker": "LibraryManagemetApi\\Exceptions\\BookOverDueException.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Exceptions\\BookOverDueException.cs",
+              "RelativeToolTip": "LibraryManagemetApi\\Exceptions\\BookOverDueException.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T11:37:26.482Z",
+              "WhenOpened": "2024-05-30T17:55:29.723Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "BorrowController.cs",
-              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Controllers\\BorrowController.cs",
-              "RelativeDocumentMoniker": "LibraryManagemetApi\\Controllers\\BorrowController.cs",
-              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Controllers\\BorrowController.cs",
-              "RelativeToolTip": "LibraryManagemetApi\\Controllers\\BorrowController.cs",
-              "ViewState": "AQIAALIAAAAAAAAAAAAswM8AAAAAAAAA",
+              "DocumentIndex": 25,
+              "Title": "AnaylticsService.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Services\\AnaylticsService.cs",
+              "RelativeDocumentMoniker": "LibraryManagemetApi\\Services\\AnaylticsService.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Services\\AnaylticsService.cs",
+              "RelativeToolTip": "LibraryManagemetApi\\Services\\AnaylticsService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-27T11:26:55.465Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-30T10:51:48.761Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "BookService.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Services\\BookService.cs",
+              "RelativeDocumentMoniker": "LibraryManagemetApi\\Services\\BookService.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\MiniProjectLibraryManagement\\LibraryManagemetSln\\LibraryManagemetApi\\Services\\BookService.cs",
+              "RelativeToolTip": "LibraryManagemetApi\\Services\\BookService.cs",
+              "ViewState": "AQIAAFAAAAAAAAAAAAAQwBIAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-30T09:17:23.978Z"
             }
           ]
         }

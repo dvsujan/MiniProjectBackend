@@ -1,9 +1,11 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Runtime.Serialization;
 
 namespace LibraryManagemetApi.Exceptions
 {
+    [ExcludeFromCodeCoverage]
     [Serializable]
-    internal class BookAlreadyBorrowedException : Exception
+    public class BookAlreadyBorrowedException : Exception
     {
         public BookAlreadyBorrowedException()
         {

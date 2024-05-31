@@ -20,6 +20,5 @@ namespace LibraryManagemetApi.Repositories
             var noOfRatings = await _dbSet.Where(r => r.BookId == bookId).CountAsync();
             return noOfRatings;
         }
-        
     }
 }

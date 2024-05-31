@@ -2,6 +2,7 @@
 using LibraryManagemetApi.Interfaces;
 using LibraryManagemetApi.Models;
 using LibraryManagemetApi.Models.DTO;
+using LibraryManagemetApi.Repositories;
 
 namespace LibraryManagemetApi.Services
 {
@@ -28,7 +29,7 @@ namespace LibraryManagemetApi.Services
         {
             try
             {
-                var stock = await _stockRepository.GetOneById(borrow.BookId);
+                var stock = await ((StockRepository)_stockRepository).GetStockByBookId(borrow.BookId);
                 if (stock.Quantity == 0)
                 {
                     throw new BookOutOfStockException();
@@ -227,11 +228,7 @@ namespace LibraryManagemetApi.Services
                 {
                     throw new BookAlreadyReturnedException();
                 }
-                
-                if (borrow.UserId != userId)
-                {
-                    throw new UserNotMatchException();
-                }
+               
                 if (borrow.DueDate < DateTime.Now)
                 {
                     if (!await isPaymentMade(userId, borrow.Id))

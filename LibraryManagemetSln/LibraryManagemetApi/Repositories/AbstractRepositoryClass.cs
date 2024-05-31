@@ -20,7 +20,7 @@ namespace LibraryManagemetApi.Repositories
             var ob = await GetOneById(id);
             if (ob == null)
             {
-                return null;
+                throw new EntityNotFoundException();
             }
             _dbSet.Remove(ob);
             await _context.SaveChangesAsync();

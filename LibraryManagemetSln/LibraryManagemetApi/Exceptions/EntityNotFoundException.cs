@@ -1,8 +1,10 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Runtime.Serialization;
 
 namespace LibraryManagemetApi.Exceptions
 {
     [Serializable]
+    [ExcludeFromCodeCoverage]
     public class EntityNotFoundException : Exception
     {
         public EntityNotFoundException()

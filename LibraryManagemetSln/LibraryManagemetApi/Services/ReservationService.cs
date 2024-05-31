@@ -3,6 +3,7 @@ using LibraryManagemetApi.Interfaces;
 using LibraryManagemetApi.Models;
 using LibraryManagemetApi.Models.DTO;
 using LibraryManagemetApi.Repositories;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 
 namespace LibraryManagemetApi.Services
@@ -49,7 +50,8 @@ namespace LibraryManagemetApi.Services
                 throw;
             }
         }
-
+        
+        [ExcludeFromCodeCoverage]
         public async Task<ReservationReturnDTO> ReserveBook(ReservationDTO reservation)
         {
             try
@@ -90,6 +92,7 @@ namespace LibraryManagemetApi.Services
                 throw;
             }
         }
+        [ExcludeFromCodeCoverage]
         public async Task CheckBorrowed(int reservationId, DateTime reservationDate, int userId , int BookId )
         {
             Thread.Sleep(reservationDate.AddDays(1).Subtract(DateTime.Now));

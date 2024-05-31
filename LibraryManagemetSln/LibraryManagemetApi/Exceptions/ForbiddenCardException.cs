@@ -1,9 +1,11 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Runtime.Serialization;
 
 namespace LibraryManagemetApi.Exceptions
 {
     [Serializable]
-    internal class ForbiddenCardException : Exception
+    [ExcludeFromCodeCoverage]
+    public class ForbiddenCardException : Exception
     {
         public ForbiddenCardException()
         {
