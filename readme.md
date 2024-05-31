@@ -18,6 +18,6 @@ Develop a REST based Api for library management system to automate the process o
 - [x]  Validations
 - [x]  Add Authorization
 - [ ]  Logging
-- [ ]  Test the Repositories 
-- [ ]  Test the Business Logic 
-- [ ]  Test the Api 
+- [x]  Test the Repositories 
+- [x]  Test the Business Logic 
+- [x]  Test the Api 
