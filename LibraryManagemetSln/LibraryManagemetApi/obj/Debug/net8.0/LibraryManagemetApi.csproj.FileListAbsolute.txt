@@ -138,3 +138,6 @@ C:\Users\VC\Desktop\MiniProjectLibraryManagement\LibraryManagemetSln\LibraryMana
 C:\Users\VC\Desktop\MiniProjectLibraryManagement\LibraryManagemetSln\LibraryManagemetApi\bin\Debug\net8.0\JWT.dll
 C:\Users\VC\Desktop\MiniProjectLibraryManagement\LibraryManagemetSln\LibraryManagemetApi\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\VC\Desktop\MiniProjectLibraryManagement\LibraryManagemetSln\LibraryManagemetApi\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\VC\Desktop\MiniProjectLibraryManagement\LibraryManagemetSln\LibraryManagemetApi\bin\Debug\net8.0\log4net.config
+C:\Users\VC\Desktop\MiniProjectLibraryManagement\LibraryManagemetSln\LibraryManagemetApi\bin\Debug\net8.0\log4net.dll
+C:\Users\VC\Desktop\MiniProjectLibraryManagement\LibraryManagemetSln\LibraryManagemetApi\bin\Debug\net8.0\Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll
