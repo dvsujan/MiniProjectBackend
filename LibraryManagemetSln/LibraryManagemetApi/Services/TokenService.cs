@@ -16,6 +16,11 @@ namespace LibraryManagemetApi.Services
             _secretKey = configuration.GetSection("TokenKey").GetSection("JWT").Value.ToString();
             _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_secretKey));
         }
+        /// <summary>
+        /// Geerates 
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public string GenerateToken(User user)
         {
             string token = string.Empty;

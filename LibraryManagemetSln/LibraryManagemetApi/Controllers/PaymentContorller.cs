@@ -20,6 +20,9 @@ namespace LibraryManagemetApi.Controllers
         [HttpPost]
         [Route("addcard")]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
         public async Task<ActionResult<ResponseCardDTO>> AddCard(AddCardDTO card)
         {
             var userId = int.Parse(User.FindFirst("UserId").Value);
@@ -45,6 +48,9 @@ namespace LibraryManagemetApi.Controllers
         [HttpDelete]
         [Route("deletecard")]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
         public async Task<ActionResult<ResponseCardDTO>> DeleteCard(int cardId, int userId)
         {
             try
@@ -65,6 +71,9 @@ namespace LibraryManagemetApi.Controllers
         [HttpGet]
         [Route("cards")]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<IEnumerable<ResponseCardDTO>>> GetCards(int userId)
         {
             var userIdLogged = int.Parse(User.FindFirst("UserId").Value);
@@ -87,6 +96,10 @@ namespace LibraryManagemetApi.Controllers
         [HttpPost]
         [Route("payFine")]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<PaymentReturnDTO>> Pay(PaymentDTO payment)
         {
             var userId = int.Parse(User.FindFirst("UserId").Value);

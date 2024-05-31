@@ -12,6 +12,12 @@ namespace LibraryManagemetApi.Services
         {
             _borrowedRepository = borrowedRepository;
         }
+
+        /// <summary>
+        /// return the analytics of the library based on the time frame
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
         public async Task<IEnumerable<ReturnAnalyticsDTO>> GetAnalytics(AnalyticsDTO dto)
         {
             try
@@ -34,6 +40,12 @@ namespace LibraryManagemetApi.Services
             }
 
         }
+
+        /// <summary>
+        /// returns the overdue books in the library based on the time frame given by the Admin
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns>list of no of analytics</returns>
 
         public async Task<IEnumerable<ReturnODAnalyticsDTO>> returnODAnalyticsDTOs(AnalyticsDTO dto)
         {

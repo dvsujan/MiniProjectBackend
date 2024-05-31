@@ -21,6 +21,8 @@ namespace LibraryManagemetApi.Controllers
 
         [Authorize]
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<IEnumerable<ReturnReviewDTO>>> GetReviewsByBookId(int bookId)
         {
             try
@@ -36,6 +38,9 @@ namespace LibraryManagemetApi.Controllers
 
         [Authorize]
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
         public async Task<ActionResult<ReturnReviewDTO>> AddReview(AddReviewDTO review)
         {
             var userId = int.Parse(User.FindFirst("UserId").Value);
@@ -69,6 +74,11 @@ namespace LibraryManagemetApi.Controllers
 
         [HttpDelete]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status410Gone)]
         public async Task<ActionResult<ReturnReviewDTO>> DeleteReview(int reviewId, int userId)
         {
             var userIdLogged = int.Parse(User.FindFirst("UserId").Value);
@@ -97,6 +107,8 @@ namespace LibraryManagemetApi.Controllers
         [HttpGet]
         [Route("user")]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<IEnumerable<ReturnReviewDTO>>> GetReviewsByUserId(int userId)
         {
             var userIdLogged = int.Parse(User.FindFirst("UserId").Value);

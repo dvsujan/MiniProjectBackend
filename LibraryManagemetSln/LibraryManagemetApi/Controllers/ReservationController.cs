@@ -20,6 +20,10 @@ namespace LibraryManagemetApi.Controllers
         [HttpPost]
         [Route("reserve")]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status410Gone)]
         public async Task<ActionResult<ReservationReturnDTO>> ReserveBook(ReservationDTO reservation)
         {
             var userIdLogged = int.Parse(User.FindFirst("UserId").Value);
@@ -56,6 +60,9 @@ namespace LibraryManagemetApi.Controllers
         [HttpDelete]
         [Route("cancel")]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
         public async Task<ActionResult<ReservationReturnDTO>> CancelReservation(int reservationId, int userId)
         {
             var userIdLogged = int.Parse(User.FindFirst("UserId").Value);

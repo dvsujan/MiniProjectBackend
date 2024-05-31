@@ -17,6 +17,16 @@ namespace LibraryManagemetApi.Services
             _userRepository = userRepository;
             _tokenService = tokenService;
         }
+
+        /// <summary>
+        /// used to login and geerate a JWT
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        /// <exception cref="EntityNotFoundException">when user Email is not found in the database</exception>
+        /// <exception cref="IncorrectPasswordExcpetion">if password is incorrect</exception>
+        /// <exception cref="UserNotActiveException">if user is not activated</exception>
+        /// <exception cref="Exception">General Exception</exception>
         public async Task<LoginReturnDTO> Login(UserLoginDTO user)
         {
             try
@@ -61,6 +71,13 @@ namespace LibraryManagemetApi.Services
                 throw new Exception(e.Message);
             }
         }
+
+        /// <summary>
+        /// used to check if password entered is correct
+        /// </summary>
+        /// <param name="encrypterPass"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         private bool ComparePassword(byte[] encrypterPass, byte[] password)
         {
             for (int i = 0; i < encrypterPass.Length; i++)
@@ -72,6 +89,11 @@ namespace LibraryManagemetApi.Services
             }
             return true;
         }
+        /// <summary>
+        /// checks if user exists in the database
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
         private async Task<bool> isUserExists(string email)
         {
             try
@@ -84,6 +106,12 @@ namespace LibraryManagemetApi.Services
                 return false;
             }
         }
+        /// <summary>
+        /// used to regiseter a new user 
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        /// <exception cref="UserAlreadyExistsException">user with email already exists</exception>
         public async Task<RegisterReturnDTO> Register(userRegisterDTO user)
         {
             User userReg = null;
@@ -129,10 +157,23 @@ namespace LibraryManagemetApi.Services
                 throw;
             }
         }
+        /// <summary>
+        /// rollback the user 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         private async Task ReverseUserCreation(int id)
         {
             await _userRepository.Delete(id);
         }
+
+        /// <summary>
+        /// activate the user
+        /// </summary>
+        /// <param name="activateuserDTO"></param>
+        /// <returns></returns>
+        /// <exception cref="EntityNotFoundException">throws if user is not foudn in the database</exception>
+        /// <exception cref="Exception">General Exception</exception>
 
         public async Task<ActivateReturnDTO> ActivateUser(ActivateUserDTO activateuserDTO)
         {

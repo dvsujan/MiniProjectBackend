@@ -23,6 +23,12 @@ namespace LibraryManagemetApi.Services
             _borrowrepository = borrowedRepository;
         }
 
+        /// <summary>
+        /// cancels the reservation of the book made by the user
+        /// </summary>
+        /// <param name="reservationId"></param>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         public async Task<ReservationReturnDTO> CancelReservation(int  reservationId, int userId)
         {
             try
@@ -49,7 +55,11 @@ namespace LibraryManagemetApi.Services
                 throw;
             }
         }
-
+        /// <summary>
+        /// reservs the book for the user
+        /// </summary>
+        /// <param name="reservation"></param>
+        /// <returns></returns>
         public async Task<ReservationReturnDTO> ReserveBook(ReservationDTO reservation)
         {
             try
@@ -90,6 +100,15 @@ namespace LibraryManagemetApi.Services
                 throw;
             }
         }
+
+        /// <summary>
+        /// creats a thread to check if the book is borrowed by the reserved time or it delets the reservation and free the book
+        /// </summary>
+        /// <param name="reservationId"></param>
+        /// <param name="reservationDate"></param>
+        /// <param name="userId"></param>
+        /// <param name="BookId"></param>
+        /// <returns></returns>
         public async Task CheckBorrowed(int reservationId, DateTime reservationDate, int userId , int BookId )
         {
             Thread.Sleep(reservationDate.AddDays(1).Subtract(DateTime.Now));

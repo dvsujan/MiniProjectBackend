@@ -17,6 +17,8 @@ namespace LibraryManagemetApi.Controllers
         }
         
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [Authorize(Roles = "2")]
         public async Task<ActionResult<IEnumerable<ReturnAnalyticsDTO>>>GetAnalytics(AnalyticsDTO dto)
         {
@@ -37,6 +39,8 @@ namespace LibraryManagemetApi.Controllers
         
         [HttpPost]
         [Route("overdue")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [Authorize(Roles = "2")]
         public async Task<ActionResult<IEnumerable<ReturnODAnalyticsDTO>>> GetOverdueAnalytics(AnalyticsDTO dto)
         {

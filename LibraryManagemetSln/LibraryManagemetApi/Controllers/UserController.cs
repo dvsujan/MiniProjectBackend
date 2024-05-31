@@ -19,7 +19,10 @@ namespace LibraryManagemetApi.Controllers
         
         [HttpPost]
         [Route("login")]
-
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
         public async Task<ActionResult<LoginReturnDTO>> Login(UserLoginDTO user)
         {
             if (!ModelState.IsValid)
@@ -37,7 +40,7 @@ namespace LibraryManagemetApi.Controllers
             }
             catch (IncorrectPasswordExcpetion)
             {
-                return BadRequest(user);
+                return Conflict(user);
             }
             catch (UserNotActiveException)
             {
@@ -51,6 +54,9 @@ namespace LibraryManagemetApi.Controllers
         
         [HttpPost]
         [Route("register")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<RegisterReturnDTO>> Register(userRegisterDTO user)
         {
             if (!ModelState.IsValid)
@@ -74,6 +80,9 @@ namespace LibraryManagemetApi.Controllers
         [HttpPost]
         [Route("activate")]
         [Authorize(Roles ="2")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<ActivateReturnDTO>> ActivateUser(ActivateUserDTO email)
         {
             if (!ModelState.IsValid)

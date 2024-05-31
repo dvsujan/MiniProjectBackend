@@ -20,6 +20,8 @@ namespace LibraryManagemetApi.Controllers
 
         [HttpGet]
         [Route("all")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [Authorize]
         public async Task<ActionResult<IEnumerable<ReturnBookDTO>>> GetAllBooks(int page=1 , int limit = 10)
         {
@@ -36,6 +38,11 @@ namespace LibraryManagemetApi.Controllers
         [HttpPost]
         [Route("add")]
         [Authorize(Roles="2")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
+
         public async Task<ActionResult<ReturnBookDTO>> AddBook(AddBookDTO book)
         {
             if (!ModelState.IsValid)
@@ -63,6 +70,9 @@ namespace LibraryManagemetApi.Controllers
         [HttpPut]
         [Route("update")]
         [Authorize(Roles="2")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<ReturnBookDTO>> UpdateBook(UpdateBookDTO book)
         {
             if (!ModelState.IsValid)
@@ -86,6 +96,8 @@ namespace LibraryManagemetApi.Controllers
         [HttpDelete]
         [Route("delete")]
         [Authorize(Roles="2")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<ReturnBookDTO>> DeleteBook(int id)
         {
             try
@@ -105,6 +117,9 @@ namespace LibraryManagemetApi.Controllers
         [HttpPost]
         [Route("editAuthor")]
         [Authorize(Roles="2")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<ReturnEditAuthorDTO>> EditAuthor(EditAuthorDTO editAuthor)
         {
             if (!ModelState.IsValid)
@@ -129,6 +144,9 @@ namespace LibraryManagemetApi.Controllers
         [HttpPost]
         [Route("editPublisher")]
         [Authorize(Roles="2")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<ReturnEditpublicationDTO>> EditPublisher(EditpublicationDTO editPublisher)
         {
             if (!ModelState.IsValid)
@@ -148,11 +166,14 @@ namespace LibraryManagemetApi.Controllers
             {
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
-        }   
+        }
 
         [HttpGet]
         [Route("search")]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<IEnumerable<ReturnBookDTO>>> SearchBookByTitle(string title)
         {
             try
@@ -172,6 +193,9 @@ namespace LibraryManagemetApi.Controllers
         [HttpGet]
         [Route("get")]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<ReturnBookDTO>> GetBook(int id)
         {
             try

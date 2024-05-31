@@ -27,7 +27,12 @@ namespace LibraryManagemetApi.Services
             _stockRepository = stockRepository;
             _reviewRepository = reviewRepository;
         }
-        
+
+        /// <summary>
+        /// check if the author exists in the database if not create a new author
+        /// </summary>
+        /// <param name="authorName"></param>
+        /// <returns></returns>
         private async Task<int> CreateAuthorfNotExists(string authorName)
         {
             try
@@ -45,7 +50,12 @@ namespace LibraryManagemetApi.Services
                 return author.Id;
             }
         }
-
+        
+        /// <summary>
+        /// checks if the category exists in the database if not create a new category
+        /// </summary>
+        /// <param name="categoryName"></param>
+        /// <returns></returns>
         private async Task<int> CreateCategoryIfNotExists(string categoryName)
         {
             try
@@ -64,6 +74,11 @@ namespace LibraryManagemetApi.Services
             }
         }
 
+        /// <summary>
+        ///  check if the publisher exist in database if not create a new publisher object
+        /// </summary>
+        /// <param name="publisherName"></param>
+        /// <returns></returns>
         private async Task<int> createPublisherIfNotExists(string publisherName)
         {
             try
@@ -82,6 +97,12 @@ namespace LibraryManagemetApi.Services
             }
         }
         
+        /// <summary>
+        /// Adds new book to the database
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        /// <exception cref="BookAlreadyExistsException">if book already exists then throws exception</exception>
         public async Task<ReturnBookDTO> AddBook(AddBookDTO dto)
         {
             Book book; 
@@ -127,7 +148,15 @@ namespace LibraryManagemetApi.Services
                 throw e;
             }
         }
-        
+
+        /// <summary>
+        /// delete the book from the database 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <exception cref="EntityNotFoundException">throws if book not found in the databse</exception>
+        /// <exception cref="Exception">general exception</exception>
+                
         public async Task<ReturnBookDTO> DeleteBook(int id)
         {
             try
@@ -154,6 +183,14 @@ namespace LibraryManagemetApi.Services
                 throw new Exception(e.Message);
             }
         }
+
+        /// <summary>
+        /// returns all the books in the database paginated based on the page and limit given 
+        /// </summary>
+        /// <param name="page">pageno</param>
+        /// <param name="limit">noofitems per page</param>
+        /// <returns></returns>
+        /// <exception cref="Exception">general exception</exception>
 
         public async Task<IEnumerable<ReturnBookDTO>> GetAllBooks(int page , int limit)
         {
@@ -189,6 +226,14 @@ namespace LibraryManagemetApi.Services
                 throw new Exception(e.Message);
             }
         }
+
+        /// <summary>
+        /// Gets the book by the bookId from the databse 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <exception cref="EntityNotFoundException">throws if book id does not exist in databse</exception>
+        /// <exception cref="Exception">general exception</exception>
         
         public async Task<ReturnBookDTO> GetBook(int id)
         {
@@ -221,6 +266,13 @@ namespace LibraryManagemetApi.Services
             }
         }
         
+        /// <summary>
+        /// Seacches the Book By Tite 
+        /// </summary>
+        /// <param name="title">string title</param>
+        /// <returns>list of booktitles</returns>
+        /// <exception cref="EntityNotFoundException">throws if not found </exception>
+        /// <exception cref="Exception">General exception</exception>
         public async Task<IEnumerable<ReturnBookDTO>> SearchBookByTitle(string title)
         {
             try
@@ -257,6 +309,13 @@ namespace LibraryManagemetApi.Services
             }
         }
         
+        /// <summary>
+        /// updates the book based 
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        /// <exception cref="EntityNotFoundException">throws if book not found</exception>
+        /// <exception cref="Exception"></exception>
         public async Task<ReturnBookDTO> UpdateBook(UpdateBookDTO dto)
         {
             try
@@ -289,6 +348,14 @@ namespace LibraryManagemetApi.Services
             }
         }
 
+        /// <summary>
+        /// used to edit author name
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        /// <exception cref="EntityNotFoundException">throws if author id is not found</exception>
+        /// <exception cref="Exception"></exception>
+
         public async Task<ReturnEditAuthorDTO> EditAuthor(EditAuthorDTO dto)
         {
             try
@@ -314,6 +381,13 @@ namespace LibraryManagemetApi.Services
             }
         }
 
+        /// <summary>
+        /// edits the publication of the book 
+        /// </summary>
+        /// <param name="dto"></param>
+        /// <returns></returns>
+        /// <exception cref="EntityNotFoundException">thorws if PublicationId is not found</exception>
+        /// <exception cref="Exception">Geeral Exception</exception>
         public async Task<ReturnEditpublicationDTO> EditPublication(EditpublicationDTO dto)
         {
             try

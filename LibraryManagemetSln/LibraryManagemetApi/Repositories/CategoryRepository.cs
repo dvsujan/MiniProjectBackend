@@ -11,6 +11,12 @@ namespace LibraryManagemetApi.Repositories
         public CategoryRepository(LibraryManagementContext context) : base(context)
         {
         }
+        /// <summary>
+        /// returns the category based on the name
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns>category obj</returns>
+        /// <exception cref="EntityNotFoundException"></exception>
         public async Task<Category> GetCategoryByName(string name)
         {
             var category = await _dbSet.FirstOrDefaultAsync(c => c.Name == name);

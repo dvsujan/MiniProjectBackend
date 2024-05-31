@@ -24,6 +24,14 @@ namespace LibraryManagemetApi.Services
             _paymentRepository = paymentRepository;
         }
 
+        /// <summary>
+        /// used to borrow the book from userId and BookId
+        /// </summary>
+        /// <param name="borrow"></param>
+        ///  <exception cref="BookAlreadyBorrowedException">thorws if book is already Borrows</exception>
+        ///  <exception cref="BookOutOfStockException">thorws if book is out of stock</exception>
+        ///  <exception cref="BookAlreadyBorrowedException">thorws if book is already Borrows</exception>
+        /// <returns>returns the borrow return dto</returns>
         public async Task<BorrowReturnDTO> BorrowBook(BorrowDTO borrow)
         {
             try
@@ -73,6 +81,15 @@ namespace LibraryManagemetApi.Services
                 throw;
             }
         }
+
+        /// <summary>
+        /// used to borrow reserved book 
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="bookId"></param>
+        ///  <exception cref="BookOutOfStockException">thorws if book is out of stock</exception>
+        ///  <exception cref="BookNotReservedException">thorws if book is not reserved by the user</exception>
+        /// <returns></returns>
 
         public async Task<BorrowReturnDTO> BorrowReservedBook(int userId, int bookId)
         {
@@ -124,6 +141,12 @@ namespace LibraryManagemetApi.Services
                 throw;
             }
         }
+
+        /// <summary>
+        /// returns all the borrowed books of the user 
+        /// </summary>
+        /// <param name="UserId"></param>
+        /// <returns></returns>
         public async Task<IEnumerable<BorrowReturnDTO>> GetBorrowedBooks(int UserId)
         {
             try
@@ -162,6 +185,11 @@ namespace LibraryManagemetApi.Services
             
         }
 
+        /// <summary>
+        /// returns all the due books of the user
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         public async Task<IEnumerable<BorrowReturnDTO>> GetDueBookeByUser(int userId)
         {
             try
@@ -193,7 +221,13 @@ namespace LibraryManagemetApi.Services
                 throw;
             }
         }
-
+        
+        /// <summary>
+        /// checks if the payment is made for the due book 
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="BorrowId"></param>
+        /// <returns></returns>
         public async Task<bool> isPaymentMade(int userId, int BorrowId)
         {
             var payments = await _paymentRepository.Get();
@@ -206,7 +240,13 @@ namespace LibraryManagemetApi.Services
             }
             return false;
         }
-
+        
+        /// <summary>
+        /// renews the book
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="BookId"></param>
+        /// <returns></returns>
         public async Task<BorrowReturnDTO> renewBook(int userId, int BookId)
         {
             try
@@ -255,7 +295,11 @@ namespace LibraryManagemetApi.Services
                 throw;
             }
         }
-        
+        /// <summary>
+        /// returns the book borrowed by the user
+        /// </summary>
+        /// <param name="returnDTO"></param>
+        /// <returns></returns>        
         public async Task<ReturnReturnDTO> ReturnBook(ReturnDTO returnDTO)
         {
             try

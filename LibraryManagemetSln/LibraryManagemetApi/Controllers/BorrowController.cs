@@ -20,6 +20,12 @@ namespace LibraryManagemetApi.Controllers
         [HttpPost]
         [Route("borrow")]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
+        [ProducesResponseType(StatusCodes.Status410Gone)]
         public async Task<ActionResult<BorrowReturnDTO>> BorrowBook(BorrowDTO borrow)
         {
             var userIdLogged = int.Parse(User.FindFirst("UserId").Value);
@@ -62,6 +68,8 @@ namespace LibraryManagemetApi.Controllers
         [HttpGet]
         [Route("borrowed")]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<IEnumerable<BorrowReturnDTO>>> GetBorrowedBooks(int userId)
         {
             var userIdLogged = int.Parse(User.FindFirst("UserId").Value);
@@ -88,6 +96,10 @@ namespace LibraryManagemetApi.Controllers
         [HttpPost]
         [Route("return")]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
+        [ProducesResponseType(StatusCodes.Status402PaymentRequired)]
         public async Task<ActionResult<ReturnReturnDTO>> ReturnBook(ReturnDTO returnDTO)
         {
             var userIdLogged = int.Parse(User.FindFirst("UserId").Value);
@@ -126,6 +138,10 @@ namespace LibraryManagemetApi.Controllers
         [HttpPost]
         [Route("renew")]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status409Conflict)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<BorrowReturnDTO>> RenewBook(int userId, int BookId)
         {
             var userIdLogged = int.Parse(User.FindFirst("UserId").Value);
@@ -154,6 +170,9 @@ namespace LibraryManagemetApi.Controllers
 
         [HttpPost]
         [Route("due")]
+        [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<IEnumerable<BorrowReturnDTO>>> GetDueBooksByUser(int userId)
         {
             var userIdLogged = int.Parse(User.FindFirst("UserId").Value);
@@ -179,6 +198,10 @@ namespace LibraryManagemetApi.Controllers
 
         [HttpPost]
         [Route("reserved")]
+        [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+
         public async Task<ActionResult<BorrowReturnDTO>> BorrowReservedBook(int userId, int bookId)
         {
             var userIdLogged = int.Parse(User.FindFirst("UserId").Value);

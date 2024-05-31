@@ -12,6 +12,12 @@ namespace LibraryManagemetApi.Repositories
         {
         
         }
+        /// <summary>
+        /// gets the stock by book Id
+        /// </summary>
+        /// <param name="bookId"></param>
+        /// <returns></returns>
+        /// <exception cref="EntityNotFoundException"></exception>
         public async Task<Stock> GetStockByBookId(int bookId)
         {
             var stock = await _dbSet.FirstOrDefaultAsync(s => s.BookId == bookId);

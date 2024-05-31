@@ -12,6 +12,12 @@ namespace LibraryManagemetApi.Services
         {
             _reviewRepository = reviewRepository;
         }
+
+        /// <summary>
+        /// add a review to the book to the databse
+        /// </summary>
+        /// <param name="review"></param>
+        /// <returns></returns>
         public async Task<ReturnReviewDTO> AddReview(AddReviewDTO review)
         {
             try
@@ -48,6 +54,12 @@ namespace LibraryManagemetApi.Services
             }
         }
         
+        /// <summary>
+        /// delete the review from the database
+        /// </summary>
+        /// <param name="reviewId"></param>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         public async Task<ReturnReviewDTO> DeleteReview(int reviewId, int userId)
         {
             try
@@ -73,6 +85,11 @@ namespace LibraryManagemetApi.Services
             }
         }
 
+        /// <summary>
+        /// get all reviews given by the user from userId
+        /// </summary>
+        /// <param name="UserId"></param>
+        /// <returns></returns>
         public async Task<IEnumerable<ReturnReviewDTO>> GetReviewByUserId(int UserId)
         {
             try
@@ -98,7 +115,12 @@ namespace LibraryManagemetApi.Services
                 throw;
             }
         }
-
+        
+        /// <summary>
+        /// get reviews for the book from bookId
+        /// </summary>
+        /// <param name="bookId"></param>
+        /// <returns></returns>
         public async Task<IEnumerable<ReturnReviewDTO>> GetReviwsByBookId(int bookId)
         {
             try

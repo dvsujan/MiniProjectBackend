@@ -21,6 +21,11 @@ namespace LibraryManagemetApi.Services
             _borrowedRepository = borrowedRepository;
         }
 
+        /// <summary>
+        /// add new card to the database 
+        /// </summary>
+        /// <param name="card"></param>
+        /// <returns></returns>
         public async Task<ResponseCardDTO> AddCard(AddCardDTO card)
         {
             try
@@ -46,6 +51,13 @@ namespace LibraryManagemetApi.Services
                 throw;
             }
         }
+
+        /// <summary>
+        /// delete a card from the database
+        /// </summary>
+        /// <param name="cardId"></param>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         public async Task<ResponseCardDTO> DeleteCard(int cardId, int userId)
         {
             try
@@ -70,6 +82,11 @@ namespace LibraryManagemetApi.Services
             }
         }
 
+        /// <summary>
+        /// get all the cards of a user
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         public async Task<IEnumerable<ResponseCardDTO>> GetAllUserCards(int userId)
         {
             try
@@ -97,6 +114,11 @@ namespace LibraryManagemetApi.Services
             }
         }
 
+        /// <summary>
+        /// gets every payment made by the user
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         public async Task<IEnumerable<PaymentReturnDTO>> GetUserPaymentHistory(int userId)
         {
             try
@@ -122,7 +144,11 @@ namespace LibraryManagemetApi.Services
                 throw;
             }
         }
-
+        /// <summary>
+        /// pays fine for the due book 
+        /// </summary>
+        /// <param name="payment"></param>
+        /// <returns></returns>
         public async Task<PaymentReturnDTO> PayFine(PaymentDTO payment)
         {
             try

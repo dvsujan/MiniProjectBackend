@@ -12,6 +12,12 @@ namespace LibraryManagemetApi.Repositories
         {
         }
 
+        /// <summary>
+        /// returns the user object based on the email 
+        /// </summary>
+        /// <param name="email">string</param>
+        /// <returns>returns user object</returns>
+        /// <exception cref="EntityNotFoundException">thorws if user does not exist</exception>
         public async Task<User> GetUserByEmail(string email)
         {
             var user = await _dbSet.FirstOrDefaultAsync(u => u.Email == email);

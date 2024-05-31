@@ -11,6 +11,12 @@ namespace LibraryManagemetApi.Repositories
         public AuthorRepository(LibraryManagementContext context) : base(context)
         {
         }
+        /// <summary>
+        /// gets the user by name 
+        /// </summary>
+        /// <param name="name">string</param>
+        /// <returns>entity</returns>
+        /// <exception cref="EntityNotFoundException"></exception>
         public async Task<Author> GetAuthorByName(string name)
         {
             var author = await _dbSet.FirstOrDefaultAsync(x => x.Name == name);
