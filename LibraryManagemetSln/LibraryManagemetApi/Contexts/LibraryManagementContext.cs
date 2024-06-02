@@ -77,11 +77,6 @@ namespace LibraryManagemetApi.Contexts
 
                 .HasForeignKey(b => b.BookId);
 
-            modelBuilder.Entity<Borrowed>()
-                .HasOne(b => b.Payment)
-                .WithMany()
-                .HasForeignKey(b => b.PaymentId);
-
             
             modelBuilder.Entity<Reservation>()
                 .HasOne(r => r.User)

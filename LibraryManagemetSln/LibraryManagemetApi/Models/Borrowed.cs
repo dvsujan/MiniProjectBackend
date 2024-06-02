@@ -11,11 +11,8 @@ namespace LibraryManagemetApi.Models
         public DateTime BorrowedDate { get; set; } = System.DateTime.Now;
         public DateTime DueDate { get; set; } = System.DateTime.Now.AddDays(7);
         public DateTime? ReturnDate { get; set; }
-        public decimal Fine { get; set; } = 0;
-        public int? PaymentId { get; set; } = null;
 
         public User User { get; set; }
         public Book Book { get; set; }
-        public Payment Payment { get; set; }
     }
 }

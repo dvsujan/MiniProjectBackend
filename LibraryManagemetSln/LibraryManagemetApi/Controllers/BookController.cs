@@ -280,5 +280,26 @@ namespace LibraryManagemetApi.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
+        
+        /// <summary>
+        /// Gets all the locations in the library for admin use
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("locations")]
+        [Authorize(Roles ="2")]
+        public async Task<ActionResult<IEnumerable<Location>>> Location()
+        {
+            try
+            {
+                var locations = await _bookService.GetAllLocationsInLibrary();
+                return Ok(locations);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
     }
 }

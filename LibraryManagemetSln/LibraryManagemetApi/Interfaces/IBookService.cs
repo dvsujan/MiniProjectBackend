@@ -1,4 +1,5 @@
-﻿using LibraryManagemetApi.Models.DTO;
+﻿using LibraryManagemetApi.Models;
+using LibraryManagemetApi.Models.DTO;
 
 namespace LibraryManagemetApi.Interfaces
 {
@@ -11,6 +12,7 @@ namespace LibraryManagemetApi.Interfaces
         Task<IEnumerable<ReturnBookDTO>> SearchBookByTitle(string title);
         Task<ReturnBookDTO> GetBook(int id);
         Task<ReturnEditAuthorDTO> EditAuthor(EditAuthorDTO dto); 
-        Task<ReturnEditpublicationDTO> EditPublication(EditpublicationDTO dto); 
+        Task<ReturnEditpublicationDTO> EditPublication(EditpublicationDTO dto);
+        Task<IEnumerable<Location>> GetAllLocationsInLibrary(); 
     }
 }

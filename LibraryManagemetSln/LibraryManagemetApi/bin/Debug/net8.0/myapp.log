@@ -22,3 +22,25 @@ SELECT TOP(1) [u].[Id], [u].[Active], [u].[CreatedAt], [u].[Email], [u].[HashKey
 FROM [Users] AS [u]
 WHERE [u].[Email] = @__email_0
 2024-05-31 17:21:00,859 [18] INFO LibraryManagemetApi.Controllers.UserController - User dvsujan@gmail.com logged in
+2024-06-02 21:08:27,019 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5122
+2024-06-02 21:08:27,034 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-06-02 21:08:27,037 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2024-06-02 21:08:27,040 [1] INFO Microsoft.Hosting.Lifetime - Content root path: C:\Users\VC\Desktop\MiniProjectLibraryManagement\LibraryManagemetSln\LibraryManagemetApi
+2024-06-02 21:09:40,147 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5122
+2024-06-02 21:09:40,162 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-06-02 21:09:40,167 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2024-06-02 21:09:40,170 [1] INFO Microsoft.Hosting.Lifetime - Content root path: C:\Users\VC\Desktop\MiniProjectLibraryManagement\LibraryManagemetSln\LibraryManagemetApi
+2024-06-02 21:17:46,052 [1] INFO Microsoft.Hosting.Lifetime - Now listening on: http://localhost:5122
+2024-06-02 21:17:46,061 [1] INFO Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-06-02 21:17:46,065 [1] INFO Microsoft.Hosting.Lifetime - Hosting environment: Development
+2024-06-02 21:17:46,067 [1] INFO Microsoft.Hosting.Lifetime - Content root path: C:\Users\VC\Desktop\MiniProjectLibraryManagement\LibraryManagemetSln\LibraryManagemetApi
+2024-06-02 21:18:59,710 [17] WARN Microsoft.EntityFrameworkCore.Model.Validation - The foreign key property 'User.RoleId1' was created in shadow state because a conflicting property with the simple name 'RoleId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2024-06-02 21:18:59,811 [17] WARN Microsoft.EntityFrameworkCore.Model.Validation - No store type was specified for the decimal property 'Amount' on entity type 'Payment'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2024-06-02 21:19:01,849 [3] INFO Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (151ms) [Parameters=[@__email_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Active], [u].[CreatedAt], [u].[Email], [u].[HashKey], [u].[Password], [u].[RoleId], [u].[RoleId1], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0
+2024-06-02 21:19:02,141 [3] INFO LibraryManagemetApi.Controllers.UserController - User dvsujan@gmail.com logged in
+2024-06-02 21:19:25,042 [18] INFO Microsoft.EntityFrameworkCore.Database.Command - Executed DbCommand (16ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [l].[Id], [l].[Floor], [l].[Shelf]
+FROM [Locations] AS [l]

@@ -412,5 +412,23 @@ namespace LibraryManagemetApi.Services
                 throw new Exception(e.Message);
             }
         }
+
+        /// <summary>
+        /// Get all the location in the library
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public async Task<IEnumerable<Location>> GetAllLocationsInLibrary()
+        {
+            try
+            {
+                return await _locationRepository.Get();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+
+        }
     }
 }
