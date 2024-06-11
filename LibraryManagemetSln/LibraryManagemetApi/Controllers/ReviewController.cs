@@ -30,6 +30,7 @@ namespace LibraryManagemetApi.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status404NotFound)]
         public async Task<ActionResult<IEnumerable<ReturnReviewDTO>>> GetReviewsByBookId(int bookId)
         {
             try
@@ -37,6 +38,15 @@ namespace LibraryManagemetApi.Controllers
                 var reviews = await _reviewService.GetReviwsByBookId(bookId);
                 _logger.LogInformation($"Fetched reviews for book {bookId}");
                 return Ok(reviews);
+            }
+            catch (EntityNotFoundException)
+            {
+                _logger.LogWarning($"Book not found {bookId}");
+
+                return NotFound(new ErrorDTO{
+                    Code = "404",
+                    Message = "Book not found"
+                });
             }
             catch (Exception e)
             {
@@ -53,20 +63,28 @@ namespace LibraryManagemetApi.Controllers
         [Authorize]
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status409Conflict)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status409Conflict)]
         public async Task<ActionResult<ReturnReviewDTO>> AddReview(AddReviewDTO review)
         {
             var userId = int.Parse(User.FindFirst("UserId").Value);
             if(userId != review.UserId)
             {
                 _logger.LogError($"Forbidden user {userId}");
-                return StatusCode(StatusCodes.Status403Forbidden);
+                return StatusCode(StatusCodes.Status403Forbidden,new ErrorDTO
+                {
+                    Code="403",
+                    Message="Forbidden User"
+                });
             }
             
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                return BadRequest(new ErrorDTO
+                {
+                    Code="400", 
+                    Message="Invalid Data"
+                });
             }
             try
             {
@@ -77,12 +95,21 @@ namespace LibraryManagemetApi.Controllers
             catch (EntityNotFoundException)
             {
                 _logger.LogWarning($"Book not found {review.BookId}");
-                return NotFound(review);
+                return NotFound(new ErrorDTO
+                {
+                    Code="404",
+                    Message="Book not found"
+                });
             }
             catch (ReviewAlreadyExistException)
             {
                 _logger.LogWarning($"Review already exist {review.BookId}");
-                return StatusCode(StatusCodes.Status409Conflict);
+                return StatusCode(StatusCodes.Status409Conflict, 
+                new ErrorDTO
+                {
+                    Code="409",
+                    Message="Review already exist"
+                });
             }
             catch (Exception e)
             {
@@ -100,16 +127,20 @@ namespace LibraryManagemetApi.Controllers
         [HttpDelete]
         [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status403Forbidden)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status410Gone)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status410Gone)]
         public async Task<ActionResult<ReturnReviewDTO>> DeleteReview(int reviewId, int userId)
         {
             var userIdLogged = int.Parse(User.FindFirst("UserId").Value);
             if (userId != userIdLogged)
             {
-                return StatusCode(StatusCodes.Status403Forbidden);
+                return StatusCode(StatusCodes.Status403Forbidden, new ErrorDTO
+                {
+                    Code="403",
+                    Message="Forbidden User"
+                });
             }
             try
             {
@@ -120,12 +151,20 @@ namespace LibraryManagemetApi.Controllers
             catch (ForbiddenUserException)
             {
                 _logger.LogWarning($"Forbidden user {userId}");
-                return StatusCode(StatusCodes.Status403Forbidden);
+                return StatusCode(StatusCodes.Status403Forbidden, new ErrorDTO
+                {
+                    Code="403",
+                    Message="Forbidden User"
+                });
             }
             catch (EntityNotFoundException)
             {
                 _logger.LogWarning($"Review not found {reviewId}");
-                return NotFound(reviewId);
+                return NotFound(new ErrorDTO
+                {
+                    Code = "404",
+                    Message = "Review not found"
+                });
             }
             catch (Exception e)
             {
@@ -133,7 +172,7 @@ namespace LibraryManagemetApi.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
-
+        
         /// <summary>
         ///  Gets the all the reviews by the user
         /// </summary>
@@ -143,20 +182,34 @@ namespace LibraryManagemetApi.Controllers
         [Route("user")]
         [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status403Forbidden)]
         public async Task<ActionResult<IEnumerable<ReturnReviewDTO>>> GetReviewsByUserId(int userId)
         {
             var userIdLogged = int.Parse(User.FindFirst("UserId").Value);
             if (userId != userIdLogged)
             {
                 _logger.LogWarning($"Forbidden user {userIdLogged}");
-                return StatusCode(StatusCodes.Status403Forbidden);
+                return StatusCode(StatusCodes.Status403Forbidden, new ErrorDTO
+                {
+                    Code ="403",
+                    Message="Forbidden User"
+                });
             }
             try
             {
                 var reviews = await _reviewService.GetReviewByUserId(userId);
                 _logger.LogInformation($"Fetched reviews for user {userId}");
                 return Ok(reviews);
+            }
+            catch (EntityNotFoundException)
+            {
+                _logger.LogWarning($"User not found {userId}");
+                return NotFound(new ErrorDTO
+                {
+                    Code="404",
+                    Message="User not found"
+                });
             }
             catch (Exception e)
             {

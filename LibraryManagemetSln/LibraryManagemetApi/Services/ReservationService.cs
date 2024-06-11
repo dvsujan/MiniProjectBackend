@@ -3,6 +3,7 @@ using LibraryManagemetApi.Interfaces;
 using LibraryManagemetApi.Models;
 using LibraryManagemetApi.Models.DTO;
 using LibraryManagemetApi.Repositories;
+using Microsoft.AspNetCore.Routing.Constraints;
 using System.Threading;
 
 namespace LibraryManagemetApi.Services
@@ -22,7 +23,7 @@ namespace LibraryManagemetApi.Services
             _bookRepository = bookRepository; 
             _borrowrepository = borrowedRepository;
         }
-
+        
         /// <summary>
         /// cancels the reservation of the book made by the user
         /// </summary>
@@ -76,6 +77,10 @@ namespace LibraryManagemetApi.Services
                 {
                     throw new BookAlreadyReservedException();
                 }
+                var borrowedall = await _borrowrepository.Get();
+                borrowedall = borrowedall.Where(b => b.ReturnDate == null); 
+                var alreadyborrowed = borrowedall.Where(b => b.UserId == reservation.UserId && b.BookId==reservation.BookId);
+                if(alreadyborrowed.Count() > 0) { throw new BookAlreadyBorrowedException();  }
                 var user = await _userRepository.GetOneById(reservation.UserId); 
                 Reservation reservationSave = new Reservation
                 {

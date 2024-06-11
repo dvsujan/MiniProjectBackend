@@ -97,7 +97,7 @@ namespace LibraryManagemetApi.Controllers
         [Authorize(Roles="2")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status404NotFound)]
         public async Task<ActionResult<ReturnBookDTO>> UpdateBook(UpdateBookDTO book)
         {
             if (!ModelState.IsValid)
@@ -108,13 +108,16 @@ namespace LibraryManagemetApi.Controllers
             {
                 var updatedBook = await _bookService.UpdateBook(book);
                 _logger.LogInformation($"{book.BookId} Updated");
-
                 return Ok(updatedBook);
             }
             catch (EntityNotFoundException)
             {
                 _logger.LogWarning("Book Not Found While updating Book"); 
-                return NotFound(book);
+                return NotFound(new ErrorDTO
+                {
+                    Code = "409",
+                    Message = "Book Not Found"
+                });
             }
             catch (Exception e)
             {
@@ -133,19 +136,23 @@ namespace LibraryManagemetApi.Controllers
         [Authorize(Roles="2")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status404NotFound)]
         public async Task<ActionResult<ReturnBookDTO>> DeleteBook(int id)
         {
             try
             {
                 var deletedBook = await _bookService.DeleteBook(id);
                 _logger.LogInformation($"BookId: {id} Deleated"); 
-
                 return Ok(deletedBook);
             }
             catch (EntityNotFoundException)
             {
                 _logger.LogWarning("Entity not found while deleting book");
-                return NotFound(id);
+                return NotFound(new ErrorDTO
+                {
+                    Code = "409",
+                    Message = "Book Not Found"
+                });
             }
             catch (Exception e)
             {
@@ -199,7 +206,7 @@ namespace LibraryManagemetApi.Controllers
         [Authorize(Roles="2")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status404NotFound)]
         public async Task<ActionResult<ReturnEditpublicationDTO>> EditPublisher(EditpublicationDTO editPublisher)
         {
             if (!ModelState.IsValid)
@@ -214,13 +221,18 @@ namespace LibraryManagemetApi.Controllers
             catch (EntityNotFoundException)
             {
                 _logger .LogWarning($"Entity not found while editing publisher ");
-                return NotFound(editPublisher);
+                return NotFound(new ErrorDTO
+                {
+                    Code = "404",
+                    Message = "Publisher Not Found"
+                });
             }
             catch (Exception e)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
+        
         /// <summary>
         /// search the book based on the book title
         /// </summary>
@@ -231,7 +243,7 @@ namespace LibraryManagemetApi.Controllers
         [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType( typeof(ErrorDTO), StatusCodes.Status404NotFound)]
         public async Task<ActionResult<IEnumerable<ReturnBookDTO>>> SearchBookByTitle(string title)
         {
             try
@@ -242,7 +254,11 @@ namespace LibraryManagemetApi.Controllers
             catch (EntityNotFoundException)
             {
                 _logger.LogWarning("Entity not found while searching book by title");
-                return NotFound(title);
+                return NotFound(new ErrorDTO
+                {
+                    Code = "404",
+                    Message = "Book Not Found"
+                });
             }
             catch (Exception e)
             {
@@ -250,7 +266,7 @@ namespace LibraryManagemetApi.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
-
+        
         /// <summary>
         /// Get the book based on the book id 
         /// </summary>
@@ -260,8 +276,7 @@ namespace LibraryManagemetApi.Controllers
         [Route("get")]
         [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ErrorDTO), StatusCodes.Status404NotFound)]
         public async Task<ActionResult<ReturnBookDTO>> GetBook(int id)
         {
             try
@@ -272,7 +287,11 @@ namespace LibraryManagemetApi.Controllers
             catch (EntityNotFoundException)
             {
                 _logger.LogWarning("Entity not found while getting book");
-                return NotFound(id);
+                return NotFound(new ErrorDTO
+                {
+                    Code = "404",
+                    Message = "Book Not Found"
+                });
             }
             catch (Exception e)
             {

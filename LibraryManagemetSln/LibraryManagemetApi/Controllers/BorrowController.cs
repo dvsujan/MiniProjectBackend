@@ -29,10 +29,10 @@ namespace LibraryManagemetApi.Controllers
         [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status403Forbidden)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status409Conflict)]
-        [ProducesResponseType(StatusCodes.Status410Gone)]
+        [ProducesResponseType( typeof(ErrorDTO), StatusCodes.Status403Forbidden)]
+        [ProducesResponseType( typeof(ErrorDTO), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status409Conflict)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status410Gone)]
         public async Task<ActionResult<BorrowReturnDTO>> BorrowBook(BorrowDTO borrow)
         {
             var userIdLogged = int.Parse(User.FindFirst("UserId").Value);
@@ -40,7 +40,11 @@ namespace LibraryManagemetApi.Controllers
             {
                 _logger.LogWarning($"Forbidden User {userIdLogged}");
 
-                return StatusCode(StatusCodes.Status403Forbidden);
+                return StatusCode(StatusCodes.Status403Forbidden,new ErrorDTO
+                {
+                    Message = "User forbidden",
+                    Code = "403"
+                });
             }
             if (!ModelState.IsValid)
             {
@@ -55,22 +59,38 @@ namespace LibraryManagemetApi.Controllers
             catch (EntityNotFoundException)
             {
                 _logger.LogWarning($"Entity Not Found {borrow.UserId} or {borrow.BookId}");
-                return NotFound(borrow);
+                return NotFound(new ErrorDTO
+                {
+                    Message = "Entity Not Found",
+                    Code = "404"
+                });
             }
             catch (BookOutOfStockException)
             {
                 _logger.LogWarning($"Book Out Of Stock {borrow.BookId}"); 
-                return StatusCode(StatusCodes.Status410Gone);
+                return StatusCode(StatusCodes.Status410Gone, new ErrorDTO
+                {
+                    Code = "410",
+                    Message = "Book Out Of Stock"
+                });
             }
             catch (BookAlreadyReservedException)
             {
                 _logger.LogWarning($"Book Already Reserved {borrow.BookId}");
-                return StatusCode(StatusCodes.Status409Conflict);
+                return StatusCode(StatusCodes.Status409Conflict, new ErrorDTO
+                {
+                    Code = "409",
+                    Message = "Book Already Reserved"
+                });
             }
             catch (BookAlreadyBorrowedException)
             {
                 _logger.LogWarning($"Book Already Borrowed {borrow.BookId}");
-                return StatusCode(StatusCodes.Status409Conflict);
+                return StatusCode(StatusCodes.Status409Conflict, new ErrorDTO
+                {
+                    Code = "409",
+                    Message = "Book Already Borrowed"
+                });
             }
             catch (Exception e)
             {
@@ -88,14 +108,19 @@ namespace LibraryManagemetApi.Controllers
         [Route("borrowed")]
         [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ErrorDTO), StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(typeof(ErrorDTO), StatusCodes.Status404NotFound)]
         public async Task<ActionResult<IEnumerable<BorrowReturnDTO>>> GetBorrowedBooks(int userId)
         {
             var userIdLogged = int.Parse(User.FindFirst("UserId").Value);
             if (userId != userIdLogged)
             {
                 _logger.LogWarning($"Forbidden User {userIdLogged}");
-                return StatusCode(StatusCodes.Status403Forbidden);
+                return StatusCode(StatusCodes.Status403Forbidden, new ErrorDTO
+                {
+                    Code = "403",
+                    Message = "Forbidden User"
+                });
             }
             try
             {
@@ -106,7 +131,11 @@ namespace LibraryManagemetApi.Controllers
             catch (EntityNotFoundException)
             {
                 _logger.LogWarning($"Entity Not Found {userId}");
-                return NotFound(userId);
+                return NotFound(new ErrorDTO
+                {
+                    Code="404", 
+                    Message="User Not Found"
+                });
             }
             catch (Exception e)
             {
@@ -123,16 +152,20 @@ namespace LibraryManagemetApi.Controllers
         [Route("return")]
         [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status409Conflict)]
-        [ProducesResponseType(StatusCodes.Status402PaymentRequired)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status409Conflict)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status402PaymentRequired)]
         public async Task<ActionResult<ReturnReturnDTO>> ReturnBook(ReturnDTO returnDTO)
         {
             var userIdLogged = int.Parse(User.FindFirst("UserId").Value);
             if (returnDTO.UserId != userIdLogged)
             {
                 _logger.LogWarning($"Forbidden User {userIdLogged}");
-                return StatusCode(StatusCodes.Status403Forbidden);
+                return StatusCode(StatusCodes.Status403Forbidden, new ErrorDTO
+                {
+                    Code = "403",
+                    Message = "Forbidden User"
+                });
             }
 
             if (!ModelState.IsValid)
@@ -148,17 +181,29 @@ namespace LibraryManagemetApi.Controllers
             catch (EntityNotFoundException)
             {
                 _logger.LogWarning($"Entity Not Found {returnDTO.UserId} or {returnDTO.BookId}");
-                return NotFound(returnDTO);
+                return NotFound(new ErrorDTO
+                {
+                    Code = "404",
+                    Message = "Entity Not Found"
+                });
             }
             catch (BookNotBorrowedException)
             {
                 _logger.LogWarning($"Book Not Borrowed {returnDTO.BookId}");
-                return StatusCode(StatusCodes.Status409Conflict);
+                return StatusCode(StatusCodes.Status409Conflict, new ErrorDTO
+                {
+                    Code = "409",
+                    Message = "Book Not Borrowed"
+                });
             }
             catch (BookOverDueException)
             {
                 _logger.LogWarning($"Book Over Due {returnDTO.BookId}");
-                return StatusCode(StatusCodes.Status402PaymentRequired);
+                return StatusCode(StatusCodes.Status402PaymentRequired, new ErrorDTO
+                {
+                    Code = "402",
+                    Message = "Book Over Due"
+                });
             }
             catch (Exception e)
             {
@@ -178,16 +223,20 @@ namespace LibraryManagemetApi.Controllers
         [Route("renew")]
         [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status409Conflict)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status409Conflict)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status404NotFound)]
         public async Task<ActionResult<BorrowReturnDTO>> RenewBook(int userId, int BookId)
         {
             var userIdLogged = int.Parse(User.FindFirst("UserId").Value);
             if (userId != userIdLogged)
             {
                 _logger.LogWarning($"Forbidden User {userIdLogged}");
-                return StatusCode(StatusCodes.Status403Forbidden);
+                return StatusCode(StatusCodes.Status403Forbidden, new ErrorDTO
+                {
+                    Code="403", 
+                    Message="Forbidden User"
+                });
             }
             try
             {
@@ -198,12 +247,20 @@ namespace LibraryManagemetApi.Controllers
             catch (EntityNotFoundException)
             {
                 _logger.LogWarning($"Entity Not Found {userId} or {BookId}");
-                return NotFound(userId);
+                return NotFound(new ErrorDTO
+                {
+                    Code="404",
+                    Message=$"userId {userId} or BookId {BookId} does not exist",
+                });
             }
             catch (BookNotBorrowedException)
             {
                 _logger.LogWarning($"Book Not Borrowed {BookId}");
-                return StatusCode(StatusCodes.Status409Conflict);
+                return StatusCode(StatusCodes.Status409Conflict, new ErrorDTO
+                {
+                    Code="409",
+                    Message="Book Not Borrowed"
+                });
             }
             catch (Exception e)
             {
@@ -221,16 +278,19 @@ namespace LibraryManagemetApi.Controllers
         [Route("due")]
         [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status404NotFound)]
         public async Task<ActionResult<IEnumerable<BorrowReturnDTO>>> GetDueBooksByUser(int userId)
         {
             var userIdLogged = int.Parse(User.FindFirst("UserId").Value);
             if (userId != userIdLogged)
             {
                 _logger.LogWarning($"Forbidden User {userIdLogged}");
-                return StatusCode(StatusCodes.Status403Forbidden);
+                return StatusCode(StatusCodes.Status403Forbidden, new ErrorDTO
+                {
+                    Code="403",
+                    Message="Forbidden User"
+                });
             }
-
             try
             {
                 var dueBooks = await _borrowService.GetDueBookeByUser(userId);
@@ -239,7 +299,11 @@ namespace LibraryManagemetApi.Controllers
             catch (EntityNotFoundException)
             {
                 _logger.LogWarning($"Entity Not Found {userId}");
-                return NotFound(userId);
+                return NotFound(new ErrorDTO
+                {
+                    Code="404",
+                    Message="User Not Found"
+                });
             }
             catch (Exception e)
             {
@@ -257,16 +321,19 @@ namespace LibraryManagemetApi.Controllers
         [HttpPost]
         [Route("reserved")]
         [Authorize]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status404NotFound)]
         public async Task<ActionResult<BorrowReturnDTO>> BorrowReservedBook(int userId, int bookId)
         {
             var userIdLogged = int.Parse(User.FindFirst("UserId").Value);
             if (userId != userIdLogged)
             {
                 _logger.LogWarning($"Forbidden User {userIdLogged}");
-                return StatusCode(StatusCodes.Status403Forbidden);
+                return StatusCode(StatusCodes.Status403Forbidden, new ErrorDTO
+                {
+                    Code="403",
+                    Message="Forbidden User"
+                });
             }
             try
             {
@@ -277,12 +344,29 @@ namespace LibraryManagemetApi.Controllers
             catch (EntityNotFoundException)
             {
                 _logger.LogWarning($"Entity Not Found {userId} or {bookId}");
-                return NotFound(userId);
+                return NotFound(new ErrorDTO
+                {
+                    Code = "404",
+                    Message= $"userId {userId} or bookId {bookId} does not exist"
+                });
             }
             catch (BookNotReservedException)
             {
                 _logger.LogWarning($"Book Not Reserved {bookId}");
-                return StatusCode(StatusCodes.Status409Conflict);
+                return StatusCode(StatusCodes.Status409Conflict, new ErrorDTO
+                {
+                    Code = "409",
+                    Message = "Book Not Reserved"
+                });
+            }
+            catch (BookAlreadyBorrowedException)
+            {
+                _logger.LogWarning($"Book Already Borrowed {bookId}");
+                return StatusCode(StatusCodes.Status409Conflict, new ErrorDTO
+                {
+                    Code="409", 
+                    Message="Book Already Borrowed"
+                });
             }
             catch (Exception e)
             {

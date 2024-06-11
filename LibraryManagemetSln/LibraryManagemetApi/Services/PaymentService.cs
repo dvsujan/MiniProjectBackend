@@ -144,6 +144,7 @@ namespace LibraryManagemetApi.Services
                 throw;
             }
         }
+        
         /// <summary>
         /// pays fine for the due book 
         /// </summary>
@@ -155,7 +156,13 @@ namespace LibraryManagemetApi.Services
             {
                 var user = await _userRepository.GetOneById(payment.UserId);
                 var card = await _cardRepository.GetOneById(payment.CardId);
-                if(card.UserId != user.Id)
+                var payments = await _paymentRepository.Get();
+                var paymentfilter = payments.Where(p => p.BorrowedId == payment.BorrowId); 
+                if (paymentfilter.Count() > 0)
+                {
+                    throw new PaymentAlreadyDoneException();
+                }
+                if (card.UserId != user.Id)
                 {
                     throw new ForbiddenCardException();
                 }

@@ -228,7 +228,7 @@ namespace LibraryManagemetApi.Services
         /// <param name="userId"></param>
         /// <param name="BorrowId"></param>
         /// <returns></returns>
-        public async Task<bool> isPaymentMade(int userId, int BorrowId)
+        private async Task<bool> isPaymentMade(int userId, int BorrowId)
         {
             var payments = await _paymentRepository.Get();
             foreach (var payment in payments)
@@ -279,7 +279,7 @@ namespace LibraryManagemetApi.Services
                         throw new BookOverDueException();
                     }
                 }
-                borrow.DueDate = borrow.DueDate.AddDays(7);
+                borrow.DueDate = DateTime.Now.AddDays(7);
                 await _borrowedRepository.Update(borrow);
                 return new BorrowReturnDTO
                 {

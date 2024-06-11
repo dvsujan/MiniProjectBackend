@@ -213,6 +213,7 @@ namespace LibraryManagemetApi.Services
                             Quantity = stock.Quantity,
                             publishedDate = book.PublishedDate,
                             rating = avgRating,
+                            ISBN = book.ISBN,
                             noOfRatings = noOfReviews,
                             floorNo = book.Location.Floor,
                             shelfNo = book.Location.Shelf
@@ -252,6 +253,7 @@ namespace LibraryManagemetApi.Services
                     publishedDate = book.PublishedDate,
                     rating = avgRating,
                     noOfRatings = noOfReviews,
+                    ISBN = book.ISBN,
                     floorNo = book.Location.Floor,
                     shelfNo = book.Location.Shelf
                 };
@@ -293,6 +295,7 @@ namespace LibraryManagemetApi.Services
                         Quantity = stock.Quantity,
                         rating = avgRating,
                         noOfRatings = noOfReviews,
+                        ISBN = book.ISBN,
                         floorNo = book.Location.Floor,
                         shelfNo = book.Location.Shelf
                     });
@@ -335,7 +338,9 @@ namespace LibraryManagemetApi.Services
                     Title = book.Title,
                     publishedDate = book.PublishedDate,
                     Category = book.Category.Name,
-                    Quantity = stock.Quantity
+                    Quantity = stock.Quantity,
+                    ISBN = book.ISBN,
+                    
                 };
             }
             catch (EntityNotFoundException)

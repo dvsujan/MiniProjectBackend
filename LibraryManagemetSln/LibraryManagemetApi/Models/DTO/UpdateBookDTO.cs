@@ -4,6 +4,7 @@ namespace LibraryManagemetApi.Models.DTO
 {
     public class UpdateBookDTO
     {
+        [Required]
         public int BookId { get; set; }
         [Required]
         [MinLength(3)]

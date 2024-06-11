@@ -91,15 +91,19 @@ namespace LibraryManagemetApi.Controllers
         [Route("cards")]
         [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status403Forbidden)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<IEnumerable<ResponseCardDTO>>> GetCards(int userId)
         {
             var userIdLogged = int.Parse(User.FindFirst("UserId").Value);
             if (userId != userIdLogged)
             {
                 _logger.LogInformation($"Forbidden user {userId}");
-                return StatusCode(StatusCodes.Status403Forbidden);
+                return StatusCode(StatusCodes.Status403Forbidden, new ErrorDTO
+                {
+                    Code = "403",
+                    Message = "Forbidden User"
+                });
             }
             try
             {
@@ -107,6 +111,15 @@ namespace LibraryManagemetApi.Controllers
                 var cards = await _paymentService.GetAllUserCards(userId);
                 _logger.LogInformation($"Fetched all cards for user {userId}");
                 return Ok(cards);
+            }
+            catch (EntityNotFoundException)
+            {
+                _logger.LogWarning($"User not found {userId}");
+                return NotFound(new ErrorDTO
+                {
+                    Code = "404",
+                    Message = "User not found"
+                });
             }
             catch (Exception e)
             {
@@ -119,9 +132,9 @@ namespace LibraryManagemetApi.Controllers
         [Route("payFine")]
         [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status403Forbidden)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status404NotFound)]
         public async Task<ActionResult<PaymentReturnDTO>> Pay(PaymentDTO payment)
         {
             var userId = int.Parse(User.FindFirst("UserId").Value);
@@ -132,7 +145,11 @@ namespace LibraryManagemetApi.Controllers
             }
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                return BadRequest(new ErrorDTO
+                {
+                    Code = "400",
+                    Message = "Invalid Data"
+                });
             }
             try
             {
@@ -143,17 +160,38 @@ namespace LibraryManagemetApi.Controllers
             catch(ForbiddenBorrowException)
             {
                 _logger.LogWarning($"Forbidden borrow {payment.BorrowId}");
-                return StatusCode(StatusCodes.Status403Forbidden);
+                return StatusCode(StatusCodes.Status403Forbidden, new ErrorDTO
+                {
+                    Code = "403",
+                    Message = "Forbidden borrow"
+                });
+            }
+            catch (PaymentAlreadyDoneException)
+            {
+                _logger.LogWarning($"Payment already done {payment.BorrowId}");
+                return StatusCode(StatusCodes.Status409Conflict, new ErrorDTO
+                {
+                    Code = "409",
+                    Message = "Payment already done"
+                });
             }
             catch (ForbiddenCardException)
             {
                 _logger.LogWarning($"Forbidden card {payment.CardId}");
-                return StatusCode(StatusCodes.Status403Forbidden); 
+                return StatusCode(StatusCodes.Status403Forbidden, new ErrorDTO
+                {
+                    Code = "403",
+                    Message = "Forbidden card"
+                }); 
             }
             catch (EntityNotFoundException)
             {
                 _logger.LogWarning($"Not found borrow {payment.BorrowId}");
-                return NotFound(payment);
+                return NotFound(new ErrorDTO
+                {
+                    Code = "404",
+                    Message = "Not found borrow"
+                });
             }
             catch (Exception e)
             {

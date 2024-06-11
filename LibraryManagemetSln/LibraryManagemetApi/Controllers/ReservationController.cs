@@ -2,6 +2,8 @@
 using LibraryManagemetApi.Interfaces;
 using LibraryManagemetApi.Models;
 using LibraryManagemetApi.Models.DTO;
+using log4net;
+using log4net.Core;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,8 +15,8 @@ namespace LibraryManagemetApi.Controllers
     public class ReservationController : ControllerBase
     {
         private readonly IReservationService _reservationService;
-        private readonly ILogger _logger; 
-        public ReservationController(IReservationService reservationService, ILogger logger)
+        private readonly ILogger<ReservationController> _logger; 
+        public ReservationController(IReservationService reservationService, ILogger<ReservationController> logger)
         {
             _reservationService = reservationService;
             _logger = logger;
@@ -28,20 +30,28 @@ namespace LibraryManagemetApi.Controllers
         [Route("reserve")]
         [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status403Forbidden)]
-        [ProducesResponseType(StatusCodes.Status410Gone)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status410Gone)]
         public async Task<ActionResult<ReservationReturnDTO>> ReserveBook(ReservationDTO reservation)
         {
             var userIdLogged = int.Parse(User.FindFirst("UserId").Value);
             if (reservation.UserId != userIdLogged)
             {
                 _logger.LogWarning($"Forbidden User {userIdLogged}");
-                return StatusCode(StatusCodes.Status403Forbidden);
+                return StatusCode(StatusCodes.Status403Forbidden, new ErrorDTO
+                {
+                    Code="403", 
+                    Message="Forbidden User"
+                });
             }
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                return BadRequest(new ErrorDTO
+                {
+                    Code="400",
+                    Message="Invalid Data"
+                });
             }
             try
             {
@@ -52,17 +62,38 @@ namespace LibraryManagemetApi.Controllers
             catch (EntityNotFoundException)
             {
                 _logger.LogWarning($"Book not found {reservation.BookId}");
-                return NotFound(reservation);
+                return NotFound(new ErrorDTO
+                {
+                    Code="404",
+                    Message="Book not found"
+                });
             }
             catch (BookOutOfStockException)
             {
                 _logger.LogWarning($"Book out of stock {reservation.BookId}");
-                return StatusCode(StatusCodes.Status410Gone);
+                return StatusCode(StatusCodes.Status410Gone, new ErrorDTO
+                {
+                    Code="410",
+                    Message="Book out of stock"
+                });
             }
             catch(BookAlreadyReservedException)
             {
                 _logger.LogWarning($"Book already reserved {reservation.BookId}");
-                return StatusCode(StatusCodes.Status409Conflict);
+                return StatusCode(StatusCodes.Status409Conflict, new ErrorDTO
+                {
+                    Code="409",
+                    Message="Book already reserved"
+                });
+            }
+            catch (BookAlreadyBorrowedException)
+            {
+                _logger.LogWarning($"Book Already Borrowed {reservation.BookId}"); 
+                return StatusCode(StatusCodes.Status409Conflict, new ErrorDTO
+                {
+                    Code="409",
+                    Message="Book Already Borrowed"
+                });
             }
             catch (Exception e)
             {
@@ -70,6 +101,7 @@ namespace LibraryManagemetApi.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
+
         /// <summary>
         /// CancelReservation of the user
         /// </summary>
@@ -80,15 +112,19 @@ namespace LibraryManagemetApi.Controllers
         [Route("cancel")]
         [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorDTO),StatusCodes.Status403Forbidden)]
         public async Task<ActionResult<ReservationReturnDTO>> CancelReservation(int reservationId, int userId)
         {
             var userIdLogged = int.Parse(User.FindFirst("UserId").Value);
             if (userId != userIdLogged)
             {
                 _logger.LogWarning($"Forbidden User {userIdLogged}");
-                return StatusCode(StatusCodes.Status403Forbidden);
+                return StatusCode(StatusCodes.Status403Forbidden, new ErrorDTO
+                {
+                    Code="403",
+                    Message="Forbidden User"
+                });
             }
             try
             {
@@ -99,12 +135,20 @@ namespace LibraryManagemetApi.Controllers
             catch (ForbiddenUserException)
             {
                 _logger.LogWarning($"Forbidden user {userId}");
-                return StatusCode(StatusCodes.Status403Forbidden);
+                return StatusCode(StatusCodes.Status403Forbidden,new ErrorDTO
+                {
+                    Code="403",
+                    Message="Forbidden User"
+                });
             }
             catch (EntityNotFoundException)
             {
                 _logger.LogWarning($"Reservation not found {reservationId}");
-                return NotFound(reservationId);
+                return NotFound(new ErrorDTO
+                {
+                    Code="404",
+                    Message="Reservation not found"
+                });
             }
             catch (Exception e)
             {

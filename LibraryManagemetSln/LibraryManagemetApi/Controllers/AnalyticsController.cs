@@ -24,12 +24,12 @@ namespace LibraryManagemetApi.Controllers
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        
+
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [Authorize(Roles = "2")]
-        public async Task<ActionResult<IEnumerable<ReturnAnalyticsDTO>>>GetAnalytics(AnalyticsDTO dto)
+        public async Task<ActionResult<IEnumerable<ReturnAnalyticsDTO>>> GetAnalytics(AnalyticsDTO dto)
         {
             if (!ModelState.IsValid)
             {
@@ -53,7 +53,7 @@ namespace LibraryManagemetApi.Controllers
         /// </summary>
         /// <param name="dto"></param>
         /// <returns></returns>
-        
+
         [HttpPost]
         [Route("overdue")]
         [ProducesResponseType(StatusCodes.Status200OK)]
