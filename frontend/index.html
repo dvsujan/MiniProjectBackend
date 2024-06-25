@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="./styles/index.css" />
+    <link rel="stylesheet" href="./styles/snackbar.css" />
+    <title>Home</title>
+  </head>
+  <body>
+    <div id="nav-placeholder"></div>
+    <div class="search-container">
+      <input
+        type="text"
+        id="search-bar"
+        placeholder="Search for books"
+      />
+      <button id="search-button" onclick="searchBooks()">Search</button>
+    </div>
+    <div class="card-container" id="all-books"></div>
+    <div id="snackbar">Some text some message..</div>
+  </body>
+  <footer>
+    <span>
+      <button id="prev" onclick="prevPage()"><</button>
+      <span id="page">-</span>
+      <button id="next" onclick="nextPage()">></button>
+    </span>
+  </footer>
+  <script>
+    $(function () {
+      $("#nav-placeholder").load("./nav.html");
+    });
+  </script>
+  <script src="./scripts/global.js"></script>
+  <script src="./scripts/index.js"></script>
+</html>

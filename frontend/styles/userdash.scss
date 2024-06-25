@@ -1,0 +1,123 @@
+@import "colorpallet";
+*{ 
+  font-family: sans-serif;
+}
+
+.body {
+  display: flex;
+  width: 100%;
+  height: 90vh;
+  margin-top: 10vh;
+}
+
+.tab {
+  float: left;
+  width: 100%;
+  height: 300px;
+  flex: 0.2;
+}
+
+.tab button {
+  display: block;
+  background-color: inherit;
+  color: black;
+  padding: 22px 16px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tab button:hover {
+  background-color: #ddd;
+}
+
+.tab button.active {
+  background-color: #ccc;
+}
+
+.tabcontent {
+  flex: 0.8;
+  width: 100%;
+}
+
+.tabcontent {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.card-container{ 
+    width:80% ; 
+    height:80% ; 
+    display: flex;
+    justify-content: center;
+    overflow-y: scroll;
+    flex-direction: column;
+    padding:05% ; 
+}
+
+.borrowed-card, .due-borrowed-card{ 
+    margin-top:10px ;
+    width:80% ; 
+    max-height:200px ; 
+    background-color: $primarycolor;
+    color:$primaryTextColor;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    border-radius: 10px;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    h1{ 
+        font-size: 30px;
+        margin-left:5% ; 
+        padding: 10px  ;
+    }
+    p{ 
+        font-size: 16px;
+        margin-left:5% ; 
+        padding: 10px  ;
+    }
+}
+
+.due-borrowed-btn{ 
+  display:flex ;
+  align-items: center ;
+  justify-content: flex-end;
+  margin: 10px;
+  height:50px ;
+  width:100% ;
+  button{ 
+    background-color: #D2122E;
+    color:$secondaryTextColor;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 5% ;
+  }
+}
+
+.borrowed-btn{ 
+  display:flex ; 
+  align-items: center ; 
+  justify-content: flex-end;
+  margin: 10px;
+  height:40px ; 
+  width:100% ; 
+  button{ 
+    background-color: $secondarycolor;
+    color:$secondaryTextColor;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 5% ;
+  }
+}

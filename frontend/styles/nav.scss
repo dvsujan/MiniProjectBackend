@@ -1,0 +1,45 @@
+@import "colorpallet";
+
+nav {
+  background-color: $primarycolor;
+  color: $primaryTextColor;
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  img {
+    width: 50px;
+    height: 50px;
+  }
+  .nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 10%;
+    ul {
+      text-decoration: none;
+      list-style: none;
+      display: flex;
+      width:100% ; 
+      height:100% ; 
+        justify-content: space-between;
+        flex-direction: row;
+    }
+  }
+  button {
+    background-color: $secondarycolor;
+    color: $secondaryTextColor;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
+

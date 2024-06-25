@@ -1,0 +1,175 @@
+@import "colorpallet";
+
+.body {
+  display: flex;
+  width: 100%;
+  height: 90vh;
+  margin-top: 10vh;
+}
+
+.tab {
+  float: left;
+  width: 100%;
+  height: 300px;
+  flex: 0.2;
+}
+
+.tab button {
+  display: block;
+  background-color: inherit;
+  color: black;
+  padding: 22px 16px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tab button:hover {
+  background-color: #ddd;
+}
+
+.tab button.active {
+  background-color: #ccc;
+}
+
+.tabcontent {
+  flex: 0.8;
+  width: 100%;
+}
+
+.tabcontent {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 5%;
+  select {
+    width: 80%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+}
+
+input {
+  width: 80%;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.dropdown-content {
+  width:80%; 
+  display: none;
+  position: absolute;
+  background-color: $primarycolor;
+  color:$primaryTextColor; 
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: $primaryTextColor;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+
+.dropdown-content button{ 
+  color: $primaryTextColor;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+
+}
+
+
+.show {
+  display: block;
+}
+
+button {
+  width: 80%;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: $secondarycolor;
+  color: $secondaryTextColor;
+  cursor: pointer;
+}
+.loader {
+  display: none;
+  border: 16px solid $secondaryTextColor;
+  border-top: 16px solid $secondarycolor;
+  border-radius: 100%;
+  width: 10px;
+  height: 10px;
+  animation: spin 2s linear infinite;
+}
+#analyticschart{ 
+  max-width: 80%;
+  height: 80%;
+  margin-top: 5%;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .tabcontent {
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+  .tabcontent.active {
+    display: block;
+  }
+  form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 5%;
+    select {
+      width: 80%;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+  }
+
+  #analyticschart{ 
+    width: 100%;
+    height: 100%;
+    margin-top: 5%;
+  }
+
+
+}

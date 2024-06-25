@@ -1,4 +1,6 @@
-﻿namespace LibraryManagemetApi.Models.DTO
+﻿using Azure.Identity;
+
+namespace LibraryManagemetApi.Models.DTO
 {
     public class ReturnReviewDTO
     {
@@ -7,6 +9,6 @@
         public int BookId { get; set; }
         public float Rating { get; set; }
         public string Comment { get; set; }
-
+        public string UserName { get; set;  }
     }
 }

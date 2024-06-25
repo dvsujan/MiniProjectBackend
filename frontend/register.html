@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="./styles/login.css">
+    <title>Login</title>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="left">
+                <h1 style="font-size: 30px; padding:10px">Register User</h1>
+                <form action="">
+                    <input type="text" placeholder="Email" />
+                    <input type="text" placeholder="Username" />
+                    <input type="password" placeholder="Password" />
+                    <input type="password" placeholder="Confirm-Password" />
+                    <button>Login</button>
+                    <p>Already have an account ? <a href="#">Login</a></p>
+                </form>
+            </div>
+            <div class="right">
+                <img src="./assets/bookcases-1869616_1920.jpg" alt="logo" />
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function(){
+        $("#nav-placeholder").load("nav.html");
+    });
+</script>
+</html>

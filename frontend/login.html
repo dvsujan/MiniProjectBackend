@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="./styles/login.css">
+    <link rel="stylesheet" href="./styles/snackbar.css">
+    <title>Login</title>
+
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-autohide="false">
+  <div class="toast-header">
+    <img src="..." class="rounded mr-2" alt="...">
+    <strong class="mr-auto">Bootstrap</strong>
+    <small>11 mins ago</small>
+    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="toast-body">
+    Hello, world! This is a toast message.
+  </div>
+</div>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="left">
+                <h1>Login</h1>
+                <form novalidate>
+                    <input type="text" placeholder="Email" id="email" />
+                    <input type="password" placeholder="Password" id="password" />
+                    <button onclick="login(event)">Login</button>
+                    <p>Dont have an account ? <a href="#">Register</a></p>
+                </form>
+            </div>
+            <div class="right">
+                <img src="./assets/bookcases-1869616_1920.jpg" alt="logo" />
+            </div>
+        </div>
+    </div>
+    <div id="snackbar">Some text some message..</div>
+</body>
+<script>
+    $(function(){
+        $("#nav-placeholder").load("nav.html");
+    });
+</script>
+<script src="./scripts/global.js"></script>
+<script src="./scripts/login.js"></script>
+</html>

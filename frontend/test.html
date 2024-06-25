@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Dropdown</title>
+    <style>
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        cursor: pointer;
+      }
+      .dropdown-content a:hover {
+        background-color: #ddd;
+      }
+      .show {
+        display: block;
+      }
+      .loading {
+        display: none;
+        font-size: 14px;
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <input type="text" id="searchInput" placeholder="Search..." />
+      <div class="loading" id="loading">Loading...</div>
+      <div class="dropdown">
+        <div id="dropdown" class="dropdown-content"></div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+  <script>
+    document
+      .getElementById("searchInput")
+      .addEventListener("input", function () {
+        const query = this.value;
+        const dropdown = document.getElementById("dropdown");
+        const loading = document.getElementById("loading");
+
+        if (query.length === 0) {
+          dropdown.classList.remove("show");
+          dropdown.innerHTML = "";
+          return;
+        }
+
+        loading.style.display = "block";
+
+        fetch(`http://localhost:5122/api/Book/search?title=${query}`,
+            {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiMiIsImV4cCI6MTcxOTM3NTkyMX0.4LvMDD9CDSx-paINsmkq1LdL7Qde259Uj1Ps1-xWKH8`,
+                },
+            }
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            data.results = data || [];
+            loading.style.display = "none";
+            dropdown.innerHTML = "";
+            if (data.results && data.results.length > 0) {
+              data.results.forEach((item) => {
+                const a = document.createElement("a");
+                a.href = "#";
+                a.textContent = item.title  ;
+                a.addEventListener("click", function () {
+                  document.getElementById("searchInput").value = item.name;
+                  dropdown.classList.remove("show");
+                });
+                dropdown.appendChild(a);
+              });
+              dropdown.classList.add("show");
+            } else {
+              dropdown.classList.remove("show");
+            }
+          })
+          .catch((error) => {
+            loading.style.display = "none";
+            console.error("Error fetching data:", error);
+          });
+      });
+  </script>
+</html>

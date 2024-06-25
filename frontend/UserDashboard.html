@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="./styles/userdash.css" />
+    <link rel="stylesheet" href="./styles/snackbar.css" />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  </head>
+  <body>
+    <div id="nav-placeholder"></div>
+    <div class="body">
+      <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'Borrowed')">
+          Borrowed
+        </button>
+        <button class="tablinks" onclick="openCity(event, 'overDue')">
+          OverDueBooks
+        </button>
+        <button class="tablinks" onclick="openCity(event, 'Reviews')">
+          All Reviews
+        </button>
+      </div>
+      <div id="Borrowed" class="tabcontent">
+        <h1>Borrowed</h1>
+        <div class="card-container" id="card-container"></div>
+      </div>
+      <div id="overDue" class="tabcontent">
+        <h1>overDue</h1>
+        <div class="card-container" id="due-card-container">
+
+        </div>
+      </div>
+
+      <div id="Reviews" class="tabcontent">
+        <h1>Activate User</h1>
+      </div>
+    </div>
+    <div id="snackbar">Some text some message..</div>
+  </body>
+  <script>
+    $(function () {
+      $("#nav-placeholder").load("./nav.html");
+    });
+  </script>
+  <script src="./scripts/global.js"></script>
+  <script src="./scripts/userdash.js"></script>
+</html>

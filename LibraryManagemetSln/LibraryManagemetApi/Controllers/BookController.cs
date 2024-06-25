@@ -64,7 +64,11 @@ namespace LibraryManagemetApi.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                return BadRequest(new ErrorDTO
+                {
+                    Code = "404", 
+                    Message = "Invalid Model State"
+                });
             }
             try
             {
@@ -244,11 +248,11 @@ namespace LibraryManagemetApi.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType( typeof(ErrorDTO), StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<IEnumerable<ReturnBookDTO>>> SearchBookByTitle(string title)
+        public async Task<ActionResult<IEnumerable<ReturnBookDTO>>> SearchBookByTitle(string title, int page=1 , int limit=10)
         {
             try
             {
-                var books = await _bookService.SearchBookByTitle(title);
+                var books = await _bookService.SearchBookByTitlePaginated(title, page , limit);
                 return Ok(books);
             }
             catch (EntityNotFoundException)

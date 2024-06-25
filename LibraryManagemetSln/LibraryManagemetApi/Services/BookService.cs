@@ -275,11 +275,14 @@ namespace LibraryManagemetApi.Services
         /// <returns>list of booktitles</returns>
         /// <exception cref="EntityNotFoundException">throws if not found </exception>
         /// <exception cref="Exception">General exception</exception>
-        public async Task<IEnumerable<ReturnBookDTO>> SearchBookByTitle(string title)
+        public async Task<IEnumerable<ReturnBookDTO>> SearchBookByTitlePaginated(string title, int page , int limit)
         {
             try
             {
                 var books = await ((BookRepository)_bookRepository).GetBookByTitle(title);
+
+                books = books.Skip((page - 1) * limit).Take(limit);
+
                 List<ReturnBookDTO> returnBooks = new List<ReturnBookDTO>();
                 foreach (Book book in books)
                 {

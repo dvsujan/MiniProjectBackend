@@ -9,7 +9,7 @@ namespace LibraryManagemetApi.Interfaces
         Task<IEnumerable<ReturnBookDTO>> GetAllBooks(int page , int limit);
         Task<ReturnBookDTO> UpdateBook(UpdateBookDTO id);
         Task<ReturnBookDTO> DeleteBook(int id);
-        Task<IEnumerable<ReturnBookDTO>> SearchBookByTitle(string title);
+        Task<IEnumerable<ReturnBookDTO>> SearchBookByTitlePaginated(string title, int page , int limit);
         Task<ReturnBookDTO> GetBook(int id);
         Task<ReturnEditAuthorDTO> EditAuthor(EditAuthorDTO dto); 
         Task<ReturnEditpublicationDTO> EditPublication(EditpublicationDTO dto);

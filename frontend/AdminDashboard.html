@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="./styles/admin.css" />
+    <link rel="stylesheet" href="./styles/snackbar.css" />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  </head>
+  <body>
+    <div id="nav-placeholder"></div>
+    <div class="body">
+      <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'analytics')">
+          Analytics
+        </button>
+        <button class="tablinks" onclick="openCity(event, 'addbook')">
+          Add Book
+        </button>
+        <button class="tablinks" onclick="openCity(event, 'updatebook')">
+          Edit Book
+        </button>
+        <button class="tablinks" onclick="openCity(event, 'activate')">
+          Activate User
+        </button>
+      </div>
+      <div id="analytics" class="tabcontent">
+        <h1>Analytics</h1>
+        <canvas id="analyticschart"></canvas>
+      </div>
+      <div id="addbook" class="tabcontent">
+        <h1>Add Book</h1>
+        <form onsubmit="return false ; ">
+        <input type="text" placeholder="ISBN" id="isbn" />
+        <select id="location-id">
+        </select>
+        <input type="number" placeholder="Stock" id="stock" />
+        <button onclick="addNewBook()" >Add Book</button>
+        </form>
+      </div>
+      <div id="updatebook" class="tabcontent">
+        <h1>Edit Book</h1>
+        <form onsubmit="return false ; ">
+          <input type="text" placeholder="Title" id="edit-title"  />
+          <div class="loader" id="loading"></div>
+          <div id="dropdown" class="dropdown-content"></div>
+          <input type="text" placeholder="Author" id="edit-Author" />
+          <input type="text" placeholder="Category" id="edit-Category" />
+          <input type="text" placeholder="Publisher" id="edit-Publisher" />
+          <select id="edit-location">
+          </select>
+          <input type="number" placeholder="Stock" id="edit-stock" />
+          <button onclick="updateBook()" >Update Book</button>
+        </form>
+      </div>
+      <div id="activate" class="tabcontent">
+        <h1>Activate User</h1>
+        <form onsubmit="return false ; ">
+          <input type="text" placeholder="Email" id="email" />
+          <button onclick="activateUser()" >Activate User</button>
+        </form>
+      </div>
+    </div>
+    <div id="snackbar">Some text some message..</div>
+  </body>
+  <script>
+    $(function () {
+      $("#nav-placeholder").load("./nav.html");
+    });
+  </script>
+  <script src="./scripts/global.js"></script>
+  <script src="./scripts/admin.js"></script>
+</html>

@@ -23,16 +23,19 @@ namespace LibraryManagemetApi.Services
             try
             {
                 var borrowed = await ((BorrowedRepository)_borrowedRepository).GetAllFilgerByDate(dto.StartDate, dto.EndDate);
-                var booksBorrowed = borrowed.Count();
-                var booksReturned = borrowed.Where(x => x.ReturnDate != null).Count();
-                return new List<ReturnAnalyticsDTO>
+                var analytics = new List<ReturnAnalyticsDTO>();
+                for (var date = dto.StartDate; date <= dto.EndDate; date = date.AddDays(1))
                 {
-                    new ReturnAnalyticsDTO
+                    var booksBorrowed = borrowed.Where(x => x.BorrowedDate.Date == date).Count();
+                    var booksReturned = borrowed.Where(x => x.ReturnDate != null && x.ReturnDate.Value.Date == date).Count();
+                    analytics.Add(new ReturnAnalyticsDTO
                     {
                         BooksBorrowed = booksBorrowed,
-                        BooksReturned = booksReturned
-                    }
-                };
+                        BooksReturned = booksReturned,
+                        Date = date
+                    });
+                }
+                return analytics;
             }
             catch
             {

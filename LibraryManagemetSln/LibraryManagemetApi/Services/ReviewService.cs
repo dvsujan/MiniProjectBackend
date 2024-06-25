@@ -8,9 +8,11 @@ namespace LibraryManagemetApi.Services
     public class ReviewService : IReviewService
     {
         private readonly IRepository<int , Review> _reviewRepository ;
-        public ReviewService(IRepository<int , Review> reviewRepository)
+        private readonly IRepository<int, User> _userRepository; 
+        public ReviewService(IRepository<int , Review> reviewRepository, IRepository<int , User> userRepository)
         {
             _reviewRepository = reviewRepository;
+            _userRepository = userRepository; 
         }
 
         /// <summary>
@@ -37,6 +39,7 @@ namespace LibraryManagemetApi.Services
                 }
                 
                 var res = await _reviewRepository.Insert(reviewSave);
+                var user = await _userRepository.GetOneById(res.UserId);
 
                 var resdto = new ReturnReviewDTO
                 {
@@ -44,8 +47,9 @@ namespace LibraryManagemetApi.Services
                     UserId = res.UserId,
                     BookId = res.BookId,
                     Rating = res.Rating,
-                    Comment = res.Comment
-                };
+                    Comment = res.Comment,
+                    UserName = user.Username
+                }; 
                 return resdto;
             }
             catch
@@ -70,13 +74,16 @@ namespace LibraryManagemetApi.Services
                     throw new ForbiddenUserException();
                 }
                 await _reviewRepository.Delete(review.Id);
+                var user = await _userRepository.GetOneById(review.UserId);
+
                 return new ReturnReviewDTO
                 {
                     ReviewId = review.Id,
                     UserId = review.UserId,
                     BookId = review.BookId,
                     Rating = review.Rating,
-                    Comment = review.Comment
+                    Comment = review.Comment, 
+                    UserName = user.Username,
                 };
             }
             catch
@@ -99,14 +106,16 @@ namespace LibraryManagemetApi.Services
                 List<ReturnReviewDTO> returnReviews = new List<ReturnReviewDTO>();
                 foreach (var review in userReviews)
                 {
+                    var user = await _userRepository.GetOneById(review.UserId);
                     returnReviews.Add(new ReturnReviewDTO
                     {
                         ReviewId = review.Id,
                         UserId = review.UserId,
                         BookId = review.BookId,
                         Rating = review.Rating,
-                        Comment = review.Comment
-                    });
+                        Comment = review.Comment,
+                        UserName = user.Username,
+                    }); 
                 }
                 return returnReviews;
             }
@@ -130,13 +139,15 @@ namespace LibraryManagemetApi.Services
                 List<ReturnReviewDTO> returnReviews = new List<ReturnReviewDTO>();
                 foreach (var review in bookReviews)
                 {
+                    var User = await _userRepository.GetOneById(review.UserId);
                     returnReviews.Add(new ReturnReviewDTO
                     {
                         ReviewId = review.Id,
                         UserId = review.UserId,
                         BookId = review.BookId,
                         Rating = review.Rating,
-                        Comment = review.Comment
+                        Comment = review.Comment, 
+                        UserName = User.Username, 
                     });
                 }
                 return returnReviews;
