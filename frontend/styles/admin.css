@@ -120,6 +120,17 @@ button {
   cursor: pointer;
 }
 
+#deleteBookBtn {
+  width: 80%;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+}
+
 .loader {
   display: none;
   border: 16px solid white;

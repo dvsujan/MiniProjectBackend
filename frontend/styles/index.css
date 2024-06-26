@@ -168,6 +168,9 @@ footer button {
   .card-content {
     padding: 10px;
   }
+  .card-content p {
+    font-size: 12px;
+  }
   .card-title {
     font-size: 20px;
   }

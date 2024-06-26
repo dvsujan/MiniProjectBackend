@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/landing.css" />
+    <link rel="stylesheet" href="./styles/snackbar.css" />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="nav-placeholder"></div>
+    <div class="landing-container">
+        <section class="sec1">
+            <div class="left">
+                <h1>Discover the book you like the Most</h1>
+                <p>Effortlessly browse and borrow books, manage reservations, and receive due date reminders—all in one convenient place.</p>
+                <form onsubmit="return false; ">
+                    <input type="text" placeholder="Search for books" id="search-bar" />
+                    <button id="search-button" onclick="searchBooks()">Search</button>
+                </form>
+                <button id="all-btn" onclick="window.location.href = './index.html'">View All Books</button>
+            </div>
+            <div class="right">
+                 <lottie-player src="./assets/lib.json" background="transparent" speed="1" style="width: 600px; height: 600px" direction="1" mode="normal" loop  autoplay></lottie-player>
+            </div>
+        </section>
+        <section class="sec2">
+            <div class="left">
+                <lottie-player src="./assets/landingbooks.json" background="transparent" speed="1" style="width: 400px; height: 400px" direction="1" mode="normal" loop  autoplay></lottie-player>
+            </div>
+            <div class="right">
+                <h1>Discover Our Best Books</h1>
+                <p>Effortlessly browse and borrow books, manage reservations, and receive due date reminders—all in one convenient place.</p>
+            </div>
+        </section>
+    </div>
+    <div id="snackbar">Some text some message..</div>
+  </body>
+  <script>
+    $(document).ready(function () {
+      $("#nav-placeholder").load("./nav.html", function () {
+        hideLoadingScreen();
+      });
+    });
+  </script>
+
+  <script src="./scripts/global.js"></script>
+  <script src="./scripts/landing.js"></script>
+</html>

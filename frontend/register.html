@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <link rel="stylesheet" href="./styles/login.css">
+    <link rel="stylesheet" href="./styles/snackbar.css">
     <title>Login</title>
 </head>
 <body>
@@ -13,12 +14,12 @@
         <div class="login-card">
             <div class="left">
                 <h1 style="font-size: 30px; padding:10px">Register User</h1>
-                <form action="">
-                    <input type="text" placeholder="Email" />
-                    <input type="text" placeholder="Username" />
-                    <input type="password" placeholder="Password" />
-                    <input type="password" placeholder="Confirm-Password" />
-                    <button>Login</button>
+                <form novalidate onsubmit="return false; ">
+                    <input type="text" placeholder="Email" id="register-email" />
+                    <input type="text" placeholder="Username" id="register-username"/>
+                    <input type="password" placeholder="Password" id="register-password"/>
+                    <input type="password" placeholder="Confirm-Password" id="register-cpassword" />
+                    <button onclick="RegisterUser(event)">Register</button>
                     <p>Already have an account ? <a href="#">Login</a></p>
                 </form>
             </div>
@@ -27,10 +28,15 @@
             </div>
         </div>
     </div>
+    <div id="snackbar">Some text some message..</div>
 </body>
 <script>
-    $(function(){
-        $("#nav-placeholder").load("nav.html");
+    $(document).ready(function () {
+      $("#nav-placeholder").load("./nav.html", function () {
+        hideLoadingScreen(); 
+      });
     });
 </script>
+<script src="./scripts/global.js"></script>
+<script src="./scripts/register.js"></script>
 </html>

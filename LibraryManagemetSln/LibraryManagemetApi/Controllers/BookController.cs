@@ -31,7 +31,6 @@ namespace LibraryManagemetApi.Controllers
         [Route("all")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [Authorize]
         public async Task<ActionResult<IEnumerable<ReturnBookDTO>>> GetAllBooks(int page=1 , int limit = 10)
         {
             try
@@ -244,7 +243,6 @@ namespace LibraryManagemetApi.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("search")]
-        [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType( typeof(ErrorDTO), StatusCodes.Status404NotFound)]

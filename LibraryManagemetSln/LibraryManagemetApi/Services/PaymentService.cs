@@ -175,6 +175,8 @@ namespace LibraryManagemetApi.Services
                 {
                     var days = (DateTime.Now - borrowed.DueDate).Days;
                     decimal fine = days * 5;
+                    borrowed.DueDate = DateTime.Now.AddDays(7);
+                    await _borrowedRepository.Update(borrowed);
                     Payment paymentSave = new Payment
                     {
                         UserId = payment.UserId,

@@ -28,6 +28,7 @@ nav .nav-links {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: row !important;
   padding-right: 10%;
 }
 nav .nav-links ul {
@@ -46,4 +47,20 @@ nav button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.loading {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+#admin-dash-btn {
+  visibility: hidden;
 }/*# sourceMappingURL=nav.css.map */

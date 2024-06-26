@@ -1,3 +1,4 @@
+
 function parseJwt (token) {
     var base64Url = token.split('.')[1];
     var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
@@ -22,7 +23,9 @@ $(document).ready(function () {
         if(introle == "2"){
             window.location.href = "AdminDashboard.html";
         }
-
+        else if (introle == "1"){
+            window.location.href = "index.html";
+        }
     }
   }
 });
@@ -50,17 +53,19 @@ async function login(e) {
     password: password,
   };
   const loginUrl = "http://localhost:5122/api/User/login";
-  var res = await fetch(loginUrl, {
+  var res = await fetchWithTimeout(loginUrl, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
-  });
+  },5000);
+  if(res === "timeout"){
+    spwanSnackBar("Request timed out");
+    return;
+  }
   var response = await res.json();
-  console.log(response);
   if (res.status == 200) {
-    console.log(response);
     localStorage.setItem("token", response.token);
     window.location.href = "index.html";
   } else {

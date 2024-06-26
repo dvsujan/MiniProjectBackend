@@ -55,12 +55,16 @@ const appendOptions = (data, select, editselect) => {
 
 const getLocations = async () => {
   const url = "http://localhost:5122/api/Book/locations";
-  const res = await fetch(url, {
+  const res = await fetchWithTimeout(url, {
     method: "GET",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${localStorage.getItem("token")}` },
-  });
+  },5000);
+  if (res === "timeout") {
+    spwanSnackBar("Request timed out");
+  }
   const data = await res.json();
   appendOptions(data, document.getElementById("location-id"), document.getElementById("edit-location"));
+  hideLoadingScreen(); 
 };
 
 
@@ -167,6 +171,7 @@ const updateBook = async () => {
     publishedDate: editBook.publishedDate,
     locationId: location,
   };
+  console.log(sendData);
 
   const url = "http://localhost:5122/api/Book/update";
   const res = await fetch(url, {
@@ -203,6 +208,9 @@ const fetchAnalytics = async (startDate, endDate) => {
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${localStorage.getItem("token")}` },
     body: JSON.stringify({ startDate: startDate.toISOString().split("T")[0], endDate: endDate.toISOString().split("T")[0] }),
   });
+  if (res.status === 403) {
+    window.location.href = "index.html";
+  }
   return await res.json();
 };
 
@@ -239,3 +247,4 @@ $(document).ready(function () {
   GetAnalytics(ctx); 
   openCity(Event, "analytics");
 });
+

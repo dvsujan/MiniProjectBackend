@@ -100,7 +100,6 @@ input {
 
 }
 
-
 .show {
   display: block;
 }
@@ -112,6 +111,16 @@ button {
   border-radius: 5px;
   border: 1px solid #ccc;
   background-color: $secondarycolor;
+  color: $secondaryTextColor;
+  cursor: pointer;
+}
+#deleteBookBtn{ 
+  width: 80%;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: red;
   color: $secondaryTextColor;
   cursor: pointer;
 }
@@ -170,6 +179,5 @@ button {
     height: 100%;
     margin-top: 5%;
   }
-
 
 }

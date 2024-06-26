@@ -10,9 +10,24 @@ function parseJwt (token) {
 
 function spwanSnackBar(message, bgcolor = "red") {
   var x = document.getElementById("snackbar");
+  x.innerHTML = "";
+  if (bgcolor == "red") {
+    x.innerHTML = "<i class='fas fa-exclamation-circle'></i> " + message;
+    x.style.color = "#f44336";
+    x.style.backgroundColor = "#F8F8FF";
+
+  }
+  else if (bgcolor == "green") {
+    x.innerHTML = "<i class='fas fa-check-circle'></i> " + message;
+    x.style.color = "#4CAF50";
+    x.style.backgroundColor = "#F8F8FF";
+  }
+  else if (bgcolor == "blue") {
+    x.innerHTML = "<i class='fas fa-info-circle'></i> " + message;
+    x.style.color = "#2196F3";
+    x.style.backgroundColor = "#F8F8FF";
+  }
   x.className = "show";
-  x.innerHTML = message;
-  x.style.backgroundColor = bgcolor;
   setTimeout(function () {
     x.className = x.className.replace("show", "");
   }, 3000);
@@ -39,13 +54,13 @@ const getBookDataFromGoogle = async (isbn) => {
   }
 
   var data = await res.json();
-  console.log(data); 
   if(data.totalItems == 0){
     spwanSnackBar("Book not found ");
     return {
         error: true,
     };
   }
+
   var thumbnail = data.items[0].volumeInfo.imageLinks.thumbnail;
   var description = data.items[0].volumeInfo.description;
   var title = data.items[0].volumeInfo.title;
@@ -68,7 +83,6 @@ const getBookDataFromGoogle = async (isbn) => {
   };
 };
 
-
 function fetchWithTimeout(resource, options, timeout) {
     return  new Promise(async (resolve, reject) => {
         const controller = new AbortController();
@@ -85,3 +99,15 @@ function fetchWithTimeout(resource, options, timeout) {
         clearTimeout(id);
     });
 }
+
+const showLoadingScreen = () => {
+  document.getElementById("loading").style.display = "flex";
+  document.getElementsByTagName("body")[0].style.overflow = "hidden";
+}
+
+const hideLoadingScreen = () => {
+  document.getElementById("loading").style.display = "none"; 
+  document.getElementsByTagName("body")[0].style.overflow = "auto";
+}
+
+

@@ -89,6 +89,7 @@ namespace LibraryManagemetApi.Services
             }
             return true;
         }
+        
         /// <summary>
         /// checks if user exists in the database
         /// </summary>
@@ -126,7 +127,7 @@ namespace LibraryManagemetApi.Services
                     Email = user.Email,
                     Username = user.UserName,
                     RoleId = 1,
-                    Active = true
+                    Active = false 
                 };
                 HMACSHA512 hMACSHA = new HMACSHA512();
                 userReg.HashKey = hMACSHA.Key;

@@ -19,7 +19,10 @@
           OverDueBooks
         </button>
         <button class="tablinks" onclick="openCity(event, 'Reviews')">
-          All Reviews
+          Your Reviews
+        </button>
+        <button id="logout-btn" onclick='localStorage.removeItem("token");window.location.href="landing.html"'>
+            Logout
         </button>
       </div>
       <div id="Borrowed" class="tabcontent">
@@ -27,23 +30,26 @@
         <div class="card-container" id="card-container"></div>
       </div>
       <div id="overDue" class="tabcontent">
-        <h1>overDue</h1>
-        <div class="card-container" id="due-card-container">
-
-        </div>
+        <h1>Over Due Books</h1>
+        <div class="card-container" id="due-card-container"></div>
       </div>
 
       <div id="Reviews" class="tabcontent">
-        <h1>Activate User</h1>
+        <h1>Reviews</h1>
+        <div class="review-card-container" id="review-card-container">
+            
+        </div>
       </div>
     </div>
     <div id="snackbar">Some text some message..</div>
   </body>
+
+  <script src="./scripts/global.js"></script>
+  <script src="./scripts/userdash.js"></script>
   <script>
+
     $(function () {
       $("#nav-placeholder").load("./nav.html");
     });
   </script>
-  <script src="./scripts/global.js"></script>
-  <script src="./scripts/userdash.js"></script>
 </html>

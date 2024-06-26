@@ -2,6 +2,7 @@
 using LibraryManagemetApi.Interfaces;
 using LibraryManagemetApi.Models;
 using LibraryManagemetApi.Models.DTO;
+using LibraryManagemetApi.Repositories;
 
 namespace LibraryManagemetApi.Services
 {
@@ -36,7 +37,7 @@ namespace LibraryManagemetApi.Services
         {
             try
             {
-                var stock = await _stockRepository.GetOneById(borrow.BookId);
+                var stock = await ((StockRepository )_stockRepository).GetStockByBookId(borrow.BookId); 
                 if (stock.Quantity == 0)
                 {
                     throw new BookOutOfStockException();
@@ -95,7 +96,7 @@ namespace LibraryManagemetApi.Services
         {
             try
             {
-                var stock = await _stockRepository.GetOneById(bookId);
+                var stock = await ((StockRepository )_stockRepository).GetStockByBookId(bookId); 
                 var user = await _userRepository.GetOneById(userId);
                 var book = await _bookRepository.GetOneById(bookId);
                 var reservation = await _reservationRepository.Get();
@@ -330,7 +331,7 @@ namespace LibraryManagemetApi.Services
                 }
                 borrow.ReturnDate = System.DateTime.Now;
                 await _borrowedRepository.Update(borrow);
-                var stock = await _stockRepository.GetOneById(returnDTO.BookId);
+                var stock = await ((StockRepository)_stockRepository).GetStockByBookId(returnDTO.BookId);
                 stock.Quantity++;
                 await _stockRepository.Update(stock);
                 return new ReturnReturnDTO

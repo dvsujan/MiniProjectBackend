@@ -8,11 +8,13 @@ namespace LibraryManagemetApi.Services
     public class ReviewService : IReviewService
     {
         private readonly IRepository<int , Review> _reviewRepository ;
-        private readonly IRepository<int, User> _userRepository; 
-        public ReviewService(IRepository<int , Review> reviewRepository, IRepository<int , User> userRepository)
+        private readonly IRepository<int, User> _userRepository;
+        private readonly IRepository<int, Book> _bookRepository; 
+        public ReviewService(IRepository<int , Review> reviewRepository, IRepository<int , User> userRepository, IRepository<int , Book> bookRepository)
         {
             _reviewRepository = reviewRepository;
-            _userRepository = userRepository; 
+            _userRepository = userRepository;
+            _bookRepository = bookRepository; 
         }
 
         /// <summary>
@@ -97,24 +99,25 @@ namespace LibraryManagemetApi.Services
         /// </summary>
         /// <param name="UserId"></param>
         /// <returns></returns>
-        public async Task<IEnumerable<ReturnReviewDTO>> GetReviewByUserId(int UserId)
+        public async Task<IEnumerable<ReturnUserReviewDTO>> GetReviewByUserId(int UserId)
         {
             try
             {
                 var reviews = await _reviewRepository.Get();
                 var userReviews = reviews.Where(r => r.UserId == UserId);
-                List<ReturnReviewDTO> returnReviews = new List<ReturnReviewDTO>();
+                List<ReturnUserReviewDTO> returnReviews = new List<ReturnUserReviewDTO>();
                 foreach (var review in userReviews)
                 {
                     var user = await _userRepository.GetOneById(review.UserId);
-                    returnReviews.Add(new ReturnReviewDTO
+                    var Book = await _bookRepository.GetOneById(review.BookId);
+                    returnReviews.Add(new ReturnUserReviewDTO 
                     {
                         ReviewId = review.Id,
                         UserId = review.UserId,
                         BookId = review.BookId,
                         Rating = review.Rating,
                         Comment = review.Comment,
-                        UserName = user.Username,
+                        BookTitle = Book.Title
                     }); 
                 }
                 return returnReviews;

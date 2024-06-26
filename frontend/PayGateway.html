@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="./styles/snackbar.css" />
+    <link rel="stylesheet" href="./styles/payfine.css" />
+    <title>Pay</title>
+  </head>
+  <body>
+    <div id="nav-placeholder"></div>
+    <div class="pay-card">
+      <div class="left">
+        <div>
+          <p>library management</p>
+          <h1 id="fine-amount">₹--</h1>
+          <p>Pay your fine</p>
+          <button onclick="PayFine()">Pay</button>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-top" id="right-top"></div>
+        <div class="right-bottom">
+          <input type="text" placeholder="Card Number" id="card-num" />
+          <span>
+            <input type="text" placeholder="Exp: MM/YY" id="card-exp" />
+            <input type="text" placeholder="CVV" id="card-cvv" />
+          </span>
+          <button onclick="AddNewCard()">Add Card</button>
+        </div>
+      </div>
+    </div>
+    <div id="snackbar">Some text some message..</div>
+  </body>
+  <script src="./scripts/global.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("#nav-placeholder").load("./nav.html", function () {
+      });
+    });
+  </script>
+  <script src="./scripts/fine.js"></script>
+</html>

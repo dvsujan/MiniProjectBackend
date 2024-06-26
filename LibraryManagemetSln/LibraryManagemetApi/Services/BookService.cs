@@ -163,8 +163,8 @@ namespace LibraryManagemetApi.Services
             {
                 var book = await _bookRepository.GetOneById(id);
                 var stock = await ((StockRepository)_stockRepository).GetStockByBookId(id);
-                await _stockRepository.Delete(stock.Id);
                 await _bookRepository.Delete(id);
+                await _stockRepository.Delete(stock.Id);
                 return new ReturnBookDTO
                 {
                     BookId = book.Id,

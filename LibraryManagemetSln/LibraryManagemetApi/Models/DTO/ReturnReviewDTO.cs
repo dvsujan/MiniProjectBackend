@@ -9,6 +9,6 @@ namespace LibraryManagemetApi.Models.DTO
         public int BookId { get; set; }
         public float Rating { get; set; }
         public string Comment { get; set; }
-        public string UserName { get; set;  }
+        public string UserName { get; set; }
     }
 }
